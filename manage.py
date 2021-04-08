@@ -16,7 +16,6 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
 
-
     try:
         if sys.argv[2] == 'react':
             project_root = os.getcwd()
@@ -28,8 +27,6 @@ def main():
         execute_from_command_line(sys.argv)
     else:
         execute_from_command_line(sys.argv)
-
-
 
 if __name__ == '__main__':
     main()
