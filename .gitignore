@@ -13,3 +13,5 @@ media
 
 myvenv/
 .myvenv/
+.fmvenv/
+fmvenv/
