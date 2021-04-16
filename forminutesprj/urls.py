@@ -16,7 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
+from rest_framework import routers
+from testapp import views
+from django.conf.urls import url, include
+
+router = routers.DefaultRouter()
+router.register(r'posts', views.PostViewset)
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path('.*', TemplateView.as_view(template_name='index.html')),
+    url(r'^',include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
