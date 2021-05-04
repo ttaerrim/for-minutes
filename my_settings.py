@@ -1,8 +1,12 @@
+# import pymysql
+# pymysql.install_as_MySQLdb
+
+
 DATABASES = {
     'default' : {
         'ENGINE': 'django.db.backends.mysql',    
-        'NAME': 'meeting',                  
-        'USER': 'root',                     
+        'NAME': 'meetingdb',                  
+        'USER': 'hayeon',                     
         'PASSWORD': '4060',                  
         'HOST': 'localhost',                     
         'PORT': '3306',                          
