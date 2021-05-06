@@ -5,7 +5,7 @@
 DATABASES = {
     'default' : {
         'ENGINE': 'django.db.backends.mysql',    
-        'NAME': 'meetingdb',                  
+        'NAME': 'test',                  
         'USER': 'hayeon',                     
         'PASSWORD': '4060',                  
         'HOST': 'localhost',                     
