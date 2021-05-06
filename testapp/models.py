@@ -9,6 +9,7 @@ class Meeting(models.Model):
     meeting_date = models.DateTimeField()
     date = models.DateTimeField(auto_now=True)
     file = models.FileField('media/')
+    
 
     def __str__(self):
         return self.title
