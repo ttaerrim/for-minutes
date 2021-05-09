@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import Navigation from "../component/Navigation";
 
-import { Box, TextField, Fieldset, Flex, RadioButton } from "gestalt";
+import { Box, TextField } from "gestalt";
 import "gestalt/dist/gestalt.css";
-
 import DatePicker from "gestalt-datepicker";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
+
 const Example = (props) => {
-  const [favorite, setFavorite] = React.useState(undefined);
   const [value, setValue] = React.useState("");
   const handleChange = (value) => value;
   //   title, topic, writer, parties, meeting_date, date, file
@@ -65,6 +65,7 @@ class Post extends Component {
     return (
       <div>
         <Header />
+        <Navigation />
         <Box padding={10}>
           <Example></Example>
         </Box>
