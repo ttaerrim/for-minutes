@@ -51,8 +51,12 @@ class MinutesList extends Component {
                   <Minute
                     id={result.id}
                     title={result.title}
+                    topic={result.topic}
                     writer={result.writer}
+                    parties={result.parties}
                     date={result.date}
+                    meeting_date={result.meeting_date}
+                    file={result.file}
                   />
                 );
               })}
