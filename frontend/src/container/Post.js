@@ -9,53 +9,65 @@ import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
 
-const Example = (props) => {
-  const [value, setValue] = React.useState("");
-  const handleChange = (value) => value;
+const MeetingPost = (props) => {
+  const [title, setTitle] = React.useState("");
+  const [topic, setTopic] = React.useState("");
+  const [writer, setWriter] = React.useState("");
+  const [parties, setParties] = React.useState("");
+  const handleChange = (meeintg_date) => meeintg_date;
+  const time_option = [
+    { label: "Algeria", value: "algeria" },
+    { label: "Belgium", value: "belgium" },
+    { label: "Canada", value: "canada" },
+    { label: "Denmark", value: "denmark" },
+    { label: "Egypt", value: "egypt" },
+    { label: "France", value: "france" },
+  ];
   //   title, topic, writer, parties, meeting_date, date, file
   return (
     <div>
       <TextField
         id="title"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ title }) => setTitle(title)}
         placeholder="글 제목"
         label="제목"
-        value={value}
+        value={title}
       />
       <br />
       <br />
       <TextField
         id="topic"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ topic }) => setTopic(topic)}
         placeholder="회의 안건"
         label="회의 안건"
-        value={value}
+        value={topic}
       />
       <br />
       <br />
       <TextField
         id="writer"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ writer }) => setWriter(writer)}
         placeholder="작성자"
         label="작성자"
-        value={value}
+        value={writer}
       />
       <br />
       <br />
       <TextField
         id="parties"
-        onChange={({ value }) => setValue(value)}
+        onChange={({ parties }) => setParties(parties)}
         placeholder="참여자"
         label="참여자"
-        value={value}
+        value={parties}
       />
       <br />
       <br />
       <DatePicker
-        id="example-basic"
-        label="Select a date"
-        onChange={({ value }) => handleChange(value)}
+        id="meeting_date"
+        label="회의 날짜"
+        onChange={({ meeintg_date }) => handleChange(meeintg_date)}
       />
+      <br />
     </div>
   );
 };
@@ -67,7 +79,7 @@ class Post extends Component {
         <Header />
         <Navigation />
         <Box padding={10}>
-          <Example></Example>
+          <MeetingPost></MeetingPost>
         </Box>
         <Footer />
       </div>
