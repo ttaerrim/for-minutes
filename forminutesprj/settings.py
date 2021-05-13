@@ -145,5 +145,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+<<<<<<< HEAD
 DATABASES = my_settings.DATABASES
 SECRET_KEY = my_settings.SECRET_KEY
+=======
+# REST_FRAMEWORK = {
+    
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.JSONRenderer',
+#     )
+#     # json 형식으로 보이게 해 줌
+# }
+>>>>>>> 7dccb182cecf21af9a745d935d9ef7d99e6ff28f
