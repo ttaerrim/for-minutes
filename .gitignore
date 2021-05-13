@@ -13,3 +13,11 @@ media
 
 .fmvenv/
 fmvenv/
+
+.myvenv/
+myvenv/
+
+.venv/
+venv/
+
+my_settings.py
