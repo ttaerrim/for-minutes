@@ -4,8 +4,6 @@ import Header from "../component/Header.js";
 import Footer from "../component/Footer.js";
 import './Main.css';
 
-import { PageHeader, Button, Box,TextField,Flex,Tooltip,IconButton,Heading } from "gestalt";
-
 class Main extends Component {
   render() {
     return (
