@@ -2,6 +2,7 @@
 
 
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -13,9 +14,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Meeting',
+            name='Result',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('script', models.TextField()),
+                ('keyword', models.TextField()),
+                ('summary', models.TextField()),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Meeting',
+            fields=[
                 ('title', models.CharField(max_length=50)),
                 ('topic', models.TextField()),
                 ('writer', models.CharField(max_length=30)),
@@ -23,6 +32,8 @@ class Migration(migrations.Migration):
                 ('meeting_date', models.DateTimeField()),
                 ('date', models.DateTimeField(auto_now=True)),
                 ('file', models.FileField(upload_to='', verbose_name='media/')),
+                ('photo', models.ImageField(blank=True, null=True, upload_to='', verbose_name='photo/')),
+                ('result', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='testapp.result')),
             ],
         ),
     ]
