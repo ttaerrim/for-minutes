@@ -12,7 +12,6 @@ class Meeting(models.Model):
     meeting_date = models.DateTimeField()
     date = models.DateTimeField(auto_now=True)
     file = models.FileField('media/')
-<<<<<<< HEAD
     photo = models.ImageField('photo/', null=True, blank=True)
 
     # result = models.OneToOneField(
@@ -38,9 +37,3 @@ class Result(models.Model):
     summary = models.TextField()
     # def __str__(self):
     #     return self.title #자기 자신을 title로 표현
-=======
-    
-    def __str__(self):
-        return self.title
-
->>>>>>> 7c459b18d0a8d68ee5c8df38e635dca1c3b2b86c
