@@ -73,10 +73,6 @@ const ListTable = () => {
 };
 class MinutesList extends Component {
   render() {
-<<<<<<< HEAD
-    return <div>MinutesList</div>;
-    
-=======
     return (
       <div>
         <Header />
@@ -87,7 +83,6 @@ class MinutesList extends Component {
         <Footer />
       </div>
     );
->>>>>>> edf77a44903329282a81000ad983f4d51eca68c4
   }
 }
 

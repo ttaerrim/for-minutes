@@ -1,0 +1,15 @@
+.bg {
+    min-height: 50vh;
+    background-color: #fdfdfd;
+}
+
+.main-contents{
+    padding: 5%;
+}
+
+.main-contents h1{
+    text-align: center;
+}
+
+
+
