@@ -5,6 +5,7 @@ import MinutesList from "./container/MinutesList";
 import Post from "./container/Post";
 import Detail from "./container/Detail";
 
+
 class App extends Component {
   render() {
     return (
