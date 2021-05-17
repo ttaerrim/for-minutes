@@ -16,7 +16,6 @@ class Detail extends React.Component {
       return (
         <div>
           <Header />
-          <Navigation />
           <div>
             <p>제목: {location.state.title}</p>
             <p>회의 안건: {location.state.topic}</p>
