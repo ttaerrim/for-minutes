@@ -74,7 +74,8 @@ class MinutesList extends Component {
     await axios
       .get("/testapp/api")
       .then((response) => {
-        this.setState({ results: response.data });
+        console.log(response)
+        this.setState({ results: response.data.results });
       })
       .catch((error) => console.log(error));
   };
