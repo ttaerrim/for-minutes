@@ -22,7 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#3m2^xo8yo3w8jzg_-%pew-u5(m!2c##av(@sdl1c=6(m-)6p&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,12 +87,12 @@ WSGI_APPLICATION = 'forminutesprj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -152,5 +151,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #     )
 #     # json 형식으로 보이게 해 줌
 # }
+<<<<<<< HEAD
 
 SECRET_KEY = my_settings.SECRET_KEY
+=======
+DATABASES = my_settings.DATABASES
+SECRET_KEY = my_settings.SECRET_KEY
+>>>>>>> 86eb0ef6ea7eb29d74e16ef70dfc0165766f80b3
