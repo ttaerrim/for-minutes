@@ -65,7 +65,6 @@ class Post extends Component {
     return (
       <div>
         <Header />
-        <Navigation />
         <Box padding={10}>
           <Example></Example>
         </Box>
