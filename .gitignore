@@ -11,16 +11,22 @@ db.sqlite3
 db.sqlite3-journal
 media
 
+myvenv/
+.myvenv/
 .fmvenv/
 fmvenv/
 
 .myvenv/
 myvenv/
 
+
 .venv/
 venv/
 
 my_settings.py
+<<<<<<< HEAD
 
 package.json
 yarn.lock
+=======
+>>>>>>> master
