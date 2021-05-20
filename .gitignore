@@ -13,3 +13,5 @@ media
 
 .fmvenv/
 fmvenv/
+
+my_settings.py
