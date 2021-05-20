@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import my_settings
 from pathlib import Path
 
 import my_settings
@@ -146,3 +147,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASES = my_settings.DATABASES
 SECRET_KEY = my_settings.SECRET_KEY
+
