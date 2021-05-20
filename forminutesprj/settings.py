@@ -1,4 +1,3 @@
-import os
 """
 Django settings for forminutesprj project.
 
@@ -55,9 +54,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST=[
-    "http://localhost:3000",
-    "http://127.0.0.1:8000",
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:8000',
+    'http://localhost:3000',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -80,10 +79,6 @@ TEMPLATES = [
             ],
         },
     },
-]
-
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
 ]
 
 WSGI_APPLICATION = 'forminutesprj.wsgi.application'
@@ -157,5 +152,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #     # json 형식으로 보이게 해 줌
 # }
 
-DATABASES = my_settings.DATABASES
 SECRET_KEY = my_settings.SECRET_KEY
