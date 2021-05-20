@@ -145,8 +145,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASES = my_settings.DATABASES
-<<<<<<< HEAD
 SECRET_KEY = my_settings.SECRET_KEY
-=======
-SECRET_KEY = my_settings.SECRET_KEY
->>>>>>> master
+
