@@ -19,6 +19,10 @@ from django.views.generic import TemplateView
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7dc1809bf8825f341b9f633eaaba662206e88c77
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('testapp/', include('testapp.urls')),

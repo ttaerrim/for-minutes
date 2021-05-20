@@ -11,6 +11,9 @@ import axios from "axios";
 
 import Minute from "./Minute.js";
 
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
+
 class MinutesList extends Component {
   constructor(props) {
     super(props);
@@ -74,6 +77,7 @@ class MinutesList extends Component {
     await axios
       .get("/testapp/api")
       .then((response) => {
+        console.log(response);
         this.setState({ results: response.data });
       })
       .catch((error) => console.log(error));
