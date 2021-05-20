@@ -32,7 +32,6 @@ class MinutesList extends Component {
     return (
       <div>
         <Header />
-        <Navigation />
         <Box padding={10}>
           <Table>
             <Table.Header>
@@ -66,6 +65,8 @@ class MinutesList extends Component {
             </Table.Body>
           </Table>
         </Box>
+        
+        
 
         <Footer />
       </div>
