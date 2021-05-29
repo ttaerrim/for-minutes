@@ -2,11 +2,10 @@ import React, { Component } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
 
-import { Box, TextField, Button, SelectList, Heading } from "gestalt";
+import { Box, /*TextField, Button, SelectList*/ } from "gestalt";
 import "gestalt/dist/gestalt.css";
-import DatePicker from "gestalt-datepicker";
+//import DatePicker from "gestalt-datepicker";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
 
 import axios from "axios";
@@ -23,7 +22,9 @@ export const MeetingCreate = (name, position, age) =>
     age: age,
   });
 
+  /*
 const PostForm = (props) => {
+ 
   const [topic, setTopic] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [writer, setWriter] = React.useState("");
@@ -33,7 +34,7 @@ const PostForm = (props) => {
   const createTime = () => {
     const meeting_time = [];
     for (let i = 0; i < 24; i++) {
-      const name = new Object();
+      const name = {};
       i = String("0" + i).slice(-2);
       name.label = i;
       name.value = i;
@@ -44,7 +45,7 @@ const PostForm = (props) => {
   const createMinute = () => {
     const meeting_minute = [];
     for (let i = 0; i < 60; i++) {
-      const name = new Object();
+      const name = {};
       i = String("0" + i).slice(-2);
       name.label = i;
       name.value = i;
@@ -53,7 +54,7 @@ const PostForm = (props) => {
     return meeting_minute;
   };
 
-  const handleChange = (meeting_date) => meeting_date;
+/*  const handleChange = (meeting_date) => meeting_date;
   return (
     <div>
       <Box
@@ -161,7 +162,7 @@ const PostForm = (props) => {
     </div>
   );
 };
-
+*/
 class Post extends Component {
   constructor(props) {
     super(props);
@@ -195,7 +196,7 @@ class Post extends Component {
       <div>
         <Header />
         <Box padding={10}>
-          <PostForm></PostForm>
+          
         </Box>
         <Footer />
       </div>
