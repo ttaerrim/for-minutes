@@ -61,25 +61,17 @@ const Post = () => {
   const handleChange = (meeting_date) => meeting_date;
 
   const handleSubmit = async () => {
-    // const formData = new FormData();
-    // formData.append("title", title);
-    // formData.append("topic", topic);
-    // formData.append("writer", writer);
-    // formData.append("parties", parties);
-    // formData.append("meeting_date", renderDate(hour, minute));
-    // formData.append("file", file);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("topic", topic);
+    formData.append("writer", writer);
+    formData.append("parties", parties);
+    formData.append("meeting_date", renderDate(hour, minute));
+    formData.append("file", file);
     await axios
-      .post("/testapp/api/create", {
-        data: {
-          title: title,
-          topic: topic,
-          writer: writer,
-          parties: parties,
-          meeting_date: renderDate(hour, minute),
-          file: file,
-        },
+      .post("/testapp/api/create", formData, {
         headers: {
-          "content-type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => alert("성공"))
@@ -101,6 +93,7 @@ const Post = () => {
     const audio = event.target.files[0];
     setFile(audio);
   };
+
   return (
     <>
       <Header />
