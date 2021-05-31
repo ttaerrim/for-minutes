@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
 
 import { Table, Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
