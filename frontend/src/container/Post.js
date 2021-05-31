@@ -72,7 +72,7 @@ const Post = () => {
       .post("/testapp/api/create", formData,{
         
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'application/json;charset=UTF-8'
         },
       })
       .then((res) => alert("성공"))
