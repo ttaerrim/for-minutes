@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
 
 import { Table, Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -10,6 +9,9 @@ import "gestalt/dist/gestalt.css";
 import axios from "axios";
 
 import Minute from "./Minute.js";
+
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 class MinutesList extends Component {
   constructor(props) {
@@ -74,6 +76,7 @@ class MinutesList extends Component {
     await axios
       .get("/testapp/api")
       .then((response) => {
+        console.log(response);
         this.setState({ results: response.data });
       })
       .catch((error) => console.log(error));

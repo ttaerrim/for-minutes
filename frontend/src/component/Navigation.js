@@ -13,6 +13,7 @@ const Navigation = () => {
       <Link to="/">Home </Link>
       <Link to="/minutes">MinutesList </Link>
       <Link to="/post">Post </Link>
+
       </div>
  
       </Heading>
