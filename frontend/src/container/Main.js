@@ -3,7 +3,6 @@ import React from "react";
 import Header from "../component/Header.js";
 import Footer from "../component/Footer.js";
 import './Main.css';
-import Detail from "./Detail.js";
 
 class Main extends React.Component {
   render() {
