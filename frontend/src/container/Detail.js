@@ -4,6 +4,7 @@ import Header from "../component/Header";
 
 import { Box, Heading, Table, Text, Divider } from "gestalt";
 import "gestalt/dist/gestalt.css";
+
 class Detail extends React.Component {
   componentDidMount() {
     const { location, history } = this.props;
