@@ -1,5 +1,5 @@
 from django.urls import path
-from .api import MeetingApi, MeetingCreateApi, MeetingUpdateApi, MeetingDeleteApi, ResultUpdateApi
+from .api import *
 
 urlpatterns = [
     path('api', MeetingApi.as_view()),
