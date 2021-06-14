@@ -95,13 +95,13 @@ class ClovaSpeechClient:
         return response
 
 
-if __name__ == '__main__':
-    # res = ClovaSpeechClient().req_url(url='http://example.com/media.mp3', completion='sync')
-    # res = ClovaSpeechClient().req_object_storage(data_key='data/media.mp3', completion='sync')
-    res = ClovaSpeechClient().req_upload(file='./rec/file_dialog.wav', completion='sync')
-    print(res.text)
+# if __name__ == '__main__':
+#     # res = ClovaSpeechClient().req_url(url='http://example.com/media.mp3', completion='sync')
+#     # res = ClovaSpeechClient().req_object_storage(data_key='data/media.mp3', completion='sync')
+#     res = ClovaSpeechClient().req_upload(file='./rec/file_dialog.wav', completion='sync')
+#     print(res.text)
 
     
-    file_path = open('../media/stt/result.json', 'w', encoding="utf-8")
-    file_path.write(res.text)
-    file_path.close()
+#     file_path = open('../media/stt/result.json', 'w', encoding="utf-8")
+#     file_path.write(res.text)
+#     file_path.close()
