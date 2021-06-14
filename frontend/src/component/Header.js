@@ -7,7 +7,10 @@ import Navigation from "./Navigation";
 const Header = () => (
   <Sticky top={0}>
     <Flex direction="column" flex="grow">
-      <PageHeader title="Logo. For Minutes" primaryAction={<Navigation />} />
+      <PageHeader
+        title="Logo. For Minutes"
+        primaryAction={<Navigation />}
+      ></PageHeader>
       <Box
         display="flex"
         wrap
