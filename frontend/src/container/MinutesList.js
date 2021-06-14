@@ -64,8 +64,6 @@ class MinutesList extends Component {
             </Table.Body>
           </Table>
         </Box>
-        
-        
 
         <Footer />
       </div>
@@ -76,7 +74,6 @@ class MinutesList extends Component {
     await axios
       .get("/testapp/api")
       .then((response) => {
-        console.log(response);
         this.setState({ results: response.data });
       })
       .catch((error) => console.log(error));

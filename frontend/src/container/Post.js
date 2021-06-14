@@ -12,8 +12,6 @@ import "gestalt-datepicker/dist/gestalt-datepicker.css";
 
 import axios from "axios";
 
-const API = axios.create();
-
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
@@ -61,22 +59,25 @@ const Post = () => {
   const handleChange = (meeting_date) => meeting_date;
 
   const handleSubmit = async () => {
-     const formData = new FormData();
-     formData.append("title", title);
-     formData.append("topic", topic);
-     formData.append("writer", writer);
-     formData.append("parties", parties);
-     formData.append("meeting_date", renderDate(hour, minute));
-     formData.append("file", file);
+    let formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("topic", topic);
+    formData.append("writer", writer);
+    formData.append("parties", parties);
+    formData.append("meeting_date", renderDate(hour, minute));
+    formData.append("file", file);
     await axios
-      .post("/testapp/api/create", formData,{
-        
+      .post("/testapp/api/create", formData, {
         headers: {
-          'Content-Type': 'application/json;charset=UTF-8'
+          "Content-Type": "multipart/form-data", //415error?
         },
       })
-      .then((res) => alert("성공"))
+      .then((res) => {
+        alert("success");
+      })
       .catch((error) => {
+        console.log(formData.get("title"));
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
@@ -86,7 +87,7 @@ const Post = () => {
         } else if (error.message) {
           console.log(error.message);
         }
-        alert("실패");
+        alert("fail");
       });
   };
 
