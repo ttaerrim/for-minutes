@@ -2,18 +2,50 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, Heading, Table, Text, Divider } from "gestalt";
+import { Box, Heading, Table, Text, Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
+import axios from "axios";
+
 class Detail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pk: this.props.match.params.id,
+      loaded: false,
+      placeholder: "Loading",
+    };
+  }
   componentDidMount() {
     const { location, history } = this.props;
     if (location.state === undefined) {
       history.push("/");
     }
   }
+  createResult = async () => {
+    let formData = new FormData();
+    formData.append("pk", this.state.pk);
+
+    await axios
+      .post("/testapp/api/result/create", formData)
+      .then((res) => {
+        alert("success");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else if (error.message) {
+          console.log(error.message);
+        }
+        alert("fail");
+      });
+  };
   render() {
-    const { location } = this.props;
+    const { location, pk } = this.props;
     if (location.state) {
       return (
         <div>
@@ -108,6 +140,13 @@ class Detail extends React.Component {
                 </Table.Cell>
               </Table.Row>
             </Table>
+
+            <Button
+              type="button"
+              onClick={this.createResult}
+              text="Result 결과"
+              inline
+            />
 
             <Box height={100}></Box>
           </Box>
