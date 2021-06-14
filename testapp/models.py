@@ -12,3 +12,13 @@ class Meeting(models.Model):
 
     def __str__(self):
         return self.title
+
+class Result(models.Model):
+    meeting = models.OneToOneField(
+        Meeting,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
+    script = models.TextField()
+    keyword = models.TextField()
+    summary = models.TextField()
