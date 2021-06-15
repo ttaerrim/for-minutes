@@ -20,3 +20,5 @@ fmvenv/
 myvenv/
 
 my_settings.py
+
+*.DS_Store
