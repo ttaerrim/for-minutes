@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
 
 import { Table, Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -65,8 +64,6 @@ class MinutesList extends Component {
             </Table.Body>
           </Table>
         </Box>
-        
-        
 
         <Footer />
       </div>
@@ -77,7 +74,6 @@ class MinutesList extends Component {
     await axios
       .get("/testapp/api")
       .then((response) => {
-        console.log(response);
         this.setState({ results: response.data });
       })
       .catch((error) => console.log(error));
