@@ -4,11 +4,19 @@ import Header from "../component/Header";
 import Detail from "./Detail";
 
 
-import { Box, Text, Button, SelectList, Heading } from "gestalt";
+import { Box, Text, ScrollBoundaryContainer, Flex } from "gestalt";
 const Result = ({ script }) => {
   return (
     <>
-      <Text>{script}</Text>
+      <ScrollBoundaryContainer height={400}>
+        <Box color="white" padding={4}>
+          <Flex gap={4}>
+            <Box>
+              <Text>{script}</Text>
+            </Box>
+          </Flex>
+        </Box>
+      </ScrollBoundaryContainer>
     </>
   );
 };

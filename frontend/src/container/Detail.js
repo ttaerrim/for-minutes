@@ -155,7 +155,7 @@ class Detail extends React.Component {
                 inline
               />
 
-              <Box>
+              <Box padding={10}>
                 <Result script={result.script}></Result>
               </Box>
             </Box>
