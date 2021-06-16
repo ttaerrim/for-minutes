@@ -10,7 +10,7 @@ import ResultCreate from "./ResultCreate";
 class Result extends Component {
   renderResult = async () => {
     await axios
-      .get("/testapp/api/result/" + this.state.pk + "/")
+      .get("/testapp/result/" + this.state.pk + "/")
       .then((response) => {
         this.setState({ results: response.data });
       })
