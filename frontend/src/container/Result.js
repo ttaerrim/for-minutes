@@ -4,17 +4,12 @@ import Header from "../component/Header";
 import Detail from "./Detail";
 
 
-import { Box, TextField, Button, SelectList, Heading } from "gestalt";
-const Result = () => {
+import { Box, Text, Button, SelectList, Heading } from "gestalt";
+const Result = ({ script }) => {
   return (
-    <div>
-      <Header />
-      
-      
-              
-
-      <Footer />
-    </div>
+    <>
+      <Text>{script}</Text>
+    </>
   );
 };
 

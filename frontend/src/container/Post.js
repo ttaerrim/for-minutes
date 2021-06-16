@@ -12,6 +12,8 @@ import "gestalt-datepicker/dist/gestalt-datepicker.css";
 
 import axios from "axios";
 
+import { useHistory } from "react-router";
+
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
@@ -24,6 +26,7 @@ const Post = () => {
   const [hour, setHour] = React.useState("00");
   const [minute, setMinute] = React.useState("00");
   const [file, setFile] = React.useState();
+  const history = useHistory();
 
   const createTime = () => {
     const meeting_time = [];
@@ -74,10 +77,9 @@ const Post = () => {
         },
       })
       .then((res) => {
-        alert("success");
+        history.push("/minutes");
       })
       .catch((error) => {
-        console.log(formData.get("title"));
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
