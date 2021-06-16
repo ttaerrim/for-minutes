@@ -24,9 +24,9 @@ myvenv/
 venv/
 
 my_settings.py
-<<<<<<< HEAD
+
 
 package.json
 yarn.lock
-=======
->>>>>>> master
+
+*.DS_Store
