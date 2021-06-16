@@ -72,7 +72,7 @@ class MinutesList extends Component {
 
   _renderMinute = async () => {
     await axios
-      .get("/testapp/api/")
+      .get("/testapp/result/")
       .then((response) => {
         this.setState({ results: response.data });
       })
