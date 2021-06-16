@@ -2,12 +2,11 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, TextField, Button, SelectList, Heading } from "gestalt";
-const Result = () => {
+import { Box, Text, Button, SelectList, Heading } from "gestalt";
+const Result = ({ script }) => {
   return (
     <>
-      <Header />
-      <Footer />
+      <Text>{script}</Text>
     </>
   );
 };

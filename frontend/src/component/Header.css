@@ -2,6 +2,24 @@
   font-family: "NanumSquare", sans-serif !important;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
 .navbar {
   transition: all 0.4s;
 }
