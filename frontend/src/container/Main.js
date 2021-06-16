@@ -27,7 +27,7 @@ class Main extends React.Component {
             <br></br>
             <div class="button-4">
             <div class="eff-4"></div>
-            <a href="#!"> Get Started </a>
+            <a href="/post"> Get Started </a>
         </div>
         <br></br>
         </header>

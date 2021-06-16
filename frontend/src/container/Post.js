@@ -68,7 +68,7 @@ const Post = () => {
     formData.append("meeting_date", renderDate(hour, minute));
     formData.append("file", file);
     await axios
-      .post("/testapp/api/create/", formData, {
+      .post("/testapp/api/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

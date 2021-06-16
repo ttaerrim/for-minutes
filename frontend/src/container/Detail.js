@@ -147,7 +147,9 @@ class Detail extends React.Component {
 
             <Box height={100}></Box>
           </Box>
+
           <Footer />
+          
         </div>
       );
     } else {
