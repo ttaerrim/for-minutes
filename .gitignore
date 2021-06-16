@@ -10,7 +10,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-
+results
 myvenv/
 .myvenv/
 .fmvenv/
@@ -24,5 +24,9 @@ venv/
 
 my_settings.py
 
+<<<<<<< HEAD
 
 
+=======
+*.DS_Store
+>>>>>>> 04d7c8a937004d172b9c35e6d6c6b147d454dadb

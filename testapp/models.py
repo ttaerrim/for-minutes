@@ -22,9 +22,7 @@ class Meeting(models.Model):
     # )
 
     def __str__(self):
-        return self.title #자기 자신을 title로 표현
-
-
+        return self.title
 
 class Result(models.Model):
     meeting = models.OneToOneField(
@@ -35,5 +33,8 @@ class Result(models.Model):
     script = models.TextField()
     keyword = models.TextField()
     summary = models.TextField()
+<<<<<<< HEAD
     # def __str__(self):
     #     return self.title #자기 자신을 title로 표현
+=======
+>>>>>>> front
