@@ -27,7 +27,7 @@ class Detail extends React.Component {
     formData.append("pk", this.state.pk);
 
     await axios
-      .post("/testapp/api/result/create", formData)
+      .post("/testapp/result/", formData)
       .then((res) => {
         alert("success");
       })

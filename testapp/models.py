@@ -11,8 +11,9 @@ class Meeting(models.Model):
     parties = models.TextField()
     meeting_date = models.DateTimeField()
     date = models.DateTimeField(auto_now=True)
-    file = models.FileField('media/')
-    photo = models.ImageField('photo/', null=True, blank=True)
+    file = models.FileField(upload_to='audio/')
+    photo = models.ImageField(upload_to='photo/', null=True, blank=True)
+
 
     # result = models.OneToOneField(
     #     Result,
@@ -36,6 +37,7 @@ class Result(models.Model):
     script = models.TextField()
     keyword = models.TextField()
     summary = models.TextField()
+
     def __str__(self):
         return self.meeting.title
 

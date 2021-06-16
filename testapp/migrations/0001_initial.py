@@ -1,3 +1,4 @@
+
 from django.db import migrations, models
 import django.db.models.deletion
 
@@ -20,8 +21,10 @@ class Migration(migrations.Migration):
                 ('parties', models.TextField()),
                 ('meeting_date', models.DateTimeField()),
                 ('date', models.DateTimeField(auto_now=True)),
+
                 ('file', models.FileField(upload_to='', verbose_name='media/')),
                 ('photo', models.ImageField(blank=True, null=True, upload_to='', verbose_name='photo/')),
+
             ],
         ),
         migrations.CreateModel(
