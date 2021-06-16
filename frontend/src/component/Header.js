@@ -1,13 +1,12 @@
 import React from "react";
-import { Box, Text,Flex,PageHeader} from "gestalt";
+import { Box,Flex,PageHeader,Sticky} from "gestalt";
 import "gestalt/dist/gestalt.css";
 import './Header.css';
 import Navigation from "./Navigation";
 
 const Header = () => (
-    
+    <Sticky top={0}>
     <Flex direction="column" flex="grow">
-    
     <PageHeader
       title="Logo. For Minutes"
       primaryAction={
@@ -23,6 +22,7 @@ const Header = () => (
     >
     </Box>
   </Flex>
+  </Sticky>
 );
 
 export default Header;
