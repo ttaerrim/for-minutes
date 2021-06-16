@@ -26,6 +26,7 @@ class Meeting(models.Model):
 
 
 
+
 class Result(models.Model):
     meeting = models.OneToOneField(
         Meeting,
@@ -35,5 +36,6 @@ class Result(models.Model):
     script = models.TextField()
     keyword = models.TextField()
     summary = models.TextField()
-    # def __str__(self):
-    #     return self.title #자기 자신을 title로 표현
+    def __str__(self):
+        return self.meeting.title
+
