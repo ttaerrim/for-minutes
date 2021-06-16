@@ -21,7 +21,10 @@ class MeetingDeleteApi(generics.DestroyAPIView):
     queryset = Meeting.objects.all()
     serializer_class = MeetingSerializer
 
-
+class ResultApi(generics.ListAPIView):
+    queryset = Result.objects.all()
+    serializer_class = ResultSerializer
+    
 class ResultUpdateApi(generics.RetrieveUpdateAPIView):
     queryset = Result.objects.all()
     serializer_class = ResultSerializer
