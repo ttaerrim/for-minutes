@@ -57,7 +57,7 @@ class Detail extends React.Component {
     console.log("render에 result", result);
     if (location.state) {
       return (
-        <div>
+        <div class="bg wrapper">
           <Header />
           <div class="main-content">
             <Box
@@ -155,7 +155,7 @@ class Detail extends React.Component {
                 inline
               />
 
-              <Box height={100}>
+              <Box>
                 <Result script={result.script}></Result>
               </Box>
             </Box>
