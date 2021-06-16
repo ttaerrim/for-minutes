@@ -14,6 +14,7 @@ class Meeting(models.Model):
     file = models.FileField(upload_to='audio/')
     photo = models.ImageField(upload_to='photo/', null=True, blank=True)
 
+
     # result = models.OneToOneField(
     #     Result,
     #     on_delete=models.CASCADE,
@@ -22,7 +23,10 @@ class Meeting(models.Model):
     # )
 
     def __str__(self):
-        return self.title
+        return self.title #자기 자신을 title로 표현
+
+
+
 
 class Result(models.Model):
     meeting = models.OneToOneField(
@@ -33,3 +37,7 @@ class Result(models.Model):
     script = models.TextField()
     keyword = models.TextField()
     summary = models.TextField()
+
+    def __str__(self):
+        return self.meeting.title
+

@@ -24,6 +24,7 @@ venv/
 
 my_settings.py
 
+package.json
+yarn.lock
+
 *.DS_Store
-
-
