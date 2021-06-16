@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { Table, Text } from "gestalt";
+import { Table, Text, TextField } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 const ResultCreate = ({ meeting, script }) => {
-  return <p>{script}</p>;
+  return <TextField>{script}</TextField>;
 };
 
 ResultCreate.propTypes = {

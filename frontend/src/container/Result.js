@@ -5,9 +5,10 @@ import Header from "../component/Header";
 import { Box, TextField, Button, SelectList, Heading } from "gestalt";
 
 import axios from "axios";
+import ResultCreate from "./ResultCreate";
 
-const Result = () => {
-  const renderResult = async () => {
+class Result extends Component {
+  renderResult = async () => {
     await axios
       .get("/testapp/api/result/" + this.state.pk + "/")
       .then((response) => {
@@ -15,25 +16,30 @@ const Result = () => {
       })
       .catch((error) => console.log(error));
   };
-  return (
-    <>
-      <Header />
-      <Box
-        display="flex"
-        padding={10}
-        marginStart={-3}
-        marginEnd={-3}
-        marginBottom={-3}
-        marginTop={-3}
-        wrap
-        width="100%"
-        direction="column"
-      >
-        <TextField>scripts</TextField>
-      </Box>
-      <Footer />
-    </>
-  );
-};
+  componentDidMount() {
+    this.renderResult();
+  }
+  render() {
+    return (
+      <>
+        <Header />
+        <Box
+          display="flex"
+          padding={10}
+          marginStart={-3}
+          marginEnd={-3}
+          marginBottom={-3}
+          marginTop={-3}
+          wrap
+          width="100%"
+          direction="column"
+        >
+          <ResultCreate></ResultCreate>
+        </Box>
+        <Footer />
+      </>
+    );
+  }
+}
 
 export default Result;
