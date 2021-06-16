@@ -2,10 +2,12 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, Heading, Table, Text, Button } from "gestalt";
+import { Box, Heading, Table, Text, Button, Link } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
+
+import Result from "./Result.js";
 
 class Detail extends React.Component {
   constructor(props) {
@@ -36,14 +38,11 @@ class Detail extends React.Component {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else if (error.message) {
-          console.log(error.message);
         }
         alert("fail");
       });
   };
+
   render() {
     const { location, pk } = this.props;
     if (location.state) {
