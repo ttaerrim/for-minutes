@@ -5,7 +5,7 @@ from .stt import *
 # Create your views here.
 
 def resultCreate(request):
-    meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
+    meeting = get_object_or_404(Meeting, pk=request.POST.get('pk'))
     result = Result()
     audio = "media/"+str(meeting.file)
     
