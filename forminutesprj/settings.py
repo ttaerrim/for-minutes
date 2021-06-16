@@ -147,17 +147,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASES = my_settings.DATABASES
 SECRET_KEY = my_settings.SECRET_KEY
-<<<<<<< HEAD
-# REST_FRAMEWORK = {
-    
-#     'DEFAULT_RENDERER_CLASSES': (
-#         'rest_framework.renderers.JSONRenderer',
-#     )
-#     # json 형식으로 보이게 해 줌
-# }
-
-SECRET_KEY = my_settings.SECRET_KEY
-=======
 
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
@@ -166,4 +155,3 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser'
     )
 }
->>>>>>> front
