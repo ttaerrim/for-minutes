@@ -70,7 +70,7 @@ const Post = () => {
     await axios
       .post("/testapp/api/create/", formData, {
         headers: {
-          "Content-Type": "multipart/form-data", //415error?
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
