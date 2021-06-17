@@ -22,9 +22,8 @@ class Detail extends React.Component {
     if (location.state === undefined) {
       history.push("/");
     }
-
-    this.renderMinute();
   }
+
   createResult = async () => {
     let formData = new FormData();
     formData.append("pk", this.state.pk);
@@ -44,18 +43,18 @@ class Detail extends React.Component {
         alert("fail");
       });
   };
-  renderMinute = async () => {
-    await axios
-      .get("/testapp/api/result/" + this.state.pk + "/")
-      .then((response) => {
-        this.setState({ result: response.data });
-      })
-      .catch((error) => console.log(error));
-  };
+  // renderMinute = async () => {
+  //   await axios
+  //     .get("/testapp/api/result/" + this.state.pk + "/")
+  //     .then((response) => {
+  //       this.setState({ result: response.data });
+  //     })
+  //     .catch((error) => console.log(console));
+  // };
   render() {
-    const { location, pk } = this.props;
-    const { result } = this.state;
-    console.log("render에 result", result);
+    const { location } = this.props;
+    const { result, pk } = this.state;
+
     if (location.state) {
       return (
         <div class="bg wrapper">
