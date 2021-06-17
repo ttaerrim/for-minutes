@@ -33,6 +33,7 @@ class Detail extends React.Component {
       .post("/testapp/api/result/create", formData)
       .then((res) => {
         alert("success");
+        window.location.reload();
       })
       .catch((error) => {
         if (error.response) {
