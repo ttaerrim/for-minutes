@@ -10,6 +10,7 @@ class Main extends React.Component {
       <div class="bg">
         <Header />
 <<<<<<< HEAD
+<<<<<<< HEAD
        
             <div class="container">
         
@@ -39,6 +40,8 @@ class Main extends React.Component {
       <Footer />
         
 =======
+=======
+>>>>>>> 53d5e38d58f80a99bd46ab0671bb71d710106a99
 
         <div class="container">
           <div class="pt-5 text-white">
@@ -62,7 +65,10 @@ class Main extends React.Component {
         </div>
 
         <Footer />
+<<<<<<< HEAD
 >>>>>>> cd6f5875e200796fe46a96f7369ff72b1cc04583
+=======
+>>>>>>> 53d5e38d58f80a99bd46ab0671bb71d710106a99
       </div>
     );
   }
