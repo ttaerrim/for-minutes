@@ -154,10 +154,5 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.FormParser',
         'rest_framework.parsers.MultiPartParser'
     )
-<<<<<<< HEAD
-
-}
-=======
 }
 
->>>>>>> 53d5e38d58f80a99bd46ab0671bb71d710106a99
