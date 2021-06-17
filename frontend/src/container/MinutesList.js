@@ -27,8 +27,6 @@ class MinutesList extends Component {
   }
   render() {
     const { results } = this.state;
-    console.log("this.state:", this.state);
-    console.log("results: ", results);
 
     return (
       <div class="bg wrapper">
@@ -50,7 +48,7 @@ class MinutesList extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {results.map((result) => {
+                {results.reverse().map((result) => {
                   return (
                     <Minute
                       id={result.id}
