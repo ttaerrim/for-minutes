@@ -158,16 +158,6 @@ class Detail extends React.Component {
                     </Text>
                   </Table.Cell>
                 </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text color="midnight" weight="bold">
-                      파일 이름
-                    </Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Text>{location.state.file.substring(28)}</Text>
-                  </Table.Cell>
-                </Table.Row>
               </Table>
               <Box flex="grow" paddingX={3} paddingY={3}>
                 <Box
