@@ -13,8 +13,6 @@ import os
 import my_settings
 from pathlib import Path
 
-import my_settings
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -129,6 +127,26 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
+]
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+DATABASES = my_settings.DATABASES
+SECRET_KEY = my_settings.SECRET_KEY
+
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
@@ -137,21 +155,3 @@ REST_FRAMEWORK = {
     )
 }
 
-
-DATABASES = my_settings.DATABASES
-SECRET_KEY = my_settings.SECRET_KEY
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'frontend', 'build', 'static'),        
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
-MEDIA_URL='/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

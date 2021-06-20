@@ -11,4 +11,3 @@ urlpatterns = [
     path('api/result/', ResultApi.as_view()),
     path('api/result/create/', testapp.views.resultCreate, name="result_create"),
     path('api/result/<int:pk>/', ResultUpdateApi.as_view()),
-]
