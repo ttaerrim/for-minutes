@@ -1,5 +1,6 @@
 from django.db import models
-
+import os
+from forminutesprj.settings import MEDIA_ROOT
 # Create your models here.
 class Meeting(models.Model):
     title = models.CharField(max_length=50)
@@ -25,6 +26,13 @@ class Meeting(models.Model):
 
 
 
+    def delete(self, *args, **kargs):
+        if self.file:
+            os.remove(os.path.join(MEDIA_ROOT, self.file.path))
+        if self.photo:
+            os.remove(os.path.join(MEDIA_ROOT, self.photo.path))
+        super(Meeting, self).delete(*args, **kargs)
+
 class Result(models.Model):
     meeting = models.OneToOneField(
         Meeting,
@@ -37,4 +45,3 @@ class Result(models.Model):
 
     def __str__(self):
         return self.meeting.title
-
