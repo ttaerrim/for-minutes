@@ -22,9 +22,7 @@ myvenv/
 .venv/
 venv/
 
-my_settings.py
-
-package.json
+my_settings.pypackage.json
 yarn.lock
 
 *.DS_Store

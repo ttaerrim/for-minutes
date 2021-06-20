@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Heading, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
+
 const Navigation = () => {
   return (
     <Text align="center" bold>
@@ -13,7 +14,8 @@ const Navigation = () => {
           <Link to="/post">Post </Link>
         </div>
       </Heading>
-    </Text>
+      </Text>
+    
   );
 };
 

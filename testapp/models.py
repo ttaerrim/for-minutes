@@ -2,9 +2,6 @@ from django.db import models
 import os
 from forminutesprj.settings import MEDIA_ROOT
 # Create your models here.
-
-
-
 class Meeting(models.Model):
     title = models.CharField(max_length=50)
     topic = models.TextField()
