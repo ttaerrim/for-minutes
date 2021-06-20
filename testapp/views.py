@@ -3,17 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Meeting, Result
 from .stt import *
 
-from .serializer import *
-from rest_framework import viewsets
-
-class MeetingViewSet(viewsets.ModelViewSet):
-    queryset = Meeting.objects.all()
-    serializer_class = MeetingSerializer
-
-
-class ResultViewSet(viewsets.ModelViewSet):
-    queryset = Result.objects.all()
-    serializer_class = ResultSerializer
+import os
+from forminutesprj.settings import MEDIA_ROOT
+from testapp.api import *
+# Create your views here.
 
 def resultCreate(request):
 
@@ -30,7 +23,4 @@ def resultCreate(request):
     return redirect('/result/' + str(meeting.id))
 
 
-class MeetingViewSet(viewsets.ModelViewSet): 
-    queryset = Meeting.objects.all() 
-    serializer_class = MeetingSerializer
 
