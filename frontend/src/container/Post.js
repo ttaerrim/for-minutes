@@ -26,6 +26,7 @@ const Post = () => {
   const [hour, setHour] = React.useState("00");
   const [minute, setMinute] = React.useState("00");
   const [file, setFile] = React.useState();
+  const [image, setImage] = React.useState();
   const history = useHistory();
 
   const createTime = () => {
@@ -70,6 +71,7 @@ const Post = () => {
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
     formData.append("file", file);
+    formData.append("image", file);
     await axios
       .post("/testapp/api/create", formData, {
         headers: {
@@ -93,11 +95,18 @@ const Post = () => {
       });
   };
 
+
   const fileHandler = (event) => {
     const audio = event.target.files[0];
     setFile(audio);
   };
 
+  const imageHandler = (event) => {
+    const image = event.target.files[0];
+    setImage(image);
+  };
+  
+  
   return (
     <>
       <Header />
@@ -200,6 +209,17 @@ const Post = () => {
               onChange={fileHandler}
             />
           </Box>
+          <Box flex="grow" paddingX={3} paddingY={3}>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              onChange={imageHandler}
+            />
+          </Box>
+          <Box flex="grow" paddingX={3} paddingY={3}>
+          
+          </Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <Box
@@ -222,6 +242,7 @@ const Post = () => {
             </Box>
           </Box>
         </Box>
+
       </Box>
       <Footer />
     </>

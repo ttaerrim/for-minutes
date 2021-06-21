@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, Heading, Table, Text, Button, Link } from "gestalt";
+import { Box, Heading, Table, Text, Button, Link,Image,Column } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -43,6 +43,7 @@ class Detail extends React.Component {
         alert("fail");
       });
   };
+
   renderMinute = async () => {
     await axios
       .get("/testapp/api/result/" + this.state.pk + "/")
@@ -51,6 +52,8 @@ class Detail extends React.Component {
       })
       .catch((error) => console.log(error));
   };
+
+  
   render() {
     const { location, pk } = this.props;
     const { result } = this.state;
@@ -148,17 +151,34 @@ class Detail extends React.Component {
                 </Table.Row>
               </Table>
 
+              <Box color="darkGray" height={200} width={200}>
+                <Image
+                  alt="square"
+                  color="#000"
+                  fit="contain"
+                  naturalHeight={1}
+                  naturalWidth={1}
+                  src="/testapp/api/create"
+                />
+              </Box>
+              
+              
+              <Box
+              column={5} 
+              padding={5} >
               <Button
                 type="button"
+                color="white"
                 onClick={this.createResult}
-                text="Result 결과"
-                inline
+                text="스크립트 결과보기"
+                
               />
+              </Box>
 
               <Box padding={10}>
                 <Result script={result.script}></Result>
               </Box>
-            </Box>
+              </Box>
           </div>
           <Footer />
           
