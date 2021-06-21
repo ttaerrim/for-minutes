@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Result = ({ pk }) => {
   const [script, setScript] = useState("");
-  const renderMinute = async () => {
+  const renderResult = async () => {
     await axios
       .get("/testapp/api/result/" + pk + "/")
       .then((response) => {
@@ -14,7 +14,7 @@ const Result = ({ pk }) => {
   };
 
   useEffect(() => {
-    renderMinute();
+    renderResult();
   }, []);
 
   return (
