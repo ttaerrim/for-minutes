@@ -33,6 +33,7 @@ const Minute = ({
       <Table.Cell>
         <Text>{date.substring(0, 10)}</Text>
       </Table.Cell>
+     
     </Table.Row>
   );
 };
