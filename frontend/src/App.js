@@ -12,10 +12,10 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={Main} />
-          <Route exact path="/post" component={Post} />
-          <Route exact path="/minutes" component={MinutesList} />
-          <Route exact path="/minute/:id" component={Detail} />
-          <Route exact path="/result/:id" component={Result} />
+          <Route exact path="/post/" component={Post} />
+          <Route exact path="/minutes/" component={MinutesList} />
+          <Route exact path="/minute/:id/" component={Detail} />
+          <Route exact path="/result/:id/" component={Result} />
         </div>
       </Router>
     );

@@ -15,10 +15,12 @@ myvenv/
 .myvenv/
 .fmvenv/
 fmvenv/
-
 .myvenv/
 myvenv/
+.venv/
+venv/
 
 my_settings.py
+yarn.lock
 
 *.DS_Store

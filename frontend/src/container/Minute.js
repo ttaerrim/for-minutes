@@ -20,7 +20,7 @@ const Minute = ({
       <Table.Cell>
         <Link
           to={{
-            pathname: `/minute/${id}`,
+            pathname: `/minute/${id}/`,
             state: { title, topic, writer, parties, date, meeting_date, file },
           }}
         >
