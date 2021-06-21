@@ -214,7 +214,7 @@ const Post = () => {
             <Box paddingX={1} paddingY={1}>
               <Button
                 text="완료"
-                color="red"
+                color="blue"
                 size="lg"
                 type="submit"
                 onClick={handleSubmit}
