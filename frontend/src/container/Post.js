@@ -4,7 +4,7 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 
-import { Box, TextField, Button, SelectList, Heading } from "gestalt";
+import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
 import { ko } from "date-fns/locale";
@@ -201,6 +201,9 @@ const Post = () => {
               />
             </Box>
           </Box>
+          <Text align="forceLeft" size="sm">
+            음성 파일
+          </Text>
           <Box flex="grow" paddingX={3} paddingY={3}>
             <input
               type="file"
@@ -209,17 +212,8 @@ const Post = () => {
               onChange={fileHandler}
             />
           </Box>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <input
-              type="file"
-              id="image"
-              accept="image/*"
-              onChange={imageHandler}
-            />
-          </Box>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-          
-          </Box>
+
+          <Box flex="grow" paddingX={3} paddingY={3}></Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <Box
