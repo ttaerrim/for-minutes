@@ -29,42 +29,43 @@ class MinutesList extends Component {
     const { results } = this.state;
 
     return (
-      <div>
+      <div class="bg wrapper">
         <Header />
-        <Box padding={10}>
-          <Table>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>
-                  <Text weight="bold">제목</Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text weight="bold">작성자</Text>
-                </Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Text weight="bold">날짜</Text>
-                </Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {results.map((result) => {
-                return (
-                  <Minute
-                    id={result.id}
-                    title={result.title}
-                    topic={result.topic}
-                    writer={result.writer}
-                    parties={result.parties}
-                    date={result.date}
-                    meeting_date={result.meeting_date}
-                    file={result.file}
-                  />
-                );
-              })}
-            </Table.Body>
-          </Table>
-        </Box>
-
+        <div class="main-content">
+          <Box padding={10}>
+            <Table>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>
+                    <Text weight="bold">제목</Text>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <Text weight="bold">작성자</Text>
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <Text weight="bold">날짜</Text>
+                  </Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {results.reverse().map((result) => {
+                  return (
+                    <Minute
+                      id={result.id}
+                      title={result.title}
+                      topic={result.topic}
+                      writer={result.writer}
+                      parties={result.parties}
+                      date={result.date}
+                      meeting_date={result.meeting_date}
+                      file={result.file}
+                    />
+                  );
+                })}
+              </Table.Body>
+            </Table>
+          </Box>
+        </div>
         <Footer />
       </div>
     );

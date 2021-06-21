@@ -12,6 +12,8 @@ import "gestalt-datepicker/dist/gestalt-datepicker.css";
 
 import axios from "axios";
 
+import { useHistory } from "react-router";
+
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
@@ -24,6 +26,8 @@ const Post = () => {
   const [hour, setHour] = React.useState("00");
   const [minute, setMinute] = React.useState("00");
   const [file, setFile] = React.useState();
+  const [image, setImage] = React.useState();
+  const history = useHistory();
 
   const createTime = () => {
     const meeting_time = [];
@@ -67,6 +71,7 @@ const Post = () => {
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
     formData.append("file", file);
+    formData.append("image", file);
     await axios
       .post("/testapp/meeting/", formData, {
         headers: {
@@ -74,10 +79,9 @@ const Post = () => {
         },
       })
       .then((res) => {
-        alert("success");
+        history.push("/minutes");
       })
       .catch((error) => {
-        console.log(formData.get("title"));
         if (error.response) {
           console.log(error.response.data);
           console.log(error.response.status);
@@ -91,11 +95,18 @@ const Post = () => {
       });
   };
 
+
   const fileHandler = (event) => {
     const audio = event.target.files[0];
     setFile(audio);
   };
 
+  const imageHandler = (event) => {
+    const image = event.target.files[0];
+    setImage(image);
+  };
+  
+  
   return (
     <>
       <Header />
@@ -198,6 +209,17 @@ const Post = () => {
               onChange={fileHandler}
             />
           </Box>
+          <Box flex="grow" paddingX={3} paddingY={3}>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              onChange={imageHandler}
+            />
+          </Box>
+          <Box flex="grow" paddingX={3} paddingY={3}>
+          
+          </Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <Box
@@ -212,7 +234,7 @@ const Post = () => {
             <Box paddingX={1} paddingY={1}>
               <Button
                 text="완료"
-                color="red"
+                color="blue"
                 size="lg"
                 type="submit"
                 onClick={handleSubmit}
@@ -220,6 +242,7 @@ const Post = () => {
             </Box>
           </Box>
         </Box>
+
       </Box>
       <Footer />
     </>

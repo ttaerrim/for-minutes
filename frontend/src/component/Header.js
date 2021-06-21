@@ -1,28 +1,60 @@
 import React from "react";
-import { Box,Flex,PageHeader,Sticky} from "gestalt";
+import {
+  Box,
+  Flex,
+  Text,
+  Link,
+  Icon,
+  PageHeader,
+  Sticky,
+  IconButton,
+} from "gestalt";
 import "gestalt/dist/gestalt.css";
-import './Header.css';
+import "./Header.css";
 import Navigation from "./Navigation";
-
-const Header = () => (
-    <Sticky top={0}>
-    <Flex direction="column" flex="grow">
-    <PageHeader
-      title="Logo. For Minutes"
-      primaryAction={
-            <Navigation/>
-      }
-    />
+import logo from "./fmlogo.png";
+import { useHistory } from "react-router";
+const Header = () => {
+  const history = useHistory();
+  const goHome = () => {
+    history.push("/");
+  };
+  return (
     <Box
+      paddingY={2}
+      paddingX={4}
+      mdPaddingX={6}
+      color="white"
       display="flex"
-      wrap
-      width="80%"
-      direction="column"
-      marginStart={5}
+      direction="row"
+      alignItems="center"
+      role="banner"
     >
+      <Box marginStart={-2} marginEnd={-2}>
+        <Text color="black" weight="bold">
+          <Link to="/">
+            <Box padding={2}>
+              <Box
+                display="flex"
+                direction="row"
+                alignItems="center"
+                marginStart={-1}
+                marginEnd={-1}
+              >
+                <Box paddingX={1}>
+                  <img src={logo} className="header__logo" onClick={goHome} />
+                </Box>
+                <Box paddingX={1}>FOR MINUTES</Box>
+              </Box>
+            </Box>
+          </Link>
+        </Text>
+      </Box>
+
+      <Box flex="grow" />
+      <Navigation />
     </Box>
-  </Flex>
-  </Sticky>
-);
+  );
+};
 
 export default Header;
