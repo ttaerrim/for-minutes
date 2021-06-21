@@ -27,7 +27,11 @@ class Detail extends React.Component {
     formData.append("pk", this.state.pk);
 
     await axios
-      .post("/testapp/result/", formData)
+      .post("/testapp/result/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
         alert("success");
       })

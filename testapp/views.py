@@ -10,20 +10,37 @@ class MeetingViewSet(viewsets.ModelViewSet):
     queryset = Meeting.objects.all()
     serializer_class = MeetingSerializer
 
+    
+
+
 
 class ResultViewSet(viewsets.ModelViewSet):
     queryset = Result.objects.all()
     serializer_class = ResultSerializer
 
-def resultCreate(request):
-    meeting = get_object_or_404(Meeting, pk=request.POST.get('pk'))
-    result = Result()
-    audio = "media/audio/"+str(meeting.file)
+    def create(self, request):
+        meeting = get_object_or_404(Meeting, pk=request.POST.get('pk'))
+        result = Result()
+        audio = "media/"+str(meeting.file)
     
-    res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
-    data = json.loads(res.text)
-    result.script = data['text']
-    result.meeting = meeting
-    result.save()
+        res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
+        data = json.loads(res.text)
+        result.script = data['text']
+        result.meeting = meeting
+        result.save()
 
-    return redirect('/result/' + str(meeting.id))
+        return redirect('/result/' + str(meeting.id))
+
+
+# def create(request):
+#     meeting = get_object_or_404(Meeting, pk=request.POST.get('pk'))
+#     result = Result()
+#     audio = "media/audio/"+str(meeting.file)
+    
+#     res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
+#     data = json.loads(res.text)
+#     result.script = data['text']
+#     result.meeting = meeting
+#     result.save()
+
+#     return redirect('/result/' + str(meeting.id))
