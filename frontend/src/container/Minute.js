@@ -20,7 +20,7 @@ const Minute = ({
       <Table.Cell>
         <Link
           to={{
-            pathname: `/minute/${id}`,
+            pathname: `/minute/${id}/`,
             state: { title, topic, writer, parties, date, meeting_date, file },
           }}
         >
@@ -33,6 +33,7 @@ const Minute = ({
       <Table.Cell>
         <Text>{date.substring(0, 10)}</Text>
       </Table.Cell>
+     
     </Table.Row>
   );
 };

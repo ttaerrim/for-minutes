@@ -13,9 +13,13 @@ mysqlclient==2.0.3
 Pillow==8.2.0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 PyMySQL==1.0.2
 >>>>>>> 771a3c92f8bc5ddf0a81bf4c10fc0af96e71f044
+=======
+PyMySQL==1.0.2
+>>>>>>> 3f9f75f458aa90fe6681e9a6475ce0684c8d7325
 =======
 PyMySQL==1.0.2
 >>>>>>> 3f9f75f458aa90fe6681e9a6475ce0684c8d7325
