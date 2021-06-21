@@ -15,9 +15,12 @@ class Main extends React.Component {
               <header class="py-5 mt-5">
                 <h1 class="display-4">For Minutes</h1>
                 <div class="row d_flex">
-                  <div class="col-md-3">
-                    <p class="lead mb-0">service </p>
-                    <p class="lead mb-0">introduction</p>
+                  <div class="col-md-4">
+                    <p class="lead mb-0">
+                      회의 음성 파일만 있으면 회의록 완성
+                      전문을 텍스트로 보여주고 키워드 추출과 요약까지 제공해주는
+                      회의록 요약 서비스 </p>
+                    
                   </div>
                   <div class="col-md-7"></div>
                 </div>

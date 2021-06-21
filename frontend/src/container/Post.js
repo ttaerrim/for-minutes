@@ -71,7 +71,7 @@ const Post = () => {
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
     formData.append("file", file);
-    formData.append("image", file);
+    formData.append("image", image);
     await axios
       .post("/testapp/api/create", formData, {
         headers: {
