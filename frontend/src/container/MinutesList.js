@@ -59,6 +59,7 @@ class MinutesList extends Component {
                       date={result.date}
                       meeting_date={result.meeting_date}
                       file={result.file}
+                      image={result.image}
                     />
                   );
                 })}

@@ -71,7 +71,7 @@ const Post = () => {
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
     formData.append("file", file);
-    formData.append("image", file);
+    formData.append("image", image);
     await axios
       .post("/testapp/api/create", formData, {
         headers: {
@@ -95,18 +95,18 @@ const Post = () => {
       });
   };
 
-
   const fileHandler = (event) => {
+    console.log(event);
     const audio = event.target.files[0];
     setFile(audio);
   };
 
   const imageHandler = (event) => {
+    console.log(event);
     const image = event.target.files[0];
     setImage(image);
   };
-  
-  
+
   return (
     <>
       <Header />
@@ -217,9 +217,7 @@ const Post = () => {
               onChange={imageHandler}
             />
           </Box>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-          
-          </Box>
+          <Box flex="grow" paddingX={3} paddingY={3}></Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <Box
@@ -242,7 +240,6 @@ const Post = () => {
             </Box>
           </Box>
         </Box>
-
       </Box>
       <Footer />
     </>

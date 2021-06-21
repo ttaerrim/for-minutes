@@ -2,7 +2,16 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, Heading, Table, Text, Button, Link,Image,Column } from "gestalt";
+import {
+  Box,
+  Heading,
+  Table,
+  Text,
+  Button,
+  Link,
+  Image,
+  Column,
+} from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -51,6 +60,12 @@ class Detail extends React.Component {
         this.props.history.push("/minutes");
       });
     }
+  };
+
+  imgUrl = () => {
+    const { location } = this.props;
+    const detailImg = "media/" + location.state.image;
+    return detailImg;
   };
   // renderMinute = async () => {
   //   await axios
@@ -158,6 +173,16 @@ class Detail extends React.Component {
                     </Text>
                   </Table.Cell>
                 </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text color="midnight" weight="bold">
+                      사진
+                    </Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <img src={this.imgUrl}></img>
+                  </Table.Cell>
+                </Table.Row>
               </Table>
               <Box flex="grow" paddingX={3} paddingY={3}>
                 <Box
@@ -201,10 +226,9 @@ class Detail extends React.Component {
               <Box padding={10}>
                 <Result pk={pk}></Result>
               </Box>
-              </Box>
+            </Box>
           </div>
           <Footer />
-          
         </div>
       );
     } else {
