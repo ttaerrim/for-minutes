@@ -1,5 +1,4 @@
 import React from "react";
-import { Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import "./Footer.css";
 

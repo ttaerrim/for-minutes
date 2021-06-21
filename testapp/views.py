@@ -2,13 +2,14 @@ import json
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Meeting, Result
 from .stt import *
+import os
+from forminutesprj.settings import MEDIA_ROOT
+from testapp.api import *
 
-from .serializer import MeetingSerializer, ResultSerializer
-from rest_framework import viewsets
-
+# Create your views here.
 
 def resultCreate(request):
-    meeting = get_object_or_404(Meeting, pk=request.POST.get('pk',1))
+    meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
     result = Result()
     audio = "media/"+str(meeting.file)
     
@@ -17,10 +18,4 @@ def resultCreate(request):
     result.script = data['text']
     result.meeting = meeting
     result.save()
-
     return redirect('/result/' + str(meeting.id))
-
-class MeetingViewSet(viewsets.ModelViewSet): 
-    queryset = Meeting.objects.all() 
-    serializer_class = MeetingSerializer
-

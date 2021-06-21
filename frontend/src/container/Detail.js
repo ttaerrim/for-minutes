@@ -2,7 +2,16 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, Heading, Table, Text, Button, Link } from "gestalt";
+import {
+  Box,
+  Heading,
+  Table,
+  Text,
+  Button,
+  Link,
+  Image,
+  Column,
+} from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -22,9 +31,8 @@ class Detail extends React.Component {
     if (location.state === undefined) {
       history.push("/");
     }
-
-    this.renderMinute();
   }
+
   createResult = async () => {
     let formData = new FormData();
     formData.append("pk", this.state.pk);
@@ -33,6 +41,7 @@ class Detail extends React.Component {
       .post("/testapp/result/create", formData)
       .then((res) => {
         alert("success");
+        window.location.reload();
       })
       .catch((error) => {
         if (error.response) {
@@ -43,17 +52,27 @@ class Detail extends React.Component {
         alert("fail");
       });
   };
-  renderMinute = async () => {
-    await axios
-      .get("/testapp/result/" + this.state.pk + "/")
-      .then((response) => {
-        this.setState({ result: response.data });
-      })
-      .catch((error) => console.log(error));
+
+  handleDelete = () => {
+    if (window.confirm("정말 삭제하시겠습니까??") == true) {
+      axios.delete(`/testapp/api/${this.state.pk}/delete`).then((res) => {
+        console.log(res.data);
+        this.props.history.push("/minutes");
+      });
+    }
   };
+  // renderMinute = async () => {
+  //   await axios
+  //     .get("/testapp/api/result/" + this.state.pk + "/")
+  //     .then((response) => {
+  //       this.setState({ result: response.data });
+  //     })
+  //     .catch((error) => console.log(console));
+  // };
   render() {
-    const { location, pk } = this.props;
-    const { result } = this.state;
+    const { location } = this.props;
+    const { result, pk } = this.state;
+
     if (location.state) {
       return (
         <div class="bg wrapper">
@@ -142,20 +161,54 @@ class Detail extends React.Component {
                     </Text>
                   </Table.Cell>
                   <Table.Cell>
-                    <Text>{location.state.meeting_date.substring(0, 10)}</Text>
+                    <Text>
+                      {location.state.meeting_date.substring(0, 10)}{" "}
+                      {location.state.meeting_date.substring(11, 16)}
+                    </Text>
                   </Table.Cell>
                 </Table.Row>
               </Table>
-
-              <Button
-                type="button"
-                onClick={this.createResult}
-                text="Result 결과"
-                inline
-              />
-
+              <Box flex="grow" paddingX={3} paddingY={3}>
+                <Box
+                  justifyContent="end"
+                  marginStart={-1}
+                  marginEnd={-1}
+                  marginTop={-1}
+                  marginBottom={-1}
+                  display="flex"
+                  wrap
+                >
+                  <Box paddingX={1} paddingY={1}>
+                    <Button
+                      text="삭제"
+                      color="red"
+                      onClick={this.handleDelete}
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  justifyContent="center"
+                  marginStart={-1}
+                  marginEnd={-1}
+                  marginTop={-1}
+                  marginBottom={-1}
+                  display="flex"
+                  wrap
+                >
+                  <Box paddingX={1} paddingY={1}>
+                    <Button
+                      type="button"
+                      onClick={this.createResult}
+                      text="Result 결과"
+                      inline
+                    >
+                      <i class="fa fa-spinner fa-spin"></i>
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
               <Box padding={10}>
-                <Result script={result.script}></Result>
+                <Result pk={pk}></Result>
               </Box>
             </Box>
           </div>

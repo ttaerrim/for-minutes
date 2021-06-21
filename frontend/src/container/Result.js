@@ -1,9 +1,22 @@
-import React from "react";
-import Footer from "../component/Footer";
-import Header from "../component/Header";
-
+import React, { useState, useEffect } from "react";
 import { Box, Text, ScrollBoundaryContainer, Flex } from "gestalt";
-const Result = ({ script }) => {
+import axios from "axios";
+
+const Result = ({ pk }) => {
+  const [script, setScript] = useState("");
+  const renderResult = async () => {
+    await axios
+      .get("/testapp/api/result/" + pk + "/")
+      .then((response) => {
+        setScript(response.data.script);
+      })
+      .catch((error) => console.log(console));
+  };
+
+  useEffect(() => {
+    renderResult();
+  }, []);
+
   return (
     <>
       <ScrollBoundaryContainer height={400}>

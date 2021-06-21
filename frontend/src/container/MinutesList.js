@@ -50,7 +50,7 @@ class MinutesList extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {results.map((result) => {
+                {results.reverse().map((result) => {
                   return (
                     <Minute
                       id={result.id}
@@ -75,7 +75,7 @@ class MinutesList extends Component {
 
   _renderMinute = async () => {
     await axios
-      .get("/testapp/")
+      .get("/testapp/api")
       .then((response) => {
         this.setState({ results: response.data });
       })
