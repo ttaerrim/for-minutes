@@ -105,8 +105,6 @@ const Post = () => {
     const image = event.target.files[0];
     setImage(image);
   };
-  
-  
   return (
     <>
       <Header />

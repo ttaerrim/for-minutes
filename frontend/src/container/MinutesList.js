@@ -27,6 +27,8 @@ class MinutesList extends Component {
   }
   render() {
     const { results } = this.state;
+    console.log("this.state:", this.state);
+    console.log("results: ", results);
 
     return (
       <div class="bg wrapper">
