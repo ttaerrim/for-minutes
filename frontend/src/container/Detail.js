@@ -2,7 +2,16 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import { Box, Heading, Table, Text, Button, Link,Image,Column } from "gestalt";
+import {
+  Box,
+  Heading,
+  Table,
+  Text,
+  Button,
+  Link,
+  Image,
+  Column,
+} from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -29,7 +38,7 @@ class Detail extends React.Component {
     formData.append("pk", this.state.pk);
 
     await axios
-      .post("/testapp/api/result/create", formData)
+      .post("/testapp/result/create", formData)
       .then((res) => {
         alert("success");
         window.location.reload();
@@ -201,10 +210,9 @@ class Detail extends React.Component {
               <Box padding={10}>
                 <Result pk={pk}></Result>
               </Box>
-              </Box>
+            </Box>
           </div>
           <Footer />
-          
         </div>
       );
     } else {
