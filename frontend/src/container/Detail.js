@@ -46,7 +46,7 @@ class Detail extends React.Component {
 
   handleDelete = () => {
     if (window.confirm("정말 삭제하시겠습니까??") == true) {
-      axios.delete(`/testapp/api/${this.state.pk}/delete`).then((res) => {
+      axios.delete(`/testapp/meeting/${this.state.pk}/delete`).then((res) => {
         console.log(res.data);
         this.props.history.push("/minutes");
       });

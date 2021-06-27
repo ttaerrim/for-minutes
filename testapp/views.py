@@ -15,14 +15,18 @@ class MeetingViewSet(viewsets.ModelViewSet):
     serializer_class = MeetingSerializer
 
 
-def resultCreate(request):
-    meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
-    result = Result()
-    audio = "media/"+str(meeting.file)
-    
-    res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
-    data = json.loads(res.text)
-    result.script = data['text']
-    result.meeting = meeting
-    result.save()
-    return redirect('/result/' + str(meeting.id))
+class ResultViewSet(viewsets.ModelViewSet):
+    queryset = Result.objects.all()
+    serializer_class = ResultSerializer
+
+    def create(self,request):
+        meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
+        result = Result()
+        audio = "media/"+str(meeting.file)
+        
+        res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
+        data = json.loads(res.text)
+        result.script = data['text']
+        result.meeting = meeting
+        result.save()
+        return redirect('/result/' + str(meeting.id))
