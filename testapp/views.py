@@ -7,6 +7,13 @@ from forminutesprj.settings import MEDIA_ROOT
 from testapp.api import *
 
 # Create your views here.
+from .serializer import MeetingSerializer,ResultSerializer
+from rest_framework import viewsets
+# list detail update delate
+class MeetingViewSet(viewsets.ModelViewSet):
+    queryset = Meeting.objects.all()
+    serializer_class = MeetingSerializer
+
 
 def resultCreate(request):
     meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))

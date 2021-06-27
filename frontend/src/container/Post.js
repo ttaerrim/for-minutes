@@ -95,6 +95,7 @@ const Post = () => {
       });
   };
 
+
   const fileHandler = (event) => {
     const audio = event.target.files[0];
     setFile(audio);
@@ -104,7 +105,6 @@ const Post = () => {
     const image = event.target.files[0];
     setImage(image);
   };
-
   return (
     <>
       <Header />
@@ -234,6 +234,7 @@ const Post = () => {
             </Box>
           </Box>
         </Box>
+
       </Box>
       <Footer />
     </>
