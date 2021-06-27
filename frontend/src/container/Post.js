@@ -73,7 +73,7 @@ const Post = () => {
     formData.append("file", file);
     formData.append("image", file);
     await axios
-      .post("/testapp/api/create", formData, {
+      .post("/testapp/meeting/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

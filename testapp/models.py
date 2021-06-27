@@ -42,3 +42,6 @@ class Result(models.Model):
     script = models.TextField()
     keyword = models.TextField()
     summary = models.TextField()
+
+    def __str__(self):
+        return self.meeting.title

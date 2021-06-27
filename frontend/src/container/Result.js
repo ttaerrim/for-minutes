@@ -6,7 +6,7 @@ const Result = ({ pk }) => {
   const [script, setScript] = useState("");
   const renderResult = async () => {
     await axios
-      .get("/testapp/api/result/" + pk + "/")
+      .get("/testapp/result/" + pk + "/")
       .then((response) => {
         setScript(response.data.script);
       })
