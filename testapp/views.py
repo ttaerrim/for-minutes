@@ -14,6 +14,10 @@ class MeetingViewSet(viewsets.ModelViewSet):
     queryset = Meeting.objects.all()
     serializer_class = MeetingSerializer
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9e43b6cd12d1b6ae8ca57f631170053949c4c98
 class ResultViewSet(viewsets.ModelViewSet):
     queryset = Result.objects.all()
     serializer_class = ResultSerializer
