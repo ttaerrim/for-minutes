@@ -32,10 +32,6 @@ class Result(models.Model):
     script = models.TextField()
     keyword = models.TextField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
-<<<<<<< HEAD
-=======
-
->>>>>>> a9e43b6cd12d1b6ae8ca57f631170053949c4c98
 
     def __str__(self):
         return self.meeting.title
