@@ -29,6 +29,7 @@ class Meeting(models.Model):
             os.remove(os.path.join(MEDIA_ROOT, self.photo.path))
         super(Meeting, self).delete(*args, **kargs)
 
+        
 class Result(models.Model):
     meeting = models.OneToOneField(
         Meeting,
@@ -36,8 +37,9 @@ class Result(models.Model):
         primary_key=True,
     )
     script = models.TextField()
-    keyword = models.TextField(null=True,blank=True)
-    summary = models.TextField(null=True,blank=True)
+    keyword = models.TextField(null=True, blank=True)
+    summary = models.TextField(null=True, blank=True)
+
 
     def __str__(self):
         return self.meeting.title
