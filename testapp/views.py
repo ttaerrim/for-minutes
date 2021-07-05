@@ -9,6 +9,7 @@ from testapp.api import *
 # Create your views here.
 from .serializer import MeetingSerializer,ResultSerializer
 from rest_framework import viewsets
+from .models import Result, Meeting
 # list detail update delate
 class MeetingViewSet(viewsets.ModelViewSet):
     queryset = Meeting.objects.all()
@@ -20,8 +21,10 @@ class ResultViewSet(viewsets.ModelViewSet):
     serializer_class = ResultSerializer
 
     def create(self,request):
-        meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
         result = Result()
+        print("**", result)
+        meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
+        print(result)
         audio = "media/"+str(meeting.file)
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
@@ -29,4 +32,4 @@ class ResultViewSet(viewsets.ModelViewSet):
         result.script = data['text']
         result.meeting = meeting
         result.save()
-        return redirect('/result/' + str(meeting.id))
+        return redirect('/testapp/result/' + str(meeting.id))
