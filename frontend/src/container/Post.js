@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
 
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -18,15 +17,16 @@ axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 const Post = () => {
-  const [topic, setTopic] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [writer, setWriter] = React.useState("");
-  const [parties, setParties] = React.useState("");
-  const [meeting_date, setMeetingDate] = React.useState(undefined);
-  const [hour, setHour] = React.useState("00");
-  const [minute, setMinute] = React.useState("00");
-  const [file, setFile] = React.useState();
-  const [image, setImage] = React.useState();
+  const [topic, setTopic] = useState();
+  const [title, setTitle] = useState();
+  const [writer, setWriter] = useState("");
+  const [parties, setParties] = useState("");
+  const [meeting_date, setMeetingDate] = useState(undefined);
+  const [hour, setHour] = useState(new Date().getHours());
+  const [minute, setMinute] = useState(new Date().getMinutes());
+  const [file, setFile] = useState();
+  const [image, setImage] = useState();
+  const [date, setDate] = useState(new Date());
   const history = useHistory();
 
   const createTime = () => {
@@ -173,7 +173,7 @@ const Post = () => {
                 id="meeting_date"
                 label="회의 날짜"
                 onChange={({ event, value }) => setMeetingDate(value)}
-                value={meeting_date}
+                value={date}
               />
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
@@ -199,7 +199,7 @@ const Post = () => {
               />
             </Box>
           </Box>
-          <Text align="forceLeft" size="sm">
+          <Text align="left" size="sm">
             음성 파일
           </Text>
           <Box flex="grow" paddingX={3} paddingY={3}>
@@ -210,7 +210,7 @@ const Post = () => {
               onChange={fileHandler}
             />
           </Box>
-          <Text align="forceLeft" size="sm">
+          <Text align="left" size="sm">
             이미지 파일
           </Text>
           <Box flex="grow" paddingX={3} paddingY={3}>

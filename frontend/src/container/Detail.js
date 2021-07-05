@@ -4,7 +4,7 @@ import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Result from "./Result.js";
 
-import { Box, Heading, Table, Text, Button, Image, Column } from "gestalt";
+import { Box, Heading, Table, Text, Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -14,7 +14,6 @@ import { useHistory } from "react-router";
 const Detail = (props) => {
   const history = useHistory();
   const [pk, setPk] = useState();
-  const [location, setLocation] = useState();
   const [topic, setTopic] = useState();
   const [title, setTitle] = useState();
   const [writer, setWriter] = useState("");
@@ -31,7 +30,6 @@ const Detail = (props) => {
   // }
   useEffect(() => {
     setPk(props.match.params.id);
-    setLocation(props.location);
     setTitle(props.location.state.title);
     setTopic(props.location.state.topic);
     setMeetingDate(props.location.state.meeting_date);
@@ -62,7 +60,7 @@ const Detail = (props) => {
   };
 
   const handleDelete = () => {
-    if (window.confirm("정말 삭제하시겠습니까??") == true) {
+    if (window.confirm("정말 삭제하시겠습니까??") === true) {
       axios.delete(`/testapp/meeting/${pk}/delete`).then((res) => {
         console.log(res.data);
         history.push("/minutes");
