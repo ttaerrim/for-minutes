@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
@@ -9,6 +9,7 @@ import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
 import { ko } from "date-fns/locale";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
+import { parseISO, format } from "date-fns";
 
 import axios from "axios";
 
@@ -17,18 +18,36 @@ import { useHistory } from "react-router";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
-const Post = () => {
-  const [topic, setTopic] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [writer, setWriter] = React.useState("");
-  const [parties, setParties] = React.useState("");
-  const [meeting_date, setMeetingDate] = React.useState(undefined);
-  const [hour, setHour] = React.useState("00");
-  const [minute, setMinute] = React.useState("00");
-  const [file, setFile] = React.useState();
-  const [image, setImage] = React.useState();
+const Update = (props) => {
+  const [nTopic, setNTopic] = useState(props.location.state.topic);
+  const [nTitle, setNTitle] = useState(props.location.state.title);
+  const [nWriter, setNWriter] = useState(props.location.state.writer);
+  const [nParties, setNParties] = useState(props.location.state.parties);
+  const [nMeetingDate, setNMeetingDate] = useState();
+  const [year, setYear] = useState(
+    props.location.state.meeting_date.substring(0, 4)
+  );
+  const [month, setMonth] = useState(
+    props.location.state.meeting_date.substring(5, 7)
+  );
+  const [day, setDay] = useState(
+    props.location.state.meeting_date.substring(8, 10)
+  );
+  const [nHour, setNHour] = useState(
+    props.location.state.meeting_date.substring(11, 13)
+  );
+  const [nMinute, setNMinute] = useState(
+    props.location.state.meeting_date.substring(14, 16)
+  );
+  const [nFile, setNFile] = useState(props.location.state.file);
+  const [nDate, setNDate] = useState(props.location.state.date);
+  const [nIimage, setNImage] = useState();
+  const [pk, setPk] = useState(props.match.params.id);
   const history = useHistory();
 
+  useEffect(() => {
+    console.log(props);
+  });
   const createTime = () => {
     const meeting_time = [];
     for (let i = 0; i < 24; i++) {
@@ -52,28 +71,27 @@ const Post = () => {
     return meeting_minute;
   };
 
-  const renderDate = (hour, minute) => {
+  const renderDate = (nHour, nMinute) => {
     let new_date = document.getElementById("meeting_date").value;
     new_date = new_date.split(".").join("-");
-    new_date += "T" + hour + ":" + minute + ":00+09:00";
+    new_date += "T" + nHour + ":" + nMinute + ":00+09:00";
 
     return new_date;
   };
 
-  const handleChange = (meeting_date) => meeting_date;
+  //   const handleChange = (meeting_date) => meeting_date;
 
   const handleSubmit = async () => {
     let formData = new FormData();
 
-    formData.append("title", title);
-    formData.append("topic", topic);
-    formData.append("writer", writer);
-    formData.append("parties", parties);
-    formData.append("meeting_date", renderDate(hour, minute));
-    formData.append("file", file);
-    formData.append("image", image);
+    formData.append("title", nTitle);
+    formData.append("topic", nTopic);
+    formData.append("writer", nWriter);
+    formData.append("parties", nParties);
+    formData.append("meeting_date", renderDate(nHour, nMinute));
+    formData.append("file", nFile);
     await axios
-      .post("/testapp/meeting/create", formData, {
+      .put(`/testapp/meeting/${pk}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -97,14 +115,13 @@ const Post = () => {
 
   const fileHandler = (event) => {
     const audio = event.target.files[0];
-    setFile(audio);
+    setNFile(audio);
   };
 
-  const imageHandler = (event) => {
-    console.log(event);
-    const img = event.target.files[0];
-    setImage(img);
-  };
+  //   const imageHandler = (event) => {
+  //     const image = event.target.files[0];
+  //     setImage(image);
+  //   };
   return (
     <>
       <Header />
@@ -122,38 +139,38 @@ const Post = () => {
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
             id="title"
-            onChange={({ event }) => setTitle(event.target.value)}
+            onChange={({ event }) => setNTitle(event.target.value)}
             placeholder="글 제목"
             label="제목"
-            value={title}
+            value={nTitle}
             type="text"
           />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
             id="topic"
-            onChange={({ event }) => setTopic(event.target.value)}
+            onChange={({ event }) => setNTopic(event.target.value)}
             placeholder="회의 안건"
             label="회의 안건"
-            value={topic}
+            value={nTopic}
           />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
             id="writer"
-            onChange={({ event }) => setWriter(event.target.value)}
+            onChange={({ event }) => setNWriter(event.target.value)}
             placeholder="작성자"
             label="작성자"
-            value={writer}
+            value={nWriter}
           />
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
             id="parties"
-            onChange={({ event }) => setParties(event.target.value)}
+            onChange={({ event }) => setNParties(event.target.value)}
             placeholder="회의 참여자"
             label="참여자"
-            value={parties}
+            value={nParties}
           />
         </Box>
 
@@ -172,30 +189,30 @@ const Post = () => {
                 localeData={ko}
                 id="meeting_date"
                 label="회의 날짜"
-                onChange={({ event, value }) => setMeetingDate(value)}
-                value={meeting_date}
+                onChange={({ event, value }) => setNMeetingDate(value)}
+                value={new Date(year, month - 1, day)}
               />
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
               <SelectList
                 id="meeting_time"
-                onChange={({ event }) => setHour(event.target.value)}
+                onChange={({ event }) => setNHour(event.target.value)}
                 options={createTime()}
                 size="md"
                 label="시"
-                value={hour}
+                value={nHour}
               />
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
               <SelectList
                 id="meeting_minute"
                 onChange={({ event }) => {
-                  setMinute(event.target.value);
+                  setNMinute(event.target.value);
                 }}
                 options={createMinute()}
                 size="md"
                 label="분"
-                value={minute}
+                value={nMinute}
               />
             </Box>
           </Box>
@@ -210,17 +227,7 @@ const Post = () => {
               onChange={fileHandler}
             />
           </Box>
-          <Text align="forceLeft" size="sm">
-            이미지 파일
-          </Text>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <input
-              type="file"
-              id="image"
-              accept="image/*"
-              onChange={imageHandler}
-            />
-          </Box>
+
           <Box flex="grow" paddingX={3} paddingY={3}></Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
@@ -250,4 +257,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default Update;
