@@ -31,8 +31,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('meeting', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='testapp.meeting')),
                 ('script', models.TextField()),
-                ('keyword', models.TextField(blank=True, null=True)),
-                ('summary', models.TextField(blank=True, null=True)),
+                ('keyword', models.TextField()),
+                ('summary', models.TextField()),
             ],
         ),
     ]

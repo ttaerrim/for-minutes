@@ -2,16 +2,7 @@ import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 
-import {
-  Box,
-  Heading,
-  Table,
-  Text,
-  Button,
-  Link,
-  Image,
-  Column,
-} from "gestalt";
+import { Box, Heading, Table, Text, Button, Link,Image,Column } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -38,7 +29,7 @@ class Detail extends React.Component {
     formData.append("pk", this.state.pk);
 
     await axios
-      .post("/testapp/result/create", formData)
+      .post("/testapp/api/result/create", formData)
       .then((res) => {
         alert("success");
         window.location.reload();
@@ -55,7 +46,7 @@ class Detail extends React.Component {
 
   handleDelete = () => {
     if (window.confirm("정말 삭제하시겠습니까??") == true) {
-      axios.delete(`/testapp/api/${this.state.pk}/delete`).then((res) => {
+      axios.delete(`/testapp/meeting/${this.state.pk}/delete`).then((res) => {
         console.log(res.data);
         this.props.history.push("/minutes");
       });
@@ -210,9 +201,10 @@ class Detail extends React.Component {
               <Box padding={10}>
                 <Result pk={pk}></Result>
               </Box>
-            </Box>
+              </Box>
           </div>
           <Footer />
+          
         </div>
       );
     } else {
