@@ -22,9 +22,7 @@ class ResultViewSet(viewsets.ModelViewSet):
 
     def create(self,request):
         result = Result()
-        print("**", result)
         meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
-        print(result)
         audio = "media/"+str(meeting.file)
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
