@@ -59,7 +59,7 @@ class MinutesList extends Component {
                       date={result.date}
                       meeting_date={result.meeting_date}
                       file={result.file}
-                      image={result.image}
+                      image={result.photo}
                     />
                   );
                 })}
@@ -77,6 +77,7 @@ class MinutesList extends Component {
       .get("/testapp/meeting")
       .then((response) => {
         this.setState({ results: response.data });
+        console.log(response.data);
       })
       .catch((error) => console.log(error));
   };

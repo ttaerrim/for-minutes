@@ -60,8 +60,6 @@ const Post = () => {
     return new_date;
   };
 
-  const handleChange = (meeting_date) => meeting_date;
-
   const handleSubmit = async () => {
     let formData = new FormData();
 
@@ -70,8 +68,9 @@ const Post = () => {
     formData.append("writer", writer);
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
+    formData.append("photo", image);
     formData.append("file", file);
-    formData.append("image", image);
+
     await axios
       .post("/testapp/meeting/create", formData, {
         headers: {

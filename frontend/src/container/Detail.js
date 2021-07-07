@@ -21,20 +21,20 @@ const Detail = (props) => {
   const [meeting_date, setMeetingDate] = useState(undefined);
   const [date, setDate] = useState();
   const [file, setFile] = useState();
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     result: this.props.location.state,
-  //     pk: this.props.match.params.id,
-  //   };
-  // }
+  const [image, setImage] = useState();
+
   useEffect(() => {
     setPk(props.match.params.id);
     setTitle(props.location.state.title);
     setTopic(props.location.state.topic);
-    setMeetingDate(props.location.state.meeting_date);
-    setDate(props.location.state.date);
+    setMeetingDate(
+      props.location.state.meeting_date.substring(0, 10) +
+        " " +
+        props.location.state.meeting_date.substring(11, 16)
+    );
+    setDate(props.location.state.date.substring(0, 10));
     setFile(props.location.state.file);
+    setImage(props.location.state.image);
     setWriter(props.location.state.writer);
     setParties(props.location.state.parties);
   });
@@ -44,7 +44,7 @@ const Detail = (props) => {
     formData.append("pk", pk);
 
     await axios
-      .post("/testapp/api/result/create", formData)
+      .post("/testapp/result/create", formData)
       .then((res) => {
         alert("success");
         window.location.reload();
@@ -94,7 +94,7 @@ const Detail = (props) => {
             color="white"
           >
             <Heading size="md" color="midnight">
-              Title: {props.location.state.title}
+              Title: {title}
             </Heading>
           </Box>
           <Box height={50}></Box>
@@ -107,7 +107,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.title}</Text>
+                <Text>{title}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -117,7 +117,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.topic}</Text>
+                <Text>{topic}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -127,7 +127,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.writer}</Text>
+                <Text>{writer}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -137,7 +137,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.parties}</Text>
+                <Text>{parties}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -147,7 +147,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.date.substring(0, 10)}</Text>
+                <Text>{date}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -157,10 +157,18 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>
-                  {props.location.state.meeting_date.substring(0, 10)}{" "}
-                  {props.location.state.meeting_date.substring(11, 16)}
+                <Text>{meeting_date}</Text>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Text color="midnight" weight="bold">
+                  사진
                 </Text>
+              </Table.Cell>
+              <Table.Cell>
+                {image}
+                <img src={image}></img>
               </Table.Cell>
             </Table.Row>
           </Table>
@@ -186,6 +194,7 @@ const Detail = (props) => {
                       date: date,
                       meeting_date: meeting_date,
                       file: file,
+                      image: image,
                     },
                   }}
                 >
