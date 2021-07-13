@@ -33,5 +33,6 @@ class Result(models.Model):
     keyword = models.TextField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
 
+
     def __str__(self):
         return self.meeting.title
