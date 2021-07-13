@@ -19,7 +19,10 @@ class ResultViewSet(viewsets.ModelViewSet):
     serializer_class = ResultSerializer
 
     def create(self, request):
-        meeting = get_object_or_404(Meeting, pk=request.POST.get('pk'))
+        print("들어가나?")
+        meeting = Meeting(request.POST, instance=request.meeting)
+        # meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
+        print(request.POST.get('pk', 1))
         result = Result()
         audio = "media/"+str(meeting.file)
     

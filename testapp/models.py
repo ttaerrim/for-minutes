@@ -38,6 +38,7 @@ class Result(models.Model):
         Meeting,
         on_delete=models.CASCADE,
         primary_key=True,
+        related_name='result'
     )
     script = models.TextField()
     keyword = models.TextField(null=True,blank=True)
