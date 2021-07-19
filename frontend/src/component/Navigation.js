@@ -1,6 +1,6 @@
 import React from "react";
 //import { Link } from "react-router-dom";
-import { Heading, Text,Link,Table} from "gestalt";
+import { Heading, Text,Link,Table,Box} from "gestalt";
 import "gestalt/dist/gestalt.css";
 import './Navigation.css';
 
@@ -8,8 +8,8 @@ import './Navigation.css';
 
 const Navigation = () => {
   return (
-    <Text align="center" color="navy">
-      <Heading size="samll" color="navy">
+    <Text align="center" color="gray">
+      <Heading size="samll" color="gray">
      
       <div className="navigation"> 
       
@@ -23,10 +23,10 @@ const Navigation = () => {
         <Link href="/"  hoverStyle= "none" tapStyle= 'compress'> Home </Link>
       </Table.Cell>
       <Table.Cell>
-      <Link href="/minutes" hoverStyle= "none" tapStyle= 'compress'> MinutesList </Link>
+        <Link href="/minutes" hoverStyle= "none" tapStyle= 'compress'> MinutesList </Link>
       </Table.Cell>
       <Table.Cell>
-      <Link href="/post" hoverStyle= "none" tapStyle= 'compress'> Post </Link>
+        <Link href="/post" hoverStyle= "none" tapStyle= 'compress'> Post </Link>
       </Table.Cell>
      
     </Table.Row>
