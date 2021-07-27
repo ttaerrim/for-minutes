@@ -44,7 +44,7 @@ const Detail = (props) => {
     formData.append("pk", pk);
 
     await axios
-      .post("/testapp/result/create", formData)
+      .post("/testapp/result/" + this.state.pk + "/create", formData)
       .then((res) => {
         alert("success");
         window.location.reload();
