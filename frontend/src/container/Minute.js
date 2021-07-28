@@ -14,6 +14,7 @@ const Minute = ({
   date,
   meeting_date,
   file,
+  image,
 }) => {
   return (
     <Table.Row>
@@ -21,7 +22,16 @@ const Minute = ({
         <Link
           to={{
             pathname: `/minute/${id}`,
-            state: { title, topic, writer, parties, date, meeting_date, file },
+            state: {
+              title,
+              topic,
+              writer,
+              parties,
+              date,
+              meeting_date,
+              file,
+              image,
+            },
           }}
         >
           <Text>{title}</Text>
@@ -33,7 +43,6 @@ const Minute = ({
       <Table.Cell>
         <Text>{date.substring(0, 10)}</Text>
       </Table.Cell>
-     
     </Table.Row>
   );
 };

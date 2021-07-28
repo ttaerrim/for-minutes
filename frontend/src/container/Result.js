@@ -4,18 +4,19 @@ import axios from "axios";
 
 const Result = ({ pk }) => {
   const [script, setScript] = useState("");
-  const renderMinute = async () => {
+  const renderResult = async () => {
     await axios
-      .get("/testapp/api/result/" + pk + "/")
+      .get(`/testapp/result/${pk}`)
       .then((response) => {
         setScript(response.data.script);
+        console.log(response);
       })
-      .catch((error) => console.log(console));
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    renderMinute();
-  }, []);
+    renderResult();
+  });
 
   return (
     <>

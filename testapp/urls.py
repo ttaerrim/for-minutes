@@ -1,14 +1,34 @@
-from django.urls import path
+from django.urls import path,include
 from .api import *
 import testapp.views
 
-urlpatterns = [
-    path('api', MeetingApi.as_view()),
-    path('api/create', MeetingCreateApi.as_view()),
-    path('api/<int:pk>', MeetingUpdateApi.as_view()),
-    path('api/<int:pk>/delete', MeetingDeleteApi.as_view()),
+from .views import MeetingViewSet, ResultViewSet
 
-    path('api/result', ResultApi.as_view()),
-    path('api/result/create', testapp.views.resultCreate, name="result_create"),
-    path('api/result/<int:pk>/', ResultUpdateApi.as_view()),
+urlpatterns = [
+    path('meeting', MeetingViewSet.as_view({
+        'get': 'list'
+    })),
+    path('meeting/create', MeetingViewSet.as_view({
+        'post': 'create'
+    })),
+    path('meeting/<int:pk>', MeetingViewSet.as_view({
+        'get': 'retrieve',
+        'put': 'update',
+        'patch': 'partial_update'
+    })),
+    path('meeting/<int:pk>/delete', MeetingViewSet.as_view({
+        'delete': 'destroy'
+    })),
+
+    path('result', ResultViewSet.as_view({
+        'get': 'list'
+    })),
+    path('result/<int:pk>/create', ResultViewSet.as_view({
+        'post': 'create'
+    })),
+    path('result/<int:pk>', ResultViewSet.as_view({
+        'get': 'retrieve',
+        'put': 'update',
+        'patch': 'partial_update'
+    })),
 ]

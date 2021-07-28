@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  Text,
-  Link,
-  Icon,
-  PageHeader,
-  Sticky,
-  IconButton,
-} from "gestalt";
+import { Box, Text, Link } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import "./Header.css";
 import Navigation from "./Navigation";

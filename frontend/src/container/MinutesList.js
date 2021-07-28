@@ -59,6 +59,7 @@ class MinutesList extends Component {
                       date={result.date}
                       meeting_date={result.meeting_date}
                       file={result.file}
+                      image={result.photo}
                     />
                   );
                 })}
@@ -73,7 +74,7 @@ class MinutesList extends Component {
 
   _renderMinute = async () => {
     await axios
-      .get("/testapp/api")
+      .get("/testapp/meeting")
       .then((response) => {
         this.setState({ results: response.data });
       })
