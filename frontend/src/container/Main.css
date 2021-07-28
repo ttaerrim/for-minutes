@@ -1,10 +1,10 @@
 
 
-@import url('https://fonts.googleapis.com/css?family=Muli:200,300,400');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@500&display=swap');
 
 body {
   background: #ffffff;
-  font-family: 'Muli', sans-serif;
+  font-family: 'Encode Sans SC', sans-serif;
   font-style: normal;
   font-weight: 300;
   overflow-x: hidden;
@@ -66,7 +66,7 @@ strong, span {
 -----------------------------------------*/
 
 .section-btn {
-  background: #ffc400;
+  background: #3f75da;
   border: none;
   border-radius: 50px;
   color: #ffffff;
@@ -427,7 +427,7 @@ a:hover, a:active, a:focus {
 }
 
 #contact button#submit:hover {
-  background: #ffc400;
+  background: #3f75da;
   color: #ffffff;
 }
 
@@ -466,7 +466,7 @@ a:hover, a:active, a:focus {
 }
 
 .social-icon li a:hover {
-  background: #d7b065;
+  background: #3f75da;
   transform: scale(1.1);
 }
 
@@ -557,4 +557,88 @@ a:hover, a:active, a:focus {
   }
 
 }
+
+/********************** get started Button *********************/
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+.snip1535 {
+  background-color: #002c6d;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.snip1535:before,
+.snip1535:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+.snip1535:before {
+  border-color: #002c6d;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  right: -5px;
+  top: -5px;
+}
+.snip1535:after {
+  border-bottom-width: 2px;
+  border-color: #002c6d;
+  border-left-width: 2px;
+  bottom: -5px;
+  left: -5px;
+}
+.snip1535:hover,
+.snip1535.hover {
+  background-color: #002c6d;
+}
+.snip1535:hover:before,
+.snip1535.hover:before,
+.snip1535:hover:after,
+.snip1535.hover:after {
+  height: 100%;
+  width: 100%;
+}
+
+
+/********************** box *********************/
+.boxes{
+  margin: 20px;
+  margin-top: 50px;
+  background-color: white;
+  overflow:auto;
+  
+  border-radius: 10px 10px 10px 10px;
+}
+
+.boxes1{
+  margin: 20px;
+  margin-top: 150px;
+  min-height: 110vh;
+  background-color: rgb(255, 255, 255);
+  overflow:auto;
+  box-shadow: 0px 12px 18px -6px black;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.grids {
+  max-width: 80%;
+  margin:auto;
+}
+
 
