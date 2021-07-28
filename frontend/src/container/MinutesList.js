@@ -77,7 +77,6 @@ class MinutesList extends Component {
       .get("/testapp/meeting")
       .then((response) => {
         this.setState({ results: response.data });
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
   };

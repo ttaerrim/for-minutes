@@ -6,16 +6,17 @@ const Result = ({ pk }) => {
   const [script, setScript] = useState("");
   const renderResult = async () => {
     await axios
-      .get("/testapp/result/" + pk)
+      .get(`/testapp/result/${pk}`)
       .then((response) => {
         setScript(response.data.script);
+        console.log(response);
       })
-      .catch((error) => console.log(console));
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
     renderResult();
-  }, []);
+  });
 
   return (
     <>

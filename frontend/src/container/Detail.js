@@ -34,7 +34,11 @@ const Detail = (props) => {
     );
     setDate(props.location.state.date.substring(0, 10));
     setFile(props.location.state.file);
-    setImage(props.location.state.image);
+    setImage(
+      !props.location.state.image
+        ? props.location.state.image
+        : props.location.state.image.replace("media", "static")
+    );
     setWriter(props.location.state.writer);
     setParties(props.location.state.parties);
   });
@@ -44,7 +48,7 @@ const Detail = (props) => {
     formData.append("pk", pk);
 
     await axios
-      .post("/testapp/result/" + this.state.pk + "/create", formData)
+      .post(`/testapp/result/${pk}/create`, formData)
       .then((res) => {
         alert("success");
         window.location.reload();
@@ -67,8 +71,6 @@ const Detail = (props) => {
       });
     }
   };
-
-  const handleUpdate = () => {};
 
   return (
     <div class="bg wrapper">
@@ -167,7 +169,6 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                {image}
                 <img src={image}></img>
               </Table.Cell>
             </Table.Row>
@@ -220,9 +221,7 @@ const Detail = (props) => {
                   onClick={createResult}
                   text="Result 결과"
                   inline
-                >
-                  <i class="fa fa-spinner fa-spin"></i>
-                </Button>
+                ></Button>
               </Box>
             </Box>
           </Box>
