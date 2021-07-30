@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
+import Navigation from "../component/Navigation.js";
 import Result from "./Result.js";
+import "./Main.css";
 
 import { Box, Heading, Table, Text, Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -74,7 +76,7 @@ const Detail = (props) => {
 
   return (
     <div class="bg wrapper">
-      <Header />
+      <Navigation />
       <div class="main-content">
         <Box
           display="flex"
@@ -206,6 +208,8 @@ const Detail = (props) => {
                 <Button text="삭제" color="red" onClick={handleDelete} />
               </Box>
             </Box>
+
+
             <Box
               justifyContent="center"
               marginStart={-1}
@@ -230,6 +234,10 @@ const Detail = (props) => {
           </Box>
         </Box>
       </div>
+
+
+      
+
       <Footer />
     </div>
   );

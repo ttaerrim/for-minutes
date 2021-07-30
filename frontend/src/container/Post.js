@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
+
+import Aos from "aos"; 
+import "aos/dist/aos.css";
+import "./Main.css";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import Navigation from "../component/Navigation.js";
 
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -70,7 +75,6 @@ const Post = () => {
     formData.append("meeting_date", renderDate(hour, minute));
     formData.append("photo", image);
     formData.append("file", file);
-
     await axios
       .post("/testapp/meeting/create", formData, {
         headers: {
@@ -104,9 +108,21 @@ const Post = () => {
     const img = event.target.files[0];
     setImage(img);
   };
+
+
+  useEffect(()=>{
+    Aos.init({duration:2000});
+  },[]);
+
   return (
     <>
-      <Header />
+      <Navigation />
+
+      <div align="center"><h3>새 회의록 추가</h3></div>
+
+      <div className="grids">
+        <div data-aos="fade-up" className="boxes1">
+                     
       <Box
         display="flex"
         marginStart={-3}
@@ -234,8 +250,8 @@ const Post = () => {
           >
             <Box paddingX={1} paddingY={1}>
               <Button
-                text="완료"
-                color="blue"
+                text="등록"
+                color="black"
                 size="lg"
                 type="submit"
                 onClick={handleSubmit}
@@ -244,6 +260,8 @@ const Post = () => {
           </Box>
         </Box>
       </Box>
+      </div>
+      </div>
       <Footer />
     </>
   );
