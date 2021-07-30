@@ -6,6 +6,7 @@ import "./Main.css";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import Navigation from "../component/Navigation.js";
 
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";

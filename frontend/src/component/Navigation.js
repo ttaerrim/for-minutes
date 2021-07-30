@@ -38,7 +38,6 @@ const Navigation = () => {
                                     <Nav className="mr-auto">
                                     <Nav.Link href="/">Home</Nav.Link>
                                     <Nav.Link href="/about">About Us</Nav.Link>
-                                    <Nav.Link href="/">Contact Us</Nav.Link>
                                     <NavDropdown align="end" title="My" id="collasible-nav-dropdown">
                                         <NavDropdown.Item href="/minutes">MinutesList</NavDropdown.Item>
                                         <NavDropdown.Item href="/post">Post</NavDropdown.Item>

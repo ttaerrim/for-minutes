@@ -6,7 +6,7 @@ const Footer = () => (
   <footer class="footer-dark">
     <div class="container">
       <div class="row">
-        <div class="col-sm-9 col-md-2 item">
+        <div class="col-sm-9 col-md-3 item">
           <h3>Home</h3>
           <ul>
             <li>
@@ -18,7 +18,7 @@ const Footer = () => (
             
           </ul>
         </div>
-        <div class="col-sm-6 col-md-2 item">
+        <div class="col-sm-6 col-md-3 item">
           <h3>About Us</h3>
           <ul>
             <li>

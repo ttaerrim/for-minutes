@@ -16,64 +16,108 @@ const Main=() => {
       <div>
       <Navigation />
         <div>
-        
             <div className="grids">
-               <a href="/post">
-                     <button class="snip1535">
-                     Get Started
-                     </button>
-               </a>
-                
-                <div data-aos="fade-up" className="boxes">
-                    <section id="about">
+               
+
+
+               <div data-aos="fade-in" className="boxes">
+                <section id="nino-services">
                     <div class="container">
-                         <div class="row">
-
-                              <div class="col-md-8 col-sm-12">
-                                   <div class="about-thumb">
-                                        <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
-                                             <h2>A Little Bit Of Information</h2>
-                                             <p><strong>Artificial intelligence meeting minutes summary service</strong></p>
-                                        </div>
-                                        <div class="wow fadeInUp" data-wow-delay="0.8s">
-                                             <p>Award winning interdisciplinary Designer & Art director. We have a team who specialise in coding websites and themes perfect blend of style and function for a wide range of interactive product design.</p>
-                                        </div>
+                              <div class="sectionContent">			
+                                   <div class="fw" layout="row">
+                                   <a href="/post">
+                                        <button class="snip1535">
+                                        Get Started
+                                        </button>
+                                   </a>
                                    </div>
                               </div>
-
-                              <div class="col-md-4 col-sm-12">
-                                   <div class="wow fadeInUp" data-wow-delay="0.4s">
-                                        <h2>On Instagram</h2>
-                                   </div>
-
-                                   <div class="wow fadeInUp" data-wow-delay="0.6s">
-                                        <a href="https://www.instagram.com/p/cqED9yjN0j/">
-                                             <img src="https://photo.coolenjoy.net/data/editor/1801/20180115165108_qrveklet.jpg" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/enL0SsDN51/">
-                                             <img src="https://i.pinimg.com/originals/9c/69/f0/9c69f0361aa1eae7aaedb00bbf94b541.png" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/apOuRTDNwJ/">
-                                             <img src="https://lh3.googleusercontent.com/proxy/Jyg9CvLMirom6d6OXOgEi5WHXDka9dv8JQbFgJTYDfJMtjBtt4HSn1YFfH5kTINZ1J9vEs91ETKZLV9HS9zI3EDsPemnYeNyMHADO_IQbviCcOdSmxBwSlbpDUNHwzXzCts0rS_MsXtUQbUO8K7Csy5C-6PzNiJfuAw1n9SD6CkDZXpJNj3hjc-rbeDINi7rbD0wkTbLVoQa4fLHBtwfT37NvFU" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/ZXIj33jN2v/">
-                                             <img src="https://www.apple.com/newsroom/images/product/os/macos/standard/Apple-macOS-Mojave-iMac-Pro-dark-mode-screen-09242018_big.jpg.large.jpg" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/Xwev1FjN9-/">
-                                             <img src="http://thumbnail.10x10.co.kr/webimage/image/add2/310/A003104550_02.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-                                   </div>
-                              </div>
-
-                         </div>
                     </div>
                </section>
-                </div>
+          </div>
 
+          <div data-aos="fade-up" className="boxes">
+          <section id="nino-story">
+                    <div class="container">
+                         <h2 class="nino-sectionHeading">
+                         A Little Bit Of Information
+                         </h2>
+                         <p class="nino-sectionDesc"><strong>Artificial intelligence meeting minutes summary service</strong></p>
+                         <p class="nino-sectionDesc">"인공지능 회의 요약 서비스"  서비스/ 기술 설명 등등 소개글"인공지능 회의 요약 서비스"  서비스/ 기술 설명 등등 소개글</p>
+                         
+                    </div>		
+               </section>
+               </div>
+                
+
+
+          <div data-aos="fade-in" className="boxes">
+                <section id="nino-services">
+                    <div class="container">
+                         <h2 class="nino-sectionHeading">
+                                   Amazing Services
+                              </h2>
+                              <div class="sectionContent">			
+                                   <div class="fw" layout="row">
+                                        <div class="col-md-4 col-sm-6 item ">
+                                             <div layout="row">
+                                                  <img src="https://cdn.icon-icons.com/icons2/2066/PNG/512/instagram_icon_125245.png" width="10%" height="10%"></img>
+                                                  <div>
+                                                       <h4 class="nino-serviceTitle">Css/Html</h4>
+                                                       <p>Photography is the science, art and practice of creating durable images by recording light or other electromagnetic radiation</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 item ">
+                                             <div layout="row">
+                                                  <i class="mdi mdi-blender nino-icon fsr"></i>
+                                                  <div>
+                                                       <h4 class="nino-serviceTitle">Web Design</h4>
+                                                       <p>Web design encompasses many different skills and disciplines in the production and maintenance of websites.</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 item ">
+                                             <div layout="row">
+                                                  <i class="mdi mdi-bookmark-plus-outline nino-icon fsr"></i>
+                                                  <div>
+                                                       <h4 class="nino-serviceTitle">Creativity</h4>
+                                                       <p>Creativity is a phenomenon whereby something new and somehow valuable is formed. The created item may be intangible or a physical object.</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 item ">
+                                             <div layout="row">
+                                                  <i class="mdi mdi-buffer nino-icon fsr"></i>
+                                                  <div>
+                                                       <h4 class="nino-serviceTitle">seo</h4>
+                                                       <p>Search engine optimization (SEO) is the process of affecting the visibility of a website or a web page in a web search engine's unpaid results.</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 item ">
+                                             <div layout="row">
+                                                  <i class="mdi mdi-desktop-mac nino-icon fsr"></i>
+                                                  <div>
+                                                       <h4 class="nino-serviceTitle">Css/Html</h4>
+                                                       <p>HyperText Markup Language, commonly abbreviated as HTML, is the standard markup language used to create web pages. </p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 item ">
+                                             <div layout="row">
+                                                  <i class="mdi mdi-diamond nino-icon fsr"></i>
+                                                  <div>
+                                                       <h4 class="nino-serviceTitle">digital</h4>
+                                                       <p>With digital signals, system noise, provided it is not too great, will not change the quantification whereas with signals handled using analog processing.</p>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                    </div>
+               </section>
+          </div>
                 <div data-aos="fade-left" className="boxes">
                 <section id="contact">
      <div class="container">
@@ -81,7 +125,7 @@ const Main=() => {
 
                <div class="col-md-12 col-sm-12">
                     <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
-                         <h2>You got projects?</h2>
+                    <h2 class="nino-sectionHeading">Contact Us</h2>
                          <p>Lorem ipsum dolor sit amet, consectetur venenatis tincidunt.</p>
                     </div>
                </div>

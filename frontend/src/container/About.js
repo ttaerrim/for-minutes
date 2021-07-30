@@ -17,56 +17,114 @@ const About=() => {
       <Navigation />
         <div>
             <div className="grids">
-                
-                <div data-aos="fade-up" className="boxes">
-                    <section id="about">
-                    <div class="container">
-                         <div class="row">
-
-                              <div class="col-md-8 col-sm-12">
-                                   <div class="about-thumb">
-                                        <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
-                                             <h2>Project</h2>
-                                             <p><strong>Artificial intelligence meeting minutes summary service</strong></p>
-                                        </div>
-                                        <div class="wow fadeInUp" data-wow-delay="0.8s">
-                                             <p>Award winning interdisciplinary Designer & Art director. We have a team who specialise in coding websites and themes perfect blend of style and function for a wide range of interactive product design.</p>
-                                        </div>
+            <div data-aos="fade-up" className="boxes">
+            <section id="nino-story">
+		     <div class="container">
+			<h2 class="nino-sectionHeading">
+				Story about us
+			</h2>
+			<p class="nino-sectionDesc">2021 IT미디어학과 졸업 작품 프로젝트<br/> 
+               인공지능 회의 요약 서비스<br/>
+               For_Minutes </p>
+			<div class="sectionContent">
+				<div class="row nino-hoverEffect">
+					<div class="col-md-4 col-sm-4">
+						<div class="item">
+							<a class="overlay" href="#">
+								<span class="content">
+									<i class="mdi mdi-account-multiple nino-icon"></i>
+									super team
+								</span>
+								<img src="images/SA_3.png" alt=""/>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="item">
+							<a class="overlay" href="#">
+								<span class="content">
+									<i class="mdi mdi-image-filter-center-focus-weak nino-icon"></i>
+									Creativity
+								</span>
+								<img src="https://blog.kakaocdn.net/dn/b8pU3g/btqFOMWEtk4/DS8aILLcTv63NYCxpoZeCK/img.png" alt=""/>
+							</a>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="item">
+							<a class="overlay" href="#">
+								<span class="content">
+									<i class="mdi mdi-airplay nino-icon"></i>
+									Digital
+								</span>
+								<img src="https://blog.kakaocdn.net/dn/b8pU3g/btqFOMWEtk4/DS8aILLcTv63NYCxpoZeCK/img.png" alt=""/>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</section>
+     </div>
+          <div data-aos="fade-up" className="boxes">
+               <section id="nino-latestBlog">
+               <div class="container">
+                    <h2 class="nino-sectionHeading">
+                              Our History
+                         </h2>
+                         <div class="sectionContent">
+                              <div class="row">
+                                   <div class="col-md-4 col-sm-4">
+                                        <article>
+                                             <div class="articleThumb">
+                                                  <img src="images/OH_1.jpg" alt=""/>
+                                                  <div class="date">
+                                                       <span class="number">27</span>
+                                                       <span class="text">Mar</span>
+                                                  </div>
+                                             </div>
+                                             <h3 class="articleTitle"><a href="">프로젝트 기획 발표</a></h3>
+                                             <p class="articleDesc">
+                                                  인공지능 회의 요약 서비스 'For-Minutes' 기획 <br/> 적용 기술에 대한 자료 수집
+                                             </p>
+                                        </article>
+                                   </div>
+                                   <div class="col-md-4 col-sm-4">
+                                        <article>
+                                             <div class="articleThumb">
+                                                 <img src="https://img.insight.co.kr/static/2019/10/10/700/b80r0s275if8x2m8l95v.jpg" alt=""/>
+                                                  <div class="date">
+                                                       <span class="number">14</span>
+                                                       <span class="text">Jan</span>
+                                                  </div>
+                                             </div>
+                                             <h3 class="articleTitle"><a href="">sed do eiusmod tempor</a></h3>
+                                             <p class="articleDesc">
+                                                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                             </p>
+                                        </article>
+                                   </div>
+                                   <div class="col-md-4 col-sm-4">
+                                        <article>
+                                             <div class="articleThumb">
+                                                  <img src="http://image.auction.co.kr/itemimage/21/71/cb/2171cb03c6.jpg" alt=""/>
+                                                  <div class="date">
+                                                       <span class="number">12</span>
+                                                       <span class="text">Jan</span>
+                                                  </div>
+                                             </div>
+                                             <h3 class="articleTitle"><a href="">incididunt ut labore et dolore</a></h3>
+                                             <p class="articleDesc">
+                                                  Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                             </p>
+                                        </article>
                                    </div>
                               </div>
-
-                              <div class="col-md-4 col-sm-12">
-                                   <div class="wow fadeInUp" data-wow-delay="0.4s">
-                                        <h2>On Instagram</h2>
-                                   </div>
-
-                                   <div class="wow fadeInUp" data-wow-delay="0.6s">
-                                        <a href="https://www.instagram.com/p/cqED9yjN0j/">
-                                             <img src="https://photo.coolenjoy.net/data/editor/1801/20180115165108_qrveklet.jpg" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/enL0SsDN51/">
-                                             <img src="https://i.pinimg.com/originals/9c/69/f0/9c69f0361aa1eae7aaedb00bbf94b541.png" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/apOuRTDNwJ/">
-                                             <img src="https://lh3.googleusercontent.com/proxy/Jyg9CvLMirom6d6OXOgEi5WHXDka9dv8JQbFgJTYDfJMtjBtt4HSn1YFfH5kTINZ1J9vEs91ETKZLV9HS9zI3EDsPemnYeNyMHADO_IQbviCcOdSmxBwSlbpDUNHwzXzCts0rS_MsXtUQbUO8K7Csy5C-6PzNiJfuAw1n9SD6CkDZXpJNj3hjc-rbeDINi7rbD0wkTbLVoQa4fLHBtwfT37NvFU" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/ZXIj33jN2v/">
-                                             <img src="https://www.apple.com/newsroom/images/product/os/macos/standard/Apple-macOS-Mojave-iMac-Pro-dark-mode-screen-09242018_big.jpg.large.jpg" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-
-                                        <a href="https://www.instagram.com/p/Xwev1FjN9-/">
-                                             <img src="http://thumbnail.10x10.co.kr/webimage/image/add2/310/A003104550_02.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false" class="img-responsive" alt="instagram image" width="100%"/>
-                                        </a>
-                                   </div>
-                              </div>
-
                          </div>
-                    </div>
-               </section>
-                </div>
+               </div>
+          </section>
+          </div>
+                
 
                 <div data-aos="fade-right" className="boxes">
                               <section id="work">
@@ -75,7 +133,7 @@ const About=() => {
 
                                         <div class="col-md-12 col-sm-12">
                                              <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
-                                                  <h2>Team JDJS</h2>
+                                                  <h2 class="nino-sectionHeading">Team JDJS</h2>
                                                   <p>Collective intelligence refers to the result of cooperative participation and communication among multiple computer users, the result of collective action, the accumulation of judgment and knowledge, or the process thereof.</p>
                                              </div>
                                         </div>
@@ -122,7 +180,82 @@ const About=() => {
                               </div>
                </section>
                 </div>
-                
+
+                <div data-aos="fade-left" className="boxes">
+                    <section id="nino-happyClient">
+                         <div class="container">
+                              <h2 class="nino-sectionHeading">
+                                        What we say
+                                   </h2>
+                                   <div class="sectionContent">
+                                        <div class="row">
+                                             <div class="col-md-6">
+                                                  <div layout="row" class="item">
+                                                       <div class="nino-avatar fsr">
+                                                            <img class="img-circle" src="images\TL.jpg" alt=""/>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4 class="name">Lee Tae Lim</h4>
+                                                            <span class="regency">Frontend</span>
+                                                            <p class="desc">
+                                                                 이태림 말했잖아 언젠가 이런 날이 온다면 난 널 혼자 내버려두지 않을 거라고 죄다 낭떠러지야, 봐 예상했던 것보다 더 아플지도 모르지만 내 손을 잡으면 하늘을 나는 정도 그 이상도 느낄 수 있을 거야 눈 딱 감고 낙하- 하-
+                                                                 믿어 날 눈 딱 감고 낙하 눈 딱 감고 낙하- 하- 믿어 날 눈 딱 감고 낙하 
+                                                            </p>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                  <div layout="row" class="item">
+                                                       <div class="nino-avatar fsr">
+                                                            <img class="img-circle" src="images\JJ.jpg" alt=""/>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4 class="name">Yoo Jin Joo</h4>
+                                                            <span class="regency">Frontend</span>
+                                                            <p class="desc">
+                                                                 유진주 말했잖아 언젠가 이런 날이 온다면 난 널 혼자 내버려두지 않을 거라고 죄다 낭떠러지야, 봐 예상했던 것보다 더 아플지도 모르지만 내 손을 잡으면 하늘을 나는 정도 그 이상도 느낄 수 있을 거야 눈 딱 감고 낙하- 하-
+                                                                 믿어 날 눈 딱 감고 낙하 눈 딱 감고 낙하- 하- 믿어 날 눈 딱 감고 낙하 
+                                                            </p>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="row">
+                                             <div class="col-md-6">
+                                                  <div layout="row" class="item">
+                                                       <div class="nino-avatar fsr">
+                                                            <img class="img-circle" src="images\SJ.jpg" alt=""/>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4 class="name">Kang Su Ji</h4>
+                                                            <span class="regency">Backend</span>
+                                                            <p class="desc">
+                                                                 강수지 말했잖아 언젠가 이런 날이 온다면 난 널 혼자 내버려두지 않을 거라고 죄다 낭떠러지야, 봐 예상했던 것보다 더 아플지도 모르지만 내 손을 잡으면 하늘을 나는 정도 그 이상도 느낄 수 있을 거야 눈 딱 감고 낙하- 하-
+                                                                 믿어 날 눈 딱 감고 낙하 눈 딱 감고 낙하- 하- 믿어 날 눈 딱 감고 낙하 
+                                                            </p>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                  <div layout="row" class="item">
+                                                       <div class="nino-avatar fsr">
+                                                            <img class="img-circle" src="images\HY.png" alt=""/>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4 class="name">Lee Ha Yeon</h4>
+                                                            <span class="regency">Backend</span>
+                                                            <p class="desc">
+                                                                 이하연 말했잖아 언젠가 이런 날이 온다면 난 널 혼자 내버려두지 않을 거라고 죄다 낭떠러지야, 봐 예상했던 것보다 더 아플지도 모르지만 내 손을 잡으면 하늘을 나는 정도 그 이상도 느낄 수 있을 거야 눈 딱 감고 낙하- 하-
+                                                                 믿어 날 눈 딱 감고 낙하 눈 딱 감고 낙하- 하- 믿어 날 눈 딱 감고 낙하 
+                                                            </p>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                         </div>
+                    </section>
+                </div>
             </div>
         </div>
         <Footer />
