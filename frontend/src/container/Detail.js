@@ -4,6 +4,7 @@ import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Navigation from "../component/Navigation.js";
 import Result from "./Result.js";
+import Spinner from "../component/Spinner";
 import "./Main.css";
 
 import { Box, Heading, Table, Text, Button } from "gestalt";
@@ -24,6 +25,7 @@ const Detail = (props) => {
   const [date, setDate] = useState();
   const [file, setFile] = useState();
   const [image, setImage] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setPk(props.match.params.id);
@@ -48,11 +50,12 @@ const Detail = (props) => {
   const createResult = async () => {
     let formData = new FormData();
     formData.append("pk", pk);
-
+    setLoading(false);
+    const url = `/testapp/result/${pk}/create`;
     await axios
-      .post(`/testapp/result/${pk}/create`, formData)
+      .post(url, formData)
       .then((res) => {
-        alert("success");
+        setLoading(true);
         window.location.reload();
       })
       .catch((error) => {
@@ -171,7 +174,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <img src={image}></img>
+                <img width="50%" src={image}></img>
               </Table.Cell>
             </Table.Row>
           </Table>
@@ -209,7 +212,6 @@ const Detail = (props) => {
               </Box>
             </Box>
 
-
             <Box
               justifyContent="center"
               marginStart={-1}
@@ -220,12 +222,16 @@ const Detail = (props) => {
               wrap
             >
               <Box paddingX={1} paddingY={1}>
-                <Button
-                  type="button"
-                  onClick={createResult}
-                  text="Result 결과"
-                  inline
-                ></Button>
+                {loading ? (
+                  <Button
+                    type="button"
+                    onClick={createResult}
+                    text="Result 결과"
+                    inline
+                  ></Button>
+                ) : (
+                  <Spinner />
+                )}
               </Box>
             </Box>
           </Box>
@@ -234,9 +240,6 @@ const Detail = (props) => {
           </Box>
         </Box>
       </div>
-
-
-      
 
       <Footer />
     </div>

@@ -41,7 +41,7 @@ const Update = (props) => {
   );
   const [nFile, setNFile] = useState(props.location.state.file);
   const [nDate, setNDate] = useState(props.location.state.date);
-  const [nIimage, setNImage] = useState();
+  const [nImage, setNImage] = useState();
   const [pk, setPk] = useState(props.match.params.id);
   const history = useHistory();
 
@@ -118,10 +118,10 @@ const Update = (props) => {
     setNFile(audio);
   };
 
-  //   const imageHandler = (event) => {
-  //     const image = event.target.files[0];
-  //     setImage(image);
-  //   };
+  const imageHandler = (event) => {
+    const img = event.target.files[0];
+    setNImage(img);
+  };
   return (
     <>
       <Header />
@@ -225,6 +225,17 @@ const Update = (props) => {
               id="file"
               accept="audio/*"
               onChange={fileHandler}
+            />
+          </Box>
+          <Text align="left" size="sm">
+            이미지 파일
+          </Text>
+          <Box flex="grow" paddingX={3} paddingY={3}>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              onChange={imageHandler}
             />
           </Box>
 

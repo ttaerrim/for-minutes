@@ -104,7 +104,6 @@ const Post = () => {
   };
 
   const imageHandler = (event) => {
-    console.log(event);
     const img = event.target.files[0];
     setImage(img);
   };
