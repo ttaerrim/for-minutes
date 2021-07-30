@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
 import Result from "./Result.js";
+import Spinner from "../component/Spinner";
 
 import { Box, Heading, Table, Text, Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
+import urlExist from "url-exist";
 
 import { useHistory } from "react-router";
 
@@ -22,6 +24,7 @@ const Detail = (props) => {
   const [date, setDate] = useState();
   const [file, setFile] = useState();
   const [image, setImage] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setPk(props.match.params.id);
@@ -46,11 +49,12 @@ const Detail = (props) => {
   const createResult = async () => {
     let formData = new FormData();
     formData.append("pk", pk);
-
+    setLoading(false);
+    const url = `/testapp/result/${pk}/create`;
     await axios
-      .post(`/testapp/result/${pk}/create`, formData)
+      .post(url, formData)
       .then((res) => {
-        alert("success");
+        setLoading(true);
         window.location.reload();
       })
       .catch((error) => {
@@ -169,7 +173,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <img src={image}></img>
+                <img width="50%" src={image}></img>
               </Table.Cell>
             </Table.Row>
           </Table>
@@ -216,12 +220,16 @@ const Detail = (props) => {
               wrap
             >
               <Box paddingX={1} paddingY={1}>
-                <Button
-                  type="button"
-                  onClick={createResult}
-                  text="Result 결과"
-                  inline
-                ></Button>
+                {loading ? (
+                  <Button
+                    type="button"
+                    onClick={createResult}
+                    text="Result 결과"
+                    inline
+                  ></Button>
+                ) : (
+                  <Spinner />
+                )}
               </Box>
             </Box>
           </Box>

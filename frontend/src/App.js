@@ -17,7 +17,6 @@ class App extends Component {
           <Route exact path="/minutes/" component={MinutesList} />
           <Route exact path="/minute/:id/" component={Detail} />
           <Route exact path="/minute/update/:id/" component={Update} />
-          <Route exact path="/result/:id/" component={Result} />
         </div>
       </Router>
     );

@@ -28,4 +28,4 @@ class ResultViewSet(viewsets.ModelViewSet):
         result.script = data['text']
         result.meeting = meeting
         result.save()
-        return redirect('/testapp/result/' + str(meeting.id))
+        return redirect('/minute/' + str(meeting.id))
