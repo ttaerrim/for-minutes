@@ -123,8 +123,8 @@ const Update = (props) => {
   //     setImage(image);
   //   };
   return (
-    <>
-      <Header />
+    <React.Fragment>
+      <Navigation />
       <Box
         display="flex"
         marginStart={-3}
@@ -253,7 +253,7 @@ const Update = (props) => {
         </Box>
       </Box>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 

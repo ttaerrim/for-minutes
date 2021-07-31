@@ -115,8 +115,8 @@ const Post = () => {
   },[]);
 
   return (
-    <>
-      <Navigation />
+    <React.Fragment>
+      <Navigation/>
 
       <div align="center"><h3>새 회의록 추가</h3></div>
 
@@ -263,7 +263,7 @@ const Post = () => {
       </div>
       </div>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 
