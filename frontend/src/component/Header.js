@@ -8,7 +8,7 @@ import {
 import "gestalt/dist/gestalt.css";
 import "./Header.css";
 import Navigation from "./Navigation";
-import logo from "./fmlogo.png";
+import logo from "../images/fmlogo.png";
 import { useHistory } from "react-router";
 const Header = () => {
   const history = useHistory();
