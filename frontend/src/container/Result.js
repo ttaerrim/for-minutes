@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Box, Text, ScrollBoundaryContainer, Flex } from "gestalt";
 import axios from "axios";
-import urlExist from "url-exist";
 
 const Result = ({ pk }) => {
-  const [script, setScript] = useState("");
+  const [script, setScript] = useState("아직 없음");
   const [url, setUrl] = useState("");
 
+  const urlExists = (url) => {
+    let http = new XMLHttpRequest();
+    http.open("GET", url, false);
+    http.send();
+    return http.status !== 404;
+  };
+
   const renderResult = async () => {
-    setUrl(`/testapp/result/${pk}`);
-    // console.log(url);
-    // const check = await urlExist(`http://127.0.0.1:8000${url}`);
-    // console.log(check);
-    if (await urlExist(`http://127.0.0.1:8000${url}`)) {
-      // console.log("if문 실행");
+    let check = urlExists(`http://127.0.0.1:8000${url}`);
+    if (check) {
       await axios
         .get(url)
         .then((response) => {
@@ -31,8 +33,10 @@ const Result = ({ pk }) => {
   };
 
   useEffect(() => {
+    console.log(url);
+    setUrl(`/testapp/result/${pk}`);
     renderResult();
-  });
+  }, [{ pk }]);
 
   return (
     <>
