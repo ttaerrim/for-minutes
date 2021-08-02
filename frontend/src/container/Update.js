@@ -1,6 +1,5 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-import Header from "../component/Header";
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
 
@@ -9,7 +8,6 @@ import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
 import { ko } from "date-fns/locale";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
-import { parseISO, format } from "date-fns";
 
 import axios from "axios";
 
