@@ -6,6 +6,16 @@ import Footer from "../component/Footer.js";
 import "./Main.css";
 import Navigation from "../component/Navigation.js";
 
+import OH_1 from "../images/OH_1.jpg";
+import SA_3 from "../images/SA_3.PNG";
+import HY from "../images/HY.png";
+import JJ from "../images/JJ.jpg";
+import TL from "../images/TL.jpg";
+import SJ from "../images/SJ.jpg";
+import hy from "date-fns/locale/hy";
+
+
+
 
 const About=() => {
     useEffect(()=>{
@@ -35,7 +45,7 @@ const About=() => {
 									<i class="mdi mdi-account-multiple nino-icon"></i>
 									super team
 								</span>
-								<img src="images/SA_3.png" alt=""/>
+								<img src={SA_3} alt=""/>
 							</a>
 						</div>
 					</div>
@@ -77,7 +87,7 @@ const About=() => {
                                    <div class="col-md-4 col-sm-4">
                                         <article>
                                              <div class="articleThumb">
-                                                  <img src="images/OH_1.jpg" alt=""/>
+                                                  <img src={OH_1} alt=""/>
                                                   <div class="date">
                                                        <span class="number">27</span>
                                                        <span class="text">Mar</span>
@@ -141,9 +151,7 @@ const About=() => {
                                         <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.4s">
                                              
                                              <div class="work-thumb">
-                                                  <a href="images/work-1.jpg" class="image-popup">
-                                                       <img src="images\TL.jpg" class="img-responsive" alt="Work" width="100%"/>
-                                                  </a>
+                                                       <img src={TL} class="img-responsive" alt="Work" width="100%"/>
                                              </div>
                                              <h4>Frontend_LTL</h4>
                                         </div>
@@ -151,9 +159,7 @@ const About=() => {
                                         <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.6s">
                                              
                                              <div class="work-thumb">
-                                                  <a href="images/work-2.jpg" class="image-popup">
-                                                       <img src="images\JJ.jpg" class="img-responsive" alt="Work" width="100%"/>
-                                                  </a>
+                                                       <img src={JJ} class="img-responsive" alt="Work" width="100%"/>
                                              </div>
                                              <h4>Frontend_YJJ</h4>
                                         </div>
@@ -161,9 +167,8 @@ const About=() => {
                                         <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.8s">
                                              
                                              <div class="work-thumb">
-                                                  <a href="images/work-3.jpg" class="image-popup">
-                                                       <img src="images\SJ.jpg" class="img-responsive" alt="Work" width="100%"/>
-                                                  </a>
+                                                       <img src={SJ} class="img-responsive" alt="Work" width="100%"/>
+                                                  
                                              </div>
                                              <h4>Backend_KSJ</h4>
                                         </div>
@@ -171,7 +176,7 @@ const About=() => {
                                         <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.8s">
                                              
                                              <div class="work-thumb">
-                                                  <img src="images\HY.png" class="img-responsive" alt="Work" width="100%"/>
+                                                  <img src={HY} class="img-responsive" alt="Work" width="100%"/>
                                              </div>
                                              <h4>Backend_LHY</h4>
                                         </div>
@@ -192,7 +197,7 @@ const About=() => {
                                              <div class="col-md-6">
                                                   <div layout="row" class="item">
                                                        <div class="nino-avatar fsr">
-                                                            <img class="img-circle" src="images\TL.jpg" alt=""/>
+                                                            <img class="img-circle" src={TL} alt=""/>
                                                        </div>
                                                        <div class="info">
                                                             <h4 class="name">Lee Tae Lim</h4>
@@ -207,7 +212,7 @@ const About=() => {
                                              <div class="col-md-6">
                                                   <div layout="row" class="item">
                                                        <div class="nino-avatar fsr">
-                                                            <img class="img-circle" src="images\JJ.jpg" alt=""/>
+                                                            <img class="img-circle" src={JJ} alt=""/>
                                                        </div>
                                                        <div class="info">
                                                             <h4 class="name">Yoo Jin Joo</h4>
@@ -224,7 +229,7 @@ const About=() => {
                                              <div class="col-md-6">
                                                   <div layout="row" class="item">
                                                        <div class="nino-avatar fsr">
-                                                            <img class="img-circle" src="images\SJ.jpg" alt=""/>
+                                                            <img class="img-circle" src={SJ} alt=""/>
                                                        </div>
                                                        <div class="info">
                                                             <h4 class="name">Kang Su Ji</h4>
@@ -239,7 +244,7 @@ const About=() => {
                                              <div class="col-md-6">
                                                   <div layout="row" class="item">
                                                        <div class="nino-avatar fsr">
-                                                            <img class="img-circle" src="images\HY.png" alt=""/>
+                                                            <img class="img-circle" src={HY} alt=""/>
                                                        </div>
                                                        <div class="info">
                                                             <h4 class="name">Lee Ha Yeon</h4>
