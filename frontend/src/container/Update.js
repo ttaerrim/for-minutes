@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, Fragment } from "react";
 
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
@@ -120,7 +120,7 @@ const Update = (props) => {
     setImage(img);
   };
   return (
-    <>
+    <Fragment>
       <Navigation />
       <Box
         display="flex"
@@ -261,7 +261,7 @@ const Update = (props) => {
         </Box>
       </Box>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

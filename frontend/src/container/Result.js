@@ -39,7 +39,7 @@ const Result = ({ pk }) => {
   }, [{ pk }]);
 
   return (
-    <>
+    <React.Fragment>
       <ScrollBoundaryContainer height={400}>
         <Box color="white" padding={4}>
           <Flex gap={4}>
@@ -49,7 +49,7 @@ const Result = ({ pk }) => {
           </Flex>
         </Box>
       </ScrollBoundaryContainer>
-    </>
+    </React.Fragment>
   );
 };
 

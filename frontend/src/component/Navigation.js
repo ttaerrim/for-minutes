@@ -3,7 +3,7 @@ import React from "react";
 import { Heading, Text,Link,Table,Box} from "gestalt";
 import "gestalt/dist/gestalt.css";
 import './Navigation.css';
-import logo from "./fmlogo.png";
+import logo from "../images/fmlogo.png";
 
 import {
   BrowserRouter as Router,

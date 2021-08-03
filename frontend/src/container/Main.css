@@ -590,7 +590,7 @@ a:hover, a:active, a:focus {
 .boxes1{
   margin: 20px;
   margin-top: 150px;
-  min-height: 120vh;
+  min-height: 130vh;
   /* background-color: rgb(255, 255, 255); */
   background-image: url("https://cdn.crowdpic.net/list-thumb/thumb_l_C560EB4BC0DC225382D260536C36533D.png");
   overflow:auto;
@@ -705,6 +705,14 @@ img.image-left {
 img.img-full-width {
 	width: 100%;
 }
+img.img-circle {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
 /* =============== PREDEFINED CONTENT ALIGN =============== */
 .margin-left {
 	margin-left: 1em !important;

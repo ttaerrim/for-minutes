@@ -17,9 +17,6 @@ const Main=() => {
       <Navigation />
         <div>
             <div className="grids">
-               
-
-
                <div data-aos="fade-in" className="boxes">
                 <section id="nino-services">
                     <div class="container">
