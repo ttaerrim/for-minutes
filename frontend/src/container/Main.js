@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import Header from "../component/Header.js";
 import Footer from "../component/Footer.js";
 import "./Main.css";
+import ResultTab from "./ResultTab.js";
 import Navigation from "../component/Navigation.js";
 
 
@@ -15,6 +16,7 @@ const Main=() => {
     return (
       <div>
       <Navigation />
+      <ResultTab />
         <div>
             <div className="grids">
                <div data-aos="fade-in" className="boxes">

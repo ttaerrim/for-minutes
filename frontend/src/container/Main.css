@@ -1070,3 +1070,8 @@ section {
 }
 
 
+/************Tab class *************/
+#tab-align{
+  margin: 0 auto;
+  text-align: center;
+}
