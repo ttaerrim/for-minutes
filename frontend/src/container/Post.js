@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import React, { useState,useEffect } from "react";
+
+import Aos from "aos"; 
+import "aos/dist/aos.css";
+import "./Main.css";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
+import Navigation from "../component/Navigation.js";
 
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -18,15 +22,16 @@ axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 const Post = () => {
-  const [topic, setTopic] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [writer, setWriter] = React.useState("");
-  const [parties, setParties] = React.useState("");
-  const [meeting_date, setMeetingDate] = React.useState(undefined);
-  const [hour, setHour] = React.useState("00");
-  const [minute, setMinute] = React.useState("00");
-  const [file, setFile] = React.useState();
-  const [image, setImage] = React.useState();
+  const [topic, setTopic] = useState();
+  const [title, setTitle] = useState();
+  const [writer, setWriter] = useState("");
+  const [parties, setParties] = useState("");
+  const [meeting_date, setMeetingDate] = useState(undefined);
+  const [hour, setHour] = useState(new Date().getHours());
+  const [minute, setMinute] = useState(new Date().getMinutes());
+  const [file, setFile] = useState();
+  const [image, setImage] = useState();
+  const [date, setDate] = useState(new Date());
   const history = useHistory();
 
   const createTime = () => {
@@ -60,8 +65,6 @@ const Post = () => {
     return new_date;
   };
 
-  const handleChange = (meeting_date) => meeting_date;
-
   const handleSubmit = async () => {
     let formData = new FormData();
 
@@ -70,8 +73,8 @@ const Post = () => {
     formData.append("writer", writer);
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
+    formData.append("photo", image);
     formData.append("file", file);
-    formData.append("image", file);
     await axios
       .post("/testapp/meeting/create", formData, {
         headers: {
@@ -95,19 +98,30 @@ const Post = () => {
       });
   };
 
-
   const fileHandler = (event) => {
     const audio = event.target.files[0];
     setFile(audio);
   };
 
   const imageHandler = (event) => {
-    const image = event.target.files[0];
-    setImage(image);
+    const img = event.target.files[0];
+    setImage(img);
   };
+
+
+  useEffect(()=>{
+    Aos.init({duration:2000});
+  },[]);
+
   return (
-    <>
-      <Header />
+    <React.Fragment>
+      <Navigation/>
+
+      <div align="center"><h3>새 회의록 추가</h3></div>
+
+      <div className="grids">
+        <div data-aos="fade-up" className="boxes1">
+                     
       <Box
         display="flex"
         marginStart={-3}
@@ -173,7 +187,7 @@ const Post = () => {
                 id="meeting_date"
                 label="회의 날짜"
                 onChange={({ event, value }) => setMeetingDate(value)}
-                value={meeting_date}
+                value={date}
               />
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
@@ -199,7 +213,7 @@ const Post = () => {
               />
             </Box>
           </Box>
-          <Text align="forceLeft" size="sm">
+          <Text align="left" size="sm">
             음성 파일
           </Text>
           <Box flex="grow" paddingX={3} paddingY={3}>
@@ -210,7 +224,17 @@ const Post = () => {
               onChange={fileHandler}
             />
           </Box>
-
+          <Text align="left" size="sm">
+            이미지 파일
+          </Text>
+          <Box flex="grow" paddingX={3} paddingY={3}>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              onChange={imageHandler}
+            />
+          </Box>
           <Box flex="grow" paddingX={3} paddingY={3}></Box>
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
@@ -225,8 +249,8 @@ const Post = () => {
           >
             <Box paddingX={1} paddingY={1}>
               <Button
-                text="완료"
-                color="blue"
+                text="등록"
+                color="black"
                 size="lg"
                 type="submit"
                 onClick={handleSubmit}
@@ -234,10 +258,11 @@ const Post = () => {
             </Box>
           </Box>
         </Box>
-
       </Box>
+      </div>
+      </div>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 

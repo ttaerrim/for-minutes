@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
+import Navigation from "../component/Navigation.js";
 import Result from "./Result.js";
+import Spinner from "../component/Spinner";
+import "./Main.css";
 
-import { Box, Heading, Table, Text, Button, Image, Column } from "gestalt";
+import { Box, Heading, Table, Text, Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -14,7 +17,6 @@ import { useHistory } from "react-router";
 const Detail = (props) => {
   const history = useHistory();
   const [pk, setPk] = useState();
-  const [location, setLocation] = useState();
   const [topic, setTopic] = useState();
   const [title, setTitle] = useState();
   const [writer, setWriter] = useState("");
@@ -22,21 +24,25 @@ const Detail = (props) => {
   const [meeting_date, setMeetingDate] = useState(undefined);
   const [date, setDate] = useState();
   const [file, setFile] = useState();
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     result: this.props.location.state,
-  //     pk: this.props.match.params.id,
-  //   };
-  // }
+  const [image, setImage] = useState();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setPk(props.match.params.id);
-    setLocation(props.location);
     setTitle(props.location.state.title);
     setTopic(props.location.state.topic);
-    setMeetingDate(props.location.state.meeting_date);
-    setDate(props.location.state.date);
+    setMeetingDate(
+      props.location.state.meeting_date.substring(0, 10) +
+        " " +
+        props.location.state.meeting_date.substring(11, 16)
+    );
+    setDate(props.location.state.date.substring(0, 10));
     setFile(props.location.state.file);
+    setImage(
+      !props.location.state.image
+        ? props.location.state.image
+        : props.location.state.image.replace("media", "static")
+    );
     setWriter(props.location.state.writer);
     setParties(props.location.state.parties);
   });
@@ -44,11 +50,12 @@ const Detail = (props) => {
   const createResult = async () => {
     let formData = new FormData();
     formData.append("pk", pk);
-
+    setLoading(false);
+    const url = `/testapp/result/${pk}/create`;
     await axios
-      .post("/testapp/result/" +this.state.pk+ "/create", formData)
+      .post(url, formData)
       .then((res) => {
-        alert("success");
+        setLoading(true);
         window.location.reload();
       })
       .catch((error) => {
@@ -62,7 +69,7 @@ const Detail = (props) => {
   };
 
   const handleDelete = () => {
-    if (window.confirm("정말 삭제하시겠습니까??") == true) {
+    if (window.confirm("정말 삭제하시겠습니까??") === true) {
       axios.delete(`/testapp/meeting/${pk}/delete`).then((res) => {
         console.log(res.data);
         history.push("/minutes");
@@ -70,11 +77,9 @@ const Detail = (props) => {
     }
   };
 
-  const handleUpdate = () => {};
-
   return (
     <div class="bg wrapper">
-      <Header />
+      <Navigation />
       <div class="main-content">
         <Box
           display="flex"
@@ -96,7 +101,7 @@ const Detail = (props) => {
             color="white"
           >
             <Heading size="md" color="midnight">
-              Title: {props.location.state.title}
+              Title: {title}
             </Heading>
           </Box>
           <Box height={50}></Box>
@@ -109,7 +114,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.title}</Text>
+                <Text>{title}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -119,7 +124,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.topic}</Text>
+                <Text>{topic}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -129,7 +134,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.writer}</Text>
+                <Text>{writer}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -139,7 +144,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.parties}</Text>
+                <Text>{parties}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -149,7 +154,7 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>{props.location.state.date.substring(0, 10)}</Text>
+                <Text>{date}</Text>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
@@ -159,10 +164,17 @@ const Detail = (props) => {
                 </Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>
-                  {props.location.state.meeting_date.substring(0, 10)}{" "}
-                  {props.location.state.meeting_date.substring(11, 16)}
+                <Text>{meeting_date}</Text>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Text color="midnight" weight="bold">
+                  사진
                 </Text>
+              </Table.Cell>
+              <Table.Cell>
+                <img width="50%" src={image}></img>
               </Table.Cell>
             </Table.Row>
           </Table>
@@ -188,6 +200,7 @@ const Detail = (props) => {
                       date: date,
                       meeting_date: meeting_date,
                       file: file,
+                      image: image,
                     },
                   }}
                 >
@@ -198,6 +211,7 @@ const Detail = (props) => {
                 <Button text="삭제" color="red" onClick={handleDelete} />
               </Box>
             </Box>
+
             <Box
               justifyContent="center"
               marginStart={-1}
@@ -208,14 +222,16 @@ const Detail = (props) => {
               wrap
             >
               <Box paddingX={1} paddingY={1}>
-                <Button
-                  type="button"
-                  onClick={createResult}
-                  text="Result 결과"
-                  inline
-                >
-                  <i class="fa fa-spinner fa-spin"></i>
-                </Button>
+                {loading ? (
+                  <Button
+                    type="button"
+                    onClick={createResult}
+                    text="Result 결과"
+                    inline
+                  ></Button>
+                ) : (
+                  <Spinner />
+                )}
               </Box>
             </Box>
           </Box>
@@ -224,6 +240,7 @@ const Detail = (props) => {
           </Box>
         </Box>
       </div>
+
       <Footer />
     </div>
   );
