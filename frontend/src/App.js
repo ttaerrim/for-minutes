@@ -5,7 +5,6 @@ import MinutesList from "./container/MinutesList";
 import Post from "./container/Post";
 import About from "./container/About";
 import Detail from "./container/Detail";
-import Result from "./container/Result";
 import Update from "./container/Update";
 
 class App extends Component {
