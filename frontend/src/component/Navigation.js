@@ -1,6 +1,6 @@
 import React from "react";
 //import { Link } from "react-router-dom";
-import { Heading, Text, Link, Table, Box } from "gestalt";
+import { Heading, Text, Link, Table, Box, Container } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import "./Navigation.css";
 import logo from "../images/fmlogo.png";
@@ -37,8 +37,9 @@ const Navigation = () => {
                   height="30"
                   className="d-inline-block align-top"
                 />{" "}
+                For Minutes
+                {/* For Minutes 글자 보이게 수정 바람! */}
               </Navbar.Brand>
-              <Navbar.Text>For minutes</Navbar.Text>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse
                 id="basic-navbar-nav"
@@ -48,7 +49,10 @@ const Navigation = () => {
                   <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/about">About Us</Nav.Link>
-                    <NavDropdown
+                    <Nav.Link href="/minutes">MinutesList</Nav.Link>
+                    <Nav.Link href="/post">Post</Nav.Link>
+                    {/* 귀찮아서 임시로 바꿔 놓음 */}
+                    {/* <NavDropdown
                       align="end"
                       title="My"
                       id="collasible-nav-dropdown"
@@ -57,7 +61,7 @@ const Navigation = () => {
                         MinutesList
                       </NavDropdown.Item>
                       <NavDropdown.Item href="/post">Post</NavDropdown.Item>
-                    </NavDropdown>
+                    </NavDropdown> */}
                   </Nav>
                 </Navbar.Text>
               </Navbar.Collapse>
