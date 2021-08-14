@@ -7,7 +7,7 @@ import Result from "./Result.js";
 import Spinner from "../component/Spinner";
 import "./Main.css";
 
-import { Box, Heading, Table, Text, Button } from "gestalt";
+import { Box, Heading, Table, Text, Button, Flex } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 import axios from "axios";
@@ -92,127 +92,105 @@ const Detail = (props) => {
           wrap
           width="100%"
           direction="column"
+          alignContent="center"
+          alignSelf="center"
         >
-          <Box
-            flex="grow"
-            paddingX={3}
-            paddingY={4}
-            borderStyle="shadow"
-            rounding={3}
-            color="white"
-          >
-            <Heading size="md" color="midnight">
+          <Box flex="grow" paddingX={3} paddingY={4} rounding={3} color="white">
+            <Heading size="md" color="midnight" align="center">
               Title: {title}
             </Heading>
           </Box>
-          <Box height={50}></Box>
-
-          <Table>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  제목
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{title}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  회의 안건
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{topic}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  작성자
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{writer}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  참석자
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{parties}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  게시일
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{date}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  회의 날짜
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{meeting_date}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  사진
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <img width="50%" src={image}></img>
-              </Table.Cell>
-            </Table.Row>
-          </Table>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <Box
-              justifyContent="end"
-              marginStart={-1}
-              marginEnd={-1}
-              marginTop={-1}
-              marginBottom={-1}
-              display="flex"
-              wrap
-            >
-              <Box paddingX={1} paddingY={1}>
-                <Link
-                  to={{
-                    pathname: `/minute/update/${pk}/`,
-                    state: {
-                      title: title,
-                      topic: topic,
-                      writer: writer,
-                      parties: parties,
-                      date: date,
-                      meeting_date: meeting_date,
-                      file: file,
-                      image: image,
-                    },
-                  }}
-                >
-                  <Button text="수정" color="gray" />
-                </Link>
-              </Box>
-              <Box paddingX={1} paddingY={1}>
-                <Button text="삭제" color="red" onClick={handleDelete} />
-              </Box>
+          <Box
+            justifyContent="end"
+            marginStart={-1}
+            marginEnd={-1}
+            marginTop={-1}
+            marginBottom={-1}
+            display="flex"
+            wrap
+          >
+            <Box paddingX={1} paddingY={1}>
+              <Link
+                to={{
+                  pathname: `/minute/update/${pk}/`,
+                  state: {
+                    title: title,
+                    topic: topic,
+                    writer: writer,
+                    parties: parties,
+                    date: date,
+                    meeting_date: meeting_date,
+                    file: file,
+                    image: image,
+                  },
+                }}
+              >
+                <Button text="수정" color="transparent" />
+              </Link>
             </Box>
-
+            <Box paddingX={1} paddingY={1}>
+              <Button text="삭제" color="transparent" onClick={handleDelete} />
+            </Box>
+          </Box>
+          <br />
+          <Box width="70%" margin="auto" marginBottom={10}>
+            <Table>
+              <Table.Row>
+                <Table.Cell>
+                  <Text color="midnight" weight="bold">
+                    회의 안건
+                  </Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text>{topic}</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text color="midnight" weight="bold">
+                    작성자
+                  </Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text>{writer}</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text color="midnight" weight="bold">
+                    게시일
+                  </Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text>{date}</Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text color="midnight" weight="bold">
+                    회의 날짜
+                  </Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text>{meeting_date}</Text>
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <Text color="midnight" weight="bold">
+                    참석자
+                  </Text>
+                </Table.Cell>
+                <Table.Cell>
+                  <Text>{parties}</Text>
+                </Table.Cell>
+              </Table.Row>
+            </Table>
+            {/* <Box display="flex" padding={3} wrap direction="row">
+              <Text color="midnight" weight="bold" inline>
+                사진
+              </Text>
+              &nbsp;&nbsp;&nbsp;
+              <img width="50%" src={image} inline />
+            </Box> */}
+          </Box>
+          <Box flex="grow" paddingX={3} paddingY={3}>
             <Box
               justifyContent="center"
               marginStart={-1}

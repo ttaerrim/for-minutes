@@ -35,7 +35,7 @@ class MinutesList extends Component {
       <div class="bg wrapper">
         <Navigation />
         <div class="main-content">
-          <Box padding={10}>
+          <Box padding={10} width="70%" margin="auto">
             <Table>
               <Table.Header>
                 <Table.Row>
