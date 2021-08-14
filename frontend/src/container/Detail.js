@@ -51,7 +51,7 @@ const Detail = (props) => {
     let formData = new FormData();
     formData.append("pk", pk);
     setLoading(false);
-    const url = `/testapp/result/${pk}/create`;
+    const url = `/testapp/result/create/${pk}`;
     await axios
       // .post("/testapp/result/" +this.state.pk+ "/create", formData)
       .post(url, formData)
