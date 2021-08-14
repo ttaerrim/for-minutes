@@ -47,58 +47,58 @@ const Minute = ({
     //   </Table.Cell>
     // </Table.Row>
 
-<div>
-    
-<div className="container">
-  <div className="table-responsive custom-table-responsive">
+ <div>
+      
+  <div className="container">
+    <div className="table-responsive custom-table-responsive">
 
-    <table className="table custom-table" width="100%">
-      <colgroup>
-      <col width="5%"/>
-        <col width="10%"/>
-        <col width="20%"/>
-        <col width="35%"/>
-        <col width="20%"/>
-        <col width="10%"/>
-      </colgroup>
-      <tbody>
-        <tr scope="row">
-          <th scope="row">
-            <label className="control control--checkbox">
-              <input type="checkbox"/>
-              <div className="control__indicator"></div>
-            </label>
-          </th>
-          <td>
-          {date.substring(0, 10)}
-          </td>
-          <td><Link
-          to={{
-            pathname: `/minute/${id}`,
-            state: {
-              title,
-              topic,
-              writer,
-              parties,
-              date,
-              meeting_date,
-              file,
-              image,
-            },
-          }}
-        >{title}</Link></td>
-          <td>{topic}</td>
-          <td>{parties}</td>
-          <td>{writer}</td>
-        </tr>
-      </tbody>
-    </table>
+      <table className="table custom-table" width="100%">
+        <colgroup>
+        <col width="5%"/>
+          <col width="10%"/>
+          <col width="20%"/>
+          <col width="35%"/>
+          <col width="20%"/>
+          <col width="10%"/>
+        </colgroup>
+        <tbody>
+          <tr scope="row">
+            <th scope="row">
+              <label className="control control--checkbox">
+                <input type="checkbox"/>
+                <div className="control__indicator"></div>
+              </label>
+            </th>
+            <td>
+            {date.substring(0, 10)}
+            </td>
+            <td><Link
+            to={{
+              pathname: `/minute/${id}`,
+              state: {
+                title,
+                topic,
+                writer,
+                parties,
+                date,
+                meeting_date,
+                file,
+                image,
+              },
+            }}
+          >{title}</Link></td>
+            <td>{topic}</td>
+            <td>{parties}</td>
+            <td>{writer}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
   </div>
 
-
-</div>
-
-</div>
+  </div>
   );
 };
 

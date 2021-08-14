@@ -1092,7 +1092,7 @@ section {
 
 
 .mlbg {
-  background-color: rgb(247, 249, 255);
+  background-color: rgb(255, 255, 255);
   min-height: 150vh;
   display: flex;
 }

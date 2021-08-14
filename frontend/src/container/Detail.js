@@ -138,9 +138,7 @@ const Detail = (props) => {
         
       </div>
     </details>
-  
-
-  
+    
 
       <div class="main-content">
         <Box
@@ -156,6 +154,8 @@ const Detail = (props) => {
           alignContent="center"
           alignSelf="center"
         >
+
+      <div className="container boxes3">
           <Box flex="grow" paddingX={3} paddingY={4} rounding={3} color="white">
             <Heading size="md" color="midnight" align="center">
               Title: {title}
@@ -251,6 +251,7 @@ const Detail = (props) => {
               <img width="50%" src={image} inline />
             </Box> */}
           </Box>
+          </div>
           <Box flex="grow" paddingX={3} paddingY={3}>
             <Box
               justifyContent="center"
