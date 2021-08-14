@@ -583,7 +583,8 @@ a:hover, a:active, a:focus {
   margin-top: 50px;
   background-color: white;
   overflow:auto;
-  
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 10px 10px 10px 10px;
 }
 
@@ -597,6 +598,16 @@ a:hover, a:active, a:focus {
   box-shadow: 0px 12px 18px -6px black;
   border-radius: 10px 10px 10px 10px;
 }
+
+.boxes3{
+  margin-left: 5%;
+  background-color: rgb(255, 255, 255);
+  overflow:auto;
+  padding:3%;
+  box-shadow: -2px 10px 10px -6px rgb(197, 197, 197);
+  width:70%;
+}
+
 
 .grids {
   max-width: 80%;
@@ -632,7 +643,7 @@ hr {
 a {
 	text-decoration: none;
 	outline: none;
-	color: #2ec06c;
+	color: #4c99fd;
 	-webkit-transition: all .3s ease-in-out;
 	   -moz-transition: all .3s ease-in-out;
 		 -o-transition: all .3s ease-in-out;
@@ -640,7 +651,7 @@ a {
 			transition: all .3s ease-in-out;
 }
 a:hover {
-	color: #666;
+	color: #0e58b9;
 	text-decoration: none;
 }
 a:active {
@@ -1075,3 +1086,171 @@ section {
   margin: 0 auto;
   text-align: center;
 }
+
+
+/**************minutes table**************/
+
+
+.mlbg {
+  background-color: rgb(247, 249, 255);
+  min-height: 150vh;
+  display: flex;
+}
+p {
+  color: #000000;
+  font-weight: 300; }
+
+
+.content {
+  padding: 7rem 0; }
+
+
+.custom-table {
+  min-width: 900px; }
+  .custom-table thead tr, .custom-table thead th {
+    border-top: none;
+    border-bottom: none !important; }
+  .custom-table tbody th, .custom-table tbody td {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: 300; }
+    .custom-table tbody th small, .custom-table tbody td small {
+      color: #000000;
+      font-weight: 300; }
+  .custom-table tbody tr:not(.spacer) {
+    border-radius: 7px;
+    overflow: hidden;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; }
+    .custom-table tbody tr:not(.spacer):hover {
+      -webkit-box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1); }
+  .custom-table tbody tr th, .custom-table tbody tr td {
+    background: rgb(255, 255, 255);
+    border: none; }
+    .custom-table tbody tr th:first-child, .custom-table tbody tr td:first-child {
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px; }
+    .custom-table tbody tr th:last-child, .custom-table tbody tr td:last-child {
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px; }
+  .custom-table tbody tr.spacer td {
+    padding: 0 !important;
+    height: 10px;
+    border-radius: 0 !important;
+    background: transparent !important; }
+
+/* Custom Checkbox */
+.control {
+  display: block;
+  position: relative;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 18px; }
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0; }
+
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  background: transparent; }
+
+.control--radio .control__indicator {
+  border-radius: 50%; }
+
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+  border: 2px solid #007bff; }
+
+.control input:checked ~ .control__indicator {
+  border: 2px solid #007bff;
+  background: #007bff; }
+
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+  border: 2px solid #ccc; }
+
+.control__indicator:after {
+  font-family: 'icomoon';
+  content: '\e5ca';
+  position: absolute;
+  display: none; }
+
+.control input:checked ~ .control__indicator:after {
+  display: block;
+  color: #fff; }
+
+.control--checkbox .control__indicator:after {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -52%);
+  -ms-transform: translate(-50%, -52%);
+  transform: translate(-50%, -52%); }
+
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b; }
+
+.control--checkbox input:disabled:checked ~ .control__indicator {
+  background-color: #007bff;
+  opacity: .2;
+  border: 2px solid #007bff; }
+
+
+  /* *********click event********* */
+
+  details {
+  margin-bottom: 1rem;
+  }
+
+  details > summary {
+  background: rgb(255, 255, 255);
+  padding: 1rem;
+  outline: 0;
+  cursor: pointer;
+  transition: background 0.5s;
+  }
+
+  details > summary::-webkit-details-marker {
+  background: url(https://marshall-storage.tistory.com/attachment/cfile29.uf@993E16335F785C0037CB43.svg) no-repeat center;
+  background-size: contain;
+  color: transparent;
+  transform: rotate3d(0, 0, 1, 90deg);
+  transition: transform 0.25s;
+  }
+
+  details[open] > summary::-webkit-details-marker {
+  transform: rotate3d(0, 0, 1, 180deg);
+  }
+
+  details[open] > summary {
+  background: rgb(255, 255, 255);
+  }
+
+  details[open] > summary ~ * {
+  animation: reveal 0.5s;
+  }
+
+  @keyframes reveal {
+  from {
+      opacity: 0;
+      transform: translate3d(0, -10px, 0);
+  }
+
+  to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+  }

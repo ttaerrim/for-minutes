@@ -9,9 +9,7 @@ import "./Main.css";
 
 import { Box, Heading, Table, Text, Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
-
 import axios from "axios";
-
 import { useHistory } from "react-router";
 
 const Detail = (props) => {
@@ -80,6 +78,70 @@ const Detail = (props) => {
   return (
     <div class="bg wrapper">
       <Navigation />
+    
+    <details>
+      <summary> 회의 정보</summary>
+    <div className="container boxes3">
+    
+        <table className="table">
+        <colgroup>
+            <col width="35%"/>
+            <col width="5%"/>
+            <col width="45%"/>
+            <col width="15%"/>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">제목</th>
+              <th scope="col"></th>
+              <th scope="col">회의 안건</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <td>{title}</td>
+              <td></td>
+              <td>{topic}</td>
+              <td></td>
+            
+            
+          </tbody>
+          </table>
+
+          <table className="table">
+          <colgroup>
+            <col width="40%"/>
+            <col width="24%"/>
+            <col width="18%"/>
+            <col width="18%"/>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">참여자</th>
+              <th scope="col">작성자</th>
+              <th scope="col">회의 날짜</th>
+              <th scope="col">게시일</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <td>{parties}</td>
+              <td>{writer}</td>
+              <td>{date}</td>
+              <td>{meeting_date}</td>
+              
+            
+          </tbody>
+        </table>
+        <img width="30%" src={image}></img>
+        
+      </div>
+    </details>
+  
+
+  
+
       <div class="main-content">
         <Box
           display="flex"
@@ -92,92 +154,7 @@ const Detail = (props) => {
           width="100%"
           direction="column"
         >
-          <Box
-            flex="grow"
-            paddingX={3}
-            paddingY={4}
-            borderStyle="shadow"
-            rounding={3}
-            color="white"
-          >
-            <Heading size="md" color="midnight">
-              Title: {title}
-            </Heading>
-          </Box>
-          <Box height={50}></Box>
-
-          <Table>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  제목
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{title}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  회의 안건
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{topic}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  작성자
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{writer}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  참석자
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{parties}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  게시일
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{date}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  회의 날짜
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <Text>{meeting_date}</Text>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                <Text color="midnight" weight="bold">
-                  사진
-                </Text>
-              </Table.Cell>
-              <Table.Cell>
-                <img width="50%" src={image}></img>
-              </Table.Cell>
-            </Table.Row>
-          </Table>
+          
           <Box flex="grow" paddingX={3} paddingY={3}>
             <Box
               justifyContent="end"
@@ -211,7 +188,6 @@ const Detail = (props) => {
                 <Button text="삭제" color="red" onClick={handleDelete} />
               </Box>
             </Box>
-
             <Box
               justifyContent="center"
               marginStart={-1}
