@@ -1,9 +1,7 @@
 from django.db import models
-
+import os
+from forminutesprj.settings import MEDIA_ROOT
 # Create your models here.
-
-
-
 class Meeting(models.Model):
     title = models.CharField(max_length=50)
     topic = models.TextField()
@@ -11,8 +9,8 @@ class Meeting(models.Model):
     parties = models.TextField()
     meeting_date = models.DateTimeField()
     date = models.DateTimeField(auto_now=True)
-    file = models.FileField('media/')
-    photo = models.ImageField('photo/', null=True, blank=True)
+    file = models.FileField(upload_to='audio/')
+    photo = models.ImageField(upload_to='photo/', null=True, blank=True)
 
     # result = models.OneToOneField(
     #     Result,
@@ -24,8 +22,14 @@ class Meeting(models.Model):
     def __str__(self):
         return self.title #자기 자신을 title로 표현
 
+    def delete(self, *args, **kargs):
+        if self.file:
+            os.remove(os.path.join(MEDIA_ROOT, self.file.path))
+        if self.photo:
+            os.remove(os.path.join(MEDIA_ROOT, self.photo.path))
+        super(Meeting, self).delete(*args, **kargs)
 
-
+        
 class Result(models.Model):
     meeting = models.OneToOneField(
         Meeting,
@@ -34,6 +38,8 @@ class Result(models.Model):
     )
     script = models.TextField()
     keyword = models.TextField()
-    summary = models.TextField()
-    # def __str__(self):
-    #     return self.title #자기 자신을 title로 표현
+    summary = models.TextField(null=True, blank=True)
+
+
+    def __str__(self):
+        return self.meeting.title
