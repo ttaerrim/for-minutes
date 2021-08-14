@@ -51,6 +51,7 @@ const Detail = (props) => {
     setLoading(false);
     const url = `/testapp/result/${pk}/create`;
     await axios
+      .post("/testapp/result/" +this.state.pk+ "/create", formData)
       .post(url, formData)
       .then((res) => {
         setLoading(true);
