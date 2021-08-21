@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
 import Footer from "../component/Footer";
 import Navigation from "../component/Navigation";
@@ -37,13 +37,17 @@ const Update = (props) => {
   const [minute, setMinute] = useState(
     props.location.state.meeting_date.substring(14, 16)
   );
-  const [file, setFile] = useState(props.location.state.file);
+  const [file, setFile] = useState(!props.location.state.file
+    ? props.location.state.file
+    : props.location.state.file.replace("media", "static"));
   const [date, setDate] = useState(props.location.state.date);
   const [image, setImage] = useState();
   const [pk, setPk] = useState(props.match.params.id);
   const history = useHistory();
 
-  // useEffect(() => {});
+  useEffect(() => {
+    console.log(file)
+  });
   const createTime = () => {
     const meeting_time = [];
     for (let i = 0; i < 24; i++) {
