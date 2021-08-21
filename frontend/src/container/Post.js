@@ -117,11 +117,113 @@ const Post = () => {
     <React.Fragment>
       <Navigation/>
 
-      <div align="center"><h3>새 회의록 추가</h3></div>
-
       <div className="grids">
-        <div data-aos="fade-up" className="boxes1">
-                     
+        <div className="boxes"></div>
+        <div className="boxes_post">
+        <p className="post-font"> * 새 회의록 추가</p>
+        </div>
+        <div className="boxes3">
+      
+        <div class="page">
+          <label className="field field_v1">
+            <input 
+            className="field__input" 
+            type="text" 
+            placeholder="title" 
+            value={title}
+            id="title"
+            onChange={(e) => setTitle(e.target.value)}
+            />
+            <span className="field__label-wrap">
+              <span className="field__label">제목</span>
+            </span>
+          </label>
+
+          <label className="field field_v1">
+            <input 
+            className="field__input" 
+            type="text" 
+            placeholder="topic" 
+            value={topic}
+            id="topic"
+            onChange={(e) => setTopic(e.target.value)}
+            />
+            <span className="field__label-wrap">
+              <span className="field__label">회의 안건</span>
+            </span>
+          </label>
+
+          <label className="field field_v1">
+            <input 
+            className="field__input" 
+            type="text" 
+            id="writer"
+            placeholder="작성자"
+            value={writer}
+            onChange={(e) => setWriter(e.target.value)}
+            />
+            <span className="field__label-wrap">
+              <span className="field__label">작성자</span>
+            </span>
+          </label>
+
+          <label className="field field_v1">
+            <input 
+            className="field__input" 
+            type="text" 
+            id="parties"
+            placeholder="parties"
+            value={parties}
+            onChange={(e) => setParties(e.target.value)}
+            />
+            <span className="field__label-wrap">
+              <span className="field__label">참여자</span>
+            </span>
+          </label>
+
+          {/* <label class="field field_v3">
+            <input 
+            class="field__input" 
+            type="date" 
+            placeholder="날짜"
+            id="meeting_date"
+            onChange={(value) => setMeetingDate(value)}
+            value={date}
+            />
+            <span class="field__label-wrap">
+              <span class="field__label">날짜</span>
+            </span>
+          </label>
+
+          <label class="field field_v3">
+            <input 
+            class="field__input" 
+            type="time" 
+            id="meeting_time"
+            onChange={(e) => setHour(e.target.value)}
+            options={createTime()}
+            size="md"
+            value={hour}
+            />
+            <span class="field__label-wrap">
+              <span class="field__label">시</span>
+            </span>
+          </label>
+
+          <label class="field field_v3">
+            <input 
+            class="field__input" 
+            type="time" 
+            id="meeting_minute"
+            onChange={(e) => {setMinute(e.target.value);}}
+            options={createMinute()}
+            value={minute}
+            />
+            <span class="field__label-wrap">
+              <span class="field__label">분</span>
+            </span>
+          </label> */}
+        </div>    
       <Box
         display="flex"
         marginStart={-3}
@@ -133,7 +235,7 @@ const Post = () => {
         direction="column"
         padding={10}
       >
-        <Box flex="grow" paddingX={3} paddingY={3}>
+        {/* <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
             id="title"
             onChange={({ event }) => setTitle(event.target.value)}
@@ -169,7 +271,7 @@ const Post = () => {
             label="참여자"
             value={parties}
           />
-        </Box>
+        </Box> */}
 
         <Box flex="grow" paddingX={3} paddingY={3}>
           <Box

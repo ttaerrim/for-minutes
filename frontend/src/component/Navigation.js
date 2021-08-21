@@ -28,8 +28,8 @@ const Navigation = () => {
       <div className="row">
         <div className="col-md-12">
           <Router>
-            <Navbar bg="white" variant="light" expand="lg" sticky="top">
-              <Navbar.Brand href="/">
+            <Navbar collapseOnSelect bg="dark" variant="dark">
+              <Navbar.Brand href="/" className="justify-content-center">
                 <img
                   alt=""
                   src={logo}

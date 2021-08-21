@@ -54,7 +54,6 @@ const Minute = ({
 
       <table className="table custom-table" width="100%">
         <colgroup>
-        <col width="5%"/>
           <col width="10%"/>
           <col width="20%"/>
           <col width="35%"/>
@@ -63,12 +62,12 @@ const Minute = ({
         </colgroup>
         <tbody>
           <tr scope="row">
-            <th scope="row">
+            {/* <th scope="row">
               <label className="control control--checkbox">
                 <input type="checkbox"/>
                 <div className="control__indicator"></div>
               </label>
-            </th>
+            </th> */}
             <td>
             {date.substring(0, 10)}
             </td>

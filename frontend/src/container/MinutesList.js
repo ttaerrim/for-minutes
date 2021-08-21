@@ -51,22 +51,21 @@ class MinutesList extends Component {
     
         <table className="table custom-table">
           <colgroup>
-            <col width="5%"/>
             <col width="10%"/>
             <col width="20%"/>
             <col width="35%"/>
-            <col width="20%"/>
+            <col width="25%"/>
             <col width="10%"/>
           </colgroup>
           <thead>
             <tr>  
     
-              <th scope="col">
+              {/* <th scope="col">
                 <label className="control control--checkbox">
                   <input type="checkbox"  className="js-check-all"/>
                   <div className="control__indicator"></div>
                 </label>
-              </th>
+              </th> */}
               
               <th scope="col">게시일</th>
               <th scope="col">제목</th>

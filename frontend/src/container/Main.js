@@ -13,7 +13,7 @@ const Main = () => {
 
   return (
     <div>
-      <Navigation />
+      <Header />
       <div>
         <div className="grids">
           <div data-aos="fade-in" className="boxes">
