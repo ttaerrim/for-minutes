@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Meeting, Result
 from .stt import *
-import os
+from .summary import *
 from forminutesprj.settings import MEDIA_ROOT
 from testapp.api import *
 
@@ -30,28 +30,50 @@ class ResultViewSet(viewsets.ModelViewSet):
         data = json.loads(res.text)
         texts = [data['text']]
         
-        # word = Krwordrank.wordrank(texts)
+        word = Krwordrank.wordrank(texts)
         
         result.script = data['text']
-        # result.keyword = word
+        result.summary = self.split_summary(data['text'])
+        result.keyword = word
         result.meeting = meeting
         result.save()
-        return redirect('/testapp/result/' + str(meeting.id))
+        return redirect('/minute/' + str(meeting.id))
+    
+    def split_summary(self, contents):
+        WORDS = 1999
+        summary = ""
+        for i in range((len(contents)//WORDS)+1):
+            res = ClovaSummary().req(contents[WORDS*i:WORDS*(i+1)])
+            rescode = res.status_code
+            if(rescode == 200):
+                summary += json.loads(res.text)["summary"]
+            else:
+                print("Error : " + res.text)
+                
+        if (len(contents)//WORDS) > 0:
+            res = ClovaSummary().req(summary)
+            rescode = res.status_code
+            if(rescode == 200):
+                summary = json.loads(res.text)["summary"]
+            else:
+                print("Error : " + res.text)
+
+        return summary
+
 
 # script 수정 후 keyword / summary
-    def partial_update(self,request,pk=None):
+    # def partial_update(self,request,pk=None):
         
-        serializer = ResultSerializer(script, data = request.data, partial=True)
+    #     serializer = ResultSerializer(script, data = request.data, partial=True)
 
-        def create(self,request,pk):
-            result = get_object_or_404(Result, pk=pk)
+    #     def create(self,request,pk):
+    #         result = get_object_or_404(Result, pk=pk)
             
-            texts = result.script
+    #         texts = result.script
            
-            word = Krwordrank.wordrank(texts)
+    #         word = Krwordrank.wordrank(texts)
             
-            result.keyword = word
-            result.meeting = meeting
-            result.save()
-            return redirect('/testapp/result/' + str(meeting.id))
-
+    #         result.keyword = word
+    #         result.meeting = meeting
+    #         result.save()
+    #         return redirect('/testapp/result/' + str(meeting.id))
