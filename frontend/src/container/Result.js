@@ -69,16 +69,7 @@ const Result = ({ pk }) => {
     );
   }
 
-  const urlExists = (url) => {
-    let http = new XMLHttpRequest();
-    http.open("GET", url, false);
-    http.send();
-    return http.status !== 404;
-  };
-
   const renderResult = async () => {
-    let check = urlExists(`http://127.0.0.1:8000${url}`);
-    if (check) {
       await axios
         .get(url)
         .then((response) => {
@@ -94,7 +85,7 @@ const Result = ({ pk }) => {
             console.log(error.response.headers);
           }
         });
-    }
+    
   };
 
   useEffect(() => {
