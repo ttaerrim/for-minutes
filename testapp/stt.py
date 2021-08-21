@@ -4,7 +4,7 @@ import my_settings
 
 class ClovaSpeechClient:
     # Clova Speech invoke URL
-    invoke_url = 'https://clovaspeech-gw.ncloud.com/external/v1/799/aa8faebb4f42c2675716705caa010da8df1d9520e33a39759d8350e55049a30e'
+    invoke_url = 'https://clovaspeech-gw.ncloud.com/external/v1/1085/5c3585010bdae12c25b1a6f8276a251a031403c55c0fce83555970dacc96c5a2'
     # Clova Speech secret key
     secret = my_settings.STT_SECRET_KEY
 

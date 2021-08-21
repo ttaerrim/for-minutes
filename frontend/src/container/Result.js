@@ -83,6 +83,7 @@ const Result = ({ pk }) => {
         .get(url)
         .then((response) => {
           setScript(response.data.script);
+          setSummary(response.data.summary);
         })
         .catch((error) => {
           if (error.response) {
