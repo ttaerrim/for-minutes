@@ -28,6 +28,7 @@ const Result = ({ pk }) => {
   const [summary, setSummary] = useState("아직 없음");
   const [keywords, setKeywords] = useState("아직 없음");
   const [url, setUrl] = useState("");
+  const [summaryUrl, setSummaryUrl] = useState("");
 
   const classes = useStyles();
   const theme = useTheme();
@@ -77,13 +78,10 @@ const Result = ({ pk }) => {
   };
 
   const renderResult = async () => {
-    let check = urlExists(`http://127.0.0.1:8000${url}`);
-    if (check) {
       await axios
         .get(url)
         .then((response) => {
           setScript(response.data.script);
-          setSummary(response.data.summary);
         })
         .catch((error) => {
           if (error.response) {
@@ -93,11 +91,26 @@ const Result = ({ pk }) => {
             console.log(error.response.headers);
           }
         });
-    }
+        await axios
+        .get(summaryUrl)
+        .then((response) => {
+          setSummary(response.data.summary);
+          setKeywords(response.data.keyword);
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response);
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+    
   };
 
   useEffect(() => {
     setUrl(`/testapp/result/${pk}`);
+    setSummaryUrl(`/testapp/summary/${pk}`);
     renderResult();
   }, [{ pk }]);
   
