@@ -23,19 +23,35 @@ class ResultViewSet(viewsets.ModelViewSet):
     def create(self,request,pk):
         meeting = get_object_or_404(Meeting, pk=pk)
         result = Result()
-        meeting = get_object_or_404(Meeting, pk=request.POST.get('pk', 1))
+
         audio = "media/"+str(meeting.file)
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
         data = json.loads(res.text)
         texts = [data['text']]
-        print(texts)
         
-        word = Krwordrank.wordrank(texts)
-        print(word)
+        # word = Krwordrank.wordrank(texts)
         
         result.script = data['text']
-        result.keyword = word
+        # result.keyword = word
         result.meeting = meeting
         result.save()
-        return redirect('/minute/' + str(meeting.id))
+        return redirect('/testapp/result/' + str(meeting.id))
+
+# script 수정 후 keyword / summary
+    def partial_update(self,request,pk=None):
+        
+        serializer = ResultSerializer(script, data = request.data, partial=True)
+
+        def create(self,request,pk):
+            result = get_object_or_404(Result, pk=pk)
+            
+            texts = result.script
+           
+            word = Krwordrank.wordrank(texts)
+            
+            result.keyword = word
+            result.meeting = meeting
+            result.save()
+            return redirect('/testapp/result/' + str(meeting.id))
+

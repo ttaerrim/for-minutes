@@ -26,9 +26,14 @@ urlpatterns = [
     path('result/create/<int:pk>', ResultViewSet.as_view({
         'post': 'create'
     })),
+
     path('result/<int:pk>', ResultViewSet.as_view({
         'get': 'retrieve',
         'put': 'update',
         'patch': 'partial_update'
+    })),
+
+        path('result/delete/<int:pk>', ResultViewSet.as_view({
+        'delete': 'destroy'
     })),
 ]
