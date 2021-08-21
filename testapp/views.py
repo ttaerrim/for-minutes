@@ -37,7 +37,7 @@ class ResultViewSet(viewsets.ModelViewSet):
         result.keyword = word
         result.meeting = meeting
         result.save()
-        return redirect('/minute/' + str(meeting.id))
+        return redirect('/testapp/result/' + str(meeting.id))
     
     def split_summary(self, contents):
         WORDS = 1999
