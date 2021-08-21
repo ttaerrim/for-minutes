@@ -1,12 +1,12 @@
 import json
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Meeting, Result
+from .models import Meeting, Result, Summary_Result
 from .stt import *
 from .summary import *
 from forminutesprj.settings import MEDIA_ROOT
 from testapp.api import *
 
-from .serializer import MeetingSerializer,ResultSerializer
+from .serializer import MeetingSerializer,ResultSerializer, Summary_ResultSerializer
 from rest_framework import viewsets
 
 from .keyword import *
@@ -30,15 +30,50 @@ class ResultViewSet(viewsets.ModelViewSet):
         data = json.loads(res.text)
         texts = [data['text']]
         
-        word = Krwordrank.wordrank(texts)
+        # word = Krwordrank.wordrank(texts)
         
         result.script = data['text']
-        result.summary = self.split_summary(data['text'])
-        result.keyword = word
+        # result.summary = self.split_summary(data['text'])
+        # result.keyword = word
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
-    
+
+
+# script 수정 후 keyword / summary
+    # def partial_update(self,request,pk=None):
+        
+    #     serializer = ResultSerializer(script, data = request.data, partial=True)
+
+    #     def create(self,request,pk):
+    #         result = get_object_or_404(Result, pk=pk)
+            
+    #         texts = result.script
+           
+    #         word = Krwordrank.wordrank(texts)
+            
+    #         result.keyword = word
+    #         result.meeting = meeting
+    #         result.save()
+    #         return redirect('/testapp/result/' + str(meeting.id))
+
+class Summary_ResultViewSet(viewsets.ModelViewSet):
+    queryset = Summary_Result.objects.all()
+    serializer_class = Summary_ResultSerializer
+
+    def create(self, request, pk):
+        result = get_object_or_404(Result, pk=pk)
+        summary_result = Summary_Result()
+
+        script = result.script
+        word = Krwordrank.wordrank([script])
+
+        summary_result.summary = self.split_summary(script)
+        summary_result.keyword = word
+        summary_result.result = result
+        summary_result.save()
+        return redirect('/testapp/summary/' + str(result.pk))
+
     def split_summary(self, contents):
         WORDS = 1999
         summary = ""
@@ -59,21 +94,3 @@ class ResultViewSet(viewsets.ModelViewSet):
                 print("Error : " + res.text)
 
         return summary
-
-
-# script 수정 후 keyword / summary
-    # def partial_update(self,request,pk=None):
-        
-    #     serializer = ResultSerializer(script, data = request.data, partial=True)
-
-    #     def create(self,request,pk):
-    #         result = get_object_or_404(Result, pk=pk)
-            
-    #         texts = result.script
-           
-    #         word = Krwordrank.wordrank(texts)
-            
-    #         result.keyword = word
-    #         result.meeting = meeting
-    #         result.save()
-    #         return redirect('/testapp/result/' + str(meeting.id))

@@ -30,9 +30,18 @@ class Result(models.Model):
         primary_key=True,
     )
     script = models.TextField()
+
+    def __str__(self):
+        return self.meeting.title
+
+class Summary_Result(models.Model):
+    result = models.OneToOneField(
+        Result,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
     keyword = models.TextField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
-
 
     def __str__(self):
         return self.meeting.title
