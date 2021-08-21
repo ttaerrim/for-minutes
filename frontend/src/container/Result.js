@@ -84,6 +84,7 @@ const Result = ({ pk }) => {
         .then((response) => {
           setScript(response.data.script);
           setSummary(response.data.summary);
+          setKeywords(response.data.keyword);
         })
         .catch((error) => {
           if (error.response) {
