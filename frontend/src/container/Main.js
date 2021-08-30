@@ -5,6 +5,9 @@ import Header from "../component/Header.js";
 import Footer from "../component/Footer.js";
 import "./Main.css";
 import Navigation from "../component/Navigation.js";
+import FirstView from "../component/FirstView.js";
+import { Button } from "../component/Button.js";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   useEffect(() => {
@@ -13,22 +16,9 @@ const Main = () => {
 
   return (
     <div>
-      <Header />
+      <FirstView />
       <div>
         <div className="grids">
-          <div data-aos="fade-in" className="boxes">
-            <section id="nino-services">
-              <div class="container">
-                <div class="sectionContent">
-                  <div class="fw" layout="row">
-                    <a href="/post">
-                      <button class="snip1535">Get Started</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
 
           <div data-aos="fade-up" className="boxes">
             <section id="nino-story">
@@ -56,13 +46,8 @@ const Main = () => {
                   <div class="fw" layout="row">
                     <div class="col-md-4 col-sm-6 item ">
                       <div layout="row">
-                        <img
-                          src="https://cdn.icon-icons.com/icons2/2066/PNG/512/instagram_icon_125245.png"
-                          width="10%"
-                          height="10%"
-                        ></img>
                         <div>
-                          <h4 class="nino-serviceTitle">Css/Html</h4>
+                          <h4 class="nino-serviceTitle">Css/JS</h4>
                           <p>
                             Photography is the science, art and practice of
                             creating durable images by recording light or other
@@ -153,9 +138,9 @@ const Main = () => {
                     >
                       <h2 class="nino-sectionHeading">Contact Us</h2>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur venenatis
-                        tincidunt.
+                        To. TEAM JDJS
                       </p>
+         
                     </div>
                   </div>
 
@@ -213,7 +198,6 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

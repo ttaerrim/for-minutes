@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 
 import Aos from "aos"; 
 import "aos/dist/aos.css";
-import "./Main.css";
+import "./Post.css";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
@@ -115,12 +115,10 @@ const Post = () => {
 
   return (
     <React.Fragment>
-      <Navigation/>
-
       <div className="grids">
         <div className="boxes"></div>
         <div className="boxes_post">
-        <p className="post-font"> * 새 회의록 추가</p>
+        <p className="post-font"> New</p>
         </div>
         <div className="boxes3">
       
@@ -363,7 +361,6 @@ const Post = () => {
       </Box>
       </div>
       </div>
-      <Footer />
     </React.Fragment>
   );
 };

@@ -78,7 +78,6 @@ const Detail = (props) => {
 
   return (
     <div class="bg wrapper">
-      <Navigation />
     
     <details>
       <summary> 회의 정보</summary>
@@ -282,8 +281,6 @@ const Detail = (props) => {
           </Box>
         </Box>
       </div>
-
-      <Footer />
     </div>
   );
 };
