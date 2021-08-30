@@ -64,6 +64,7 @@ const Detail = (props) => {
           console.log(error.response.headers);
         }
         alert("fail");
+        setLoading(true);
       });
   };
 
