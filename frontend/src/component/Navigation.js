@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import logo from "../images/fmlogo.png";
+// import logo from "../images/fmlogo.png";
+import logo from "../images/txtlogo.svg";
 
 
 
@@ -32,8 +33,8 @@ function Navigation() {
                     <img
                       alt=""
                       src={logo}
-                      width="35"
-                      height="35"
+                      width="110"
+                      
                       className="d-inline-block align-top"
                     />                        
                     </Link>
