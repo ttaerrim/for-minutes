@@ -1,3 +1,4 @@
+  
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -17,9 +18,10 @@ const Minute = ({
   image,
 }) => {
   return (
+    
     <Table.Row>
       <Table.Cell>
-        <Link
+      <Link
           to={{
             pathname: `/minute/${id}`,
             state: {
@@ -35,7 +37,7 @@ const Minute = ({
           }}
         >
           <Text>{title}</Text>
-        </Link>
+          </Link>
       </Table.Cell>
       <Table.Cell>
         <Text>{writer}</Text>
@@ -43,7 +45,9 @@ const Minute = ({
       <Table.Cell>
         <Text>{date.substring(0, 10)}</Text>
       </Table.Cell>
+      
     </Table.Row>
+    
   );
 };
 
