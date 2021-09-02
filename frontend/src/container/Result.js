@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -116,7 +115,6 @@ const Result = ({ pk }) => {
         >
           <Tab label="Scripts" {...a11yProps(0)} />
           <Tab label="Summary" {...a11yProps(1)} />
-          <Tab label="Key Words" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -128,10 +126,9 @@ const Result = ({ pk }) => {
         {script}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction} className={classes.scroll}>
-        {summary}
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction} className={classes.scroll}>
         {keywords}
+        <br/>
+        {summary}
         </TabPanel>
         
       </SwipeableViews>

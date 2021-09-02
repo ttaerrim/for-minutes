@@ -31,7 +31,6 @@ class MinutesList extends Component {
 
     return (
       <div class="bg wrapper">
-        <Navigation />
         <div class="main-content">
           <Box padding={10} width="70%" margin="auto">
             <Table>
@@ -68,7 +67,7 @@ class MinutesList extends Component {
             </Table>
           </Box>
         </div>
-        <Footer />
+
       </div>
     );
   }

@@ -121,7 +121,6 @@ const Update = (props) => {
   };
   return (
     <Fragment>
-      <Navigation />
       <Box
         display="flex"
         marginStart={-3}
@@ -260,7 +259,6 @@ const Update = (props) => {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </Fragment>
   );
 };
