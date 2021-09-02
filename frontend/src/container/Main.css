@@ -193,8 +193,7 @@ strong, span {
   margin: 20px;
   margin-top: 150px;
   min-height: 130vh;
-  /* background-color: rgb(255, 255, 255); */
-  background-image: url("https://cdn.crowdpic.net/list-thumb/thumb_l_C560EB4BC0DC225382D260536C36533D.png");
+  background-color: rgb(255, 255, 255);
   overflow:auto;
   box-shadow: 0px 12px 18px -6px black;
   border-radius: 10px 10px 10px 10px;

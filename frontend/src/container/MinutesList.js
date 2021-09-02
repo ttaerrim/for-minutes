@@ -32,7 +32,6 @@ class MinutesList extends Component {
     return (
       <div class="bg wrapper">
         <div class="main-content">
-          <h3>나의 미닛 리스트</h3>
           <Box padding={10} width="70%" margin="auto">
             <Table>
               <Table.Header>
