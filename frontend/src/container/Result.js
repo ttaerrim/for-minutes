@@ -68,13 +68,6 @@ const Result = ({ pk }) => {
     );
   };
 
-  const urlExists = (url) => {
-    let http = new XMLHttpRequest();
-    http.open("GET", url, false);
-    http.send();
-    return http.status !== 404;
-  };
-
   const renderResult = async () => {
     await axios
       .get(url)
