@@ -1,62 +1,74 @@
-import React from "react";
-//import { Link } from "react-router-dom";
-import { Heading, Text,Link,Table} from "gestalt";
-import "gestalt/dist/gestalt.css";
-import './Navigation.css';
+import React,{useState, useEffect} from 'react';
+import { Link } from "react-router-dom";
+import "./Navigation.css";
+// import logo from "../images/fmlogo.png";
+import logo from "../images/txtlogo.svg";
 
 
 
-const Navigation = () => {
-  return (
-    <Text align="center" color="navy">
-      <Heading size="samll" color="navy">
-     
-      <div className="navigation"> 
-      
-      
-      {/* <Link href="/" hoverStyle= 'none' tapStyle= 'compress'> Home </Link>
-      <Link href="/minutes" hoverStyle= 'none' tapStyle= 'compress'> MinutesList </Link>
-      <Link href="/post" hoverStyle= 'none' tapStyle= 'compress'> Post </Link> */}
-      
-      <Table.Row>
-      <Table.Cell>
-        <Link href="/"  hoverStyle= "none" tapStyle= 'compress'> Home </Link>
-      </Table.Cell>
-      <Table.Cell>
-      <Link href="/minutes" hoverStyle= "none" tapStyle= 'compress'> MinutesList </Link>
-      </Table.Cell>
-      <Table.Cell>
-      <Link href="/post" hoverStyle= "none" tapStyle= 'compress'> Post </Link>
-      </Table.Cell>
-     
-    </Table.Row>
-      </div>
- 
-      </Heading>
-      </Text>
-    // <html>
-      
-    // <body>
-    //     <div>
-    //         <div class="header-dark">
-    //             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-    //                 <div class="container"><a class="navbar-brand" href="/"></a><img src={logo} width='8%'/><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-    //                     <div class="collapse navbar-collapse"
-    //                         id="navcol-1">
-    //                         <ul class="nav navbar-nav">
-    //                             <li class="nav-item" role="presentation"><a class="nav-link" href="/">Home</a></li>
-    //                             <li class="nav-item" role="presentation"><a class="nav-link" href="/minutes">MinutesList</a></li>
-    //                             <li class="nav-item" role="presentation"><a class="nav-link" href="/post">Post</a></li>
-    //                         </ul>
-    //                         </div>
-    //                         </div>
-    //             </nav>
-    //             </div>
-    //             </div>
-    //             </body>
-    // </html>
+function Navigation() {
+    const [click,setClick] = useState(false);
+    const [button,setButton]=useState(true);
+
+    const handleClick=()=>setClick(!click);
+    const closeMobileMenu=()=>setClick(false);
     
-  );
-};
+    const showButton =()=>{
+        if(window.innerWidth <=960){
+            setButton(false);
+        }else {
+            setButton(true);
+        }
+    }
+    useEffect(()=>{
+        showButton();
+    }, []);
+    window.addEventListener('resize',showButton);
+
+    return (
+        <>
+            <nav className="navbar">
+                <div className="navbar-container">
+                    <Link to="/" onClick={closeMobileMenu}>
+                    <img
+                      alt=""
+                      src={logo}
+                      width="110"
+                      className="img-logo"
+                    />                        
+                    </Link>
+                    <div className="menu-icon" onClick={handleClick}>
+                        <i className={click ? 'fas fa-times':'fas fa-bars'}/>
+                    </div>
+                    <ul className={click ? 'nav-menu active':'nav-menu'}>
+                        <li className="nav-item">
+                            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                                Home
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
+                                About Us
+                            </Link>
+                        </li>
+                        
+                        <li className="nav-item">
+                            <Link to="/minutes" className="nav-links" onClick={closeMobileMenu}>
+                            MinutesList
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/post" className="nav-links" onClick={closeMobileMenu}>
+                            Post
+                            </Link>
+                        </li>
+                    </ul>
+                    {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
+                </div>
+            </nav>
+        </>
+    )
+}
+
 
 export default Navigation;

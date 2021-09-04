@@ -1,8 +1,9 @@
+  
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { Table, Text } from "gestalt";
+import { Box, Table, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 
 const Minute = ({
@@ -14,18 +15,29 @@ const Minute = ({
   date,
   meeting_date,
   file,
+  image,
 }) => {
   return (
+    
     <Table.Row>
       <Table.Cell>
-        <Link
+      <Link
           to={{
-            pathname: `/minute/${id}/`,
-            state: { title, topic, writer, parties, date, meeting_date, file },
+            pathname: `/minute/${id}`,
+            state: {
+              title,
+              topic,
+              writer,
+              parties,
+              date,
+              meeting_date,
+              file,
+              image,
+            },
           }}
         >
           <Text>{title}</Text>
-        </Link>
+          </Link>
       </Table.Cell>
       <Table.Cell>
         <Text>{writer}</Text>
@@ -33,8 +45,9 @@ const Minute = ({
       <Table.Cell>
         <Text>{date.substring(0, 10)}</Text>
       </Table.Cell>
-     
+      
     </Table.Row>
+    
   );
 };
 

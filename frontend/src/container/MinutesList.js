@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Header from "../component/Header";
 import Footer from "../component/Footer";
+import Navigation from "../component/Navigation";
 
 import { Table, Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -27,12 +28,13 @@ class MinutesList extends Component {
   }
   render() {
     const { results } = this.state;
+    console.log("this.state:", this.state);
+    console.log("results: ", results);
 
     return (
       <div class="bg wrapper">
-        <Header />
         <div class="main-content">
-          <Box padding={10}>
+          <Box padding={10} width="70%" margin="auto">
             <Table>
               <Table.Header>
                 <Table.Row>
@@ -59,6 +61,7 @@ class MinutesList extends Component {
                       date={result.date}
                       meeting_date={result.meeting_date}
                       file={result.file}
+                      image={result.photo}
                     />
                   );
                 })}
@@ -66,14 +69,14 @@ class MinutesList extends Component {
             </Table>
           </Box>
         </div>
-        <Footer />
+
       </div>
     );
   }
 
   _renderMinute = async () => {
     await axios
-      .get("/testapp/meeting/")
+      .get("/testapp/meeting")
       .then((response) => {
         this.setState({ results: response.data });
       })

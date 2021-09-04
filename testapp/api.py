@@ -2,12 +2,12 @@ from rest_framework import generics
 from rest_framework.response import Response
 from .serializer import MeetingSerializer
 from .serializer import ResultSerializer
-from .models import Meeting, Result
+from .serializer import Summary_ResultSerializer
+from .models import Meeting, Result, Summary_Result
 
 # class MeetingApi(generics.ListAPIView):
 #     queryset = Meeting.objects.all()
 #     serializer_class = MeetingSerializer
-
  
 # class MeetingCreateApi(generics.CreateAPIView):
 #     queryset = Meeting.objects.all()
