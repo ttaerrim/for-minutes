@@ -89,7 +89,7 @@ const Detail = (props) => {
 
   const handleDelete = () => {
     if (window.confirm("정말 삭제하시겠습니까??") === true) {
-      axios.delete(`/testapp/meeting/${pk}/delete`).then((res) => {
+      axios.delete(`/testapp/meeting/delete/${pk}`).then((res) => {
         console.log(res.data);
         history.push("/minutes");
       });
