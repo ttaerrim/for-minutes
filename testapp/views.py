@@ -30,8 +30,11 @@ class ResultViewSet(viewsets.ModelViewSet):
         data = json.loads(res.text)
         texts = [data['text']]
         
+        # word = Krwordrank.wordrank(texts)
+        
         result.script = data['text']
-        print(data['text'])
+        # result.summary = self.split_summary(data['text'])
+        # result.keyword = word
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
