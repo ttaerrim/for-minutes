@@ -7,6 +7,8 @@ import "./Main.css";
 import Navigation from "../component/Navigation.js";
 
 import OH_1 from "../images/OH_1.jpg";
+import OH_2 from "../images/OH_2.jpg";
+import OH_3 from "../images/OH_3.PNG";
 import SA_3 from "../images/SA_3.PNG";
 import HY from "../images/HY.png";
 import JJ from "../images/JJ.jpg";
@@ -21,7 +23,6 @@ const About = () => {
 
   return (
     <div>
-      <Navigation />
       <div>
         <div className="grids">
           <div data-aos="fade-up" className="boxes">
@@ -108,42 +109,34 @@ const About = () => {
                     <div class="col-md-4 col-sm-4">
                       <article>
                         <div class="articleThumb">
-                          <img
-                            src="https://img.insight.co.kr/static/2019/10/10/700/b80r0s275if8x2m8l95v.jpg"
-                            alt=""
-                          />
+                        <img src={OH_2} alt="" />
                           <div class="date">
-                            <span class="number">14</span>
-                            <span class="text">Jan</span>
+                            <span class="number">6</span>
+                            <span class="text">May</span>
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <a href="">sed do eiusmod tempor</a>
+                          <a href="">프로젝트 진행 및 회의</a>
                         </h3>
                         <p class="articleDesc">
-                          Adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua.
+                        프로젝트의 전반적인 기반 구축과 각 담당 포지션 프로그래밍 진행
                         </p>
                       </article>
                     </div>
                     <div class="col-md-4 col-sm-4">
                       <article>
                         <div class="articleThumb">
-                          <img
-                            src="http://image.auction.co.kr/itemimage/21/71/cb/2171cb03c6.jpg"
-                            alt=""
-                          />
+                        <img src={OH_3} alt="" />
                           <div class="date">
-                            <span class="number">12</span>
-                            <span class="text">Jan</span>
+                            <span class="number">21</span>
+                            <span class="text">June</span>
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <a href="">incididunt ut labore et dolore</a>
+                          <a href="">캡스톤 1학기 가전시</a>
                         </h3>
                         <p class="articleDesc">
-                          Elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          프로젝트 진행 상황 발표
                         </p>
                       </article>
                     </div>
@@ -163,13 +156,6 @@ const About = () => {
                       data-wow-delay="0.2s"
                     >
                       <h2 class="nino-sectionHeading">Team JDJS</h2>
-                      <p>
-                        Collective intelligence refers to the result of
-                        cooperative participation and communication among
-                        multiple computer users, the result of collective
-                        action, the accumulation of judgment and knowledge, or
-                        the process thereof.
-                      </p>
                     </div>
                   </div>
 
@@ -328,7 +314,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

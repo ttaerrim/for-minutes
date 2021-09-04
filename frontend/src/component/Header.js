@@ -3,7 +3,6 @@ import {
   Box,
   Text,
   Link,
-  
 } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import "./Header.css";
@@ -16,40 +15,24 @@ const Header = () => {
     history.push("/");
   };
   return (
-    <Box
-      paddingY={2}
-      paddingX={4}
-      mdPaddingX={6}
-      color="white"
-      display="flex"
-      direction="row"
-      alignItems="center"
-      role="banner"
-    >
-      <Box marginStart={-2} marginEnd={-2}>
-        <Text color="gray" >
-          <Link to="/">
-            <Box padding={2}>
-              <Box
-                display="flex"
-                direction="row"
-                alignItems="center"
-                marginStart={-1}
-                marginEnd={-1}
-              >
-                <Box paddingX={2}>
-                  <img src={logo} className="header__logo" onClick={goHome} />
-                </Box>
-                <Box paddingX={1}>For Minutes</Box>
-              </Box>
-            </Box>
-          </Link>
-        </Text>
-      </Box>
 
-      <Box flex="grow" />
-      <Navigation />
-    </Box>
+    <nav role="navigation" class="primary-navigation">
+      <ul>
+        <li className="li-set"><a href="/">Home</a></li>
+        <li  className="li-set"><a href="/about">About Us</a></li>
+        <img
+          alt=""
+          src={logo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />
+        <li className="li-set"><a href="/minutes">MinutesList</a></li>
+        <li className="li-set"><a href="/post">Post</a></li>
+      </ul>
+      <hr/>
+    </nav>
+
   );
 };
 
