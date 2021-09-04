@@ -21,7 +21,7 @@
 }
 
 .navbar-logo {
-  color: rgb(110, 110, 110);
+  color: rgb(255, 255, 255);
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
@@ -29,6 +29,12 @@
   font-size: 1.5rem;
   display: flex;
   align-items: center;
+}
+
+.img-logo{
+  list-style: none;
+  justify-content: end;
+  margin-left: auto;
 }
 
 .fa-typo3 {
@@ -39,11 +45,12 @@
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
+  grid-gap: 15px;
   list-style: none;
   text-align: center;
-  width: 60vw;
-  justify-content: center;
+  width:85vw;
+  justify-content: end;
+  margin-right: auto;
 }
 
 .nav-item {
