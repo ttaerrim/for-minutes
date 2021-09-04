@@ -30,32 +30,12 @@ class ResultViewSet(viewsets.ModelViewSet):
         data = json.loads(res.text)
         texts = [data['text']]
         
-        # word = Krwordrank.wordrank(texts)
-        
         result.script = data['text']
-        # result.summary = self.split_summary(data['text'])
-        # result.keyword = word
+        result.summary = self.split_summary(data['text'])
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
 
-
-# script 수정 후 keyword / summary
-    # def partial_update(self,request,pk=None):
-        
-    #     serializer = ResultSerializer(script, data = request.data, partial=True)
-
-    #     def create(self,request,pk):
-    #         result = get_object_or_404(Result, pk=pk)
-            
-    #         texts = result.script
-           
-    #         word = Krwordrank.wordrank(texts)
-            
-    #         result.keyword = word
-    #         result.meeting = meeting
-    #         result.save()
-    #         return redirect('/testapp/result/' + str(meeting.id))
 
 class Summary_ResultViewSet(viewsets.ModelViewSet):
     queryset = Summary_Result.objects.all()
