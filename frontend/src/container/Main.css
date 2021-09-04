@@ -1,4 +1,22 @@
 
+.bg {
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+.main-contents{
+    padding: 5%;
+    
+}
+
+.main-contents h1{
+    text-align: center;
+}
+
+.container{
+    padding-bottom:30px;
+}
+
 
 /*---------------------------------------
   Typorgraphy              
