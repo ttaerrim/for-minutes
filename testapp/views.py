@@ -31,7 +31,7 @@ class ResultViewSet(viewsets.ModelViewSet):
         texts = [data['text']]
         
         result.script = data['text']
-        result.summary = self.split_summary(data['text'])
+        print(data['text'])
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
