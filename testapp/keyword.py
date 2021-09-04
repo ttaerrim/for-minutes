@@ -6,8 +6,8 @@ class Krwordrank:
         texts = [normalize(text, english=False, number=False) for text in texts]
 
         wordrank_extractor = KRWordRank(
-            min_count = 10,
-            max_length = 10,
+            min_count = 5, # 단어의 최소 출현 빈도수
+            max_length = 10, # 단어의 최대 길이
             verbose = True
             )
 

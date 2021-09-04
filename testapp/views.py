@@ -40,23 +40,6 @@ class ResultViewSet(viewsets.ModelViewSet):
         return redirect('/testapp/result/' + str(meeting.id))
 
 
-# script 수정 후 keyword / summary
-    # def partial_update(self,request,pk=None):
-        
-    #     serializer = ResultSerializer(script, data = request.data, partial=True)
-
-    #     def create(self,request,pk):
-    #         result = get_object_or_404(Result, pk=pk)
-            
-    #         texts = result.script
-           
-    #         word = Krwordrank.wordrank(texts)
-            
-    #         result.keyword = word
-    #         result.meeting = meeting
-    #         result.save()
-    #         return redirect('/testapp/result/' + str(meeting.id))
-
 class Summary_ResultViewSet(viewsets.ModelViewSet):
     queryset = Summary_Result.objects.all()
     serializer_class = Summary_ResultSerializer
