@@ -29,13 +29,12 @@ function Navigation() {
         <>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+                    <Link to="/" onClick={closeMobileMenu}>
                     <img
                       alt=""
                       src={logo}
                       width="110"
-                      
-                      className="d-inline-block align-top"
+                      className="img-logo"
                     />                        
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
