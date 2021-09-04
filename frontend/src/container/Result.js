@@ -142,6 +142,7 @@ const Result = ({ pk }) => {
         >
           {keywords}
           <br />
+          <br />
           {summary}
         </TabPanel>
       </SwipeableViews>

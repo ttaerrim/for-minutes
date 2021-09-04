@@ -24,6 +24,7 @@ const Detail = (props) => {
   const [file, setFile] = useState();
   const [image, setImage] = useState();
   const [loading, setLoading] = useState(true);
+  const [summaryLoading, setSummaryLoading] = useState(true);
 
   useEffect(() => {
     setPk(props.match.params.id);
@@ -49,10 +50,8 @@ const Detail = (props) => {
     let formData = new FormData();
     formData.append("pk", pk);
     setLoading(false);
-    const url = `/testapp/result/create/${pk}`;
     await axios
-      // .post("/testapp/result/" +this.state.pk+ "/create", formData)
-      .post(url, formData)
+      .post(`/testapp/result/create/${pk}`, formData)
       .then((res) => {
         setLoading(true);
         window.location.reload();
@@ -67,6 +66,26 @@ const Detail = (props) => {
         setLoading(true);
       });
   };
+  const createSummary = async () => {
+    let formData = new FormData();
+    formData.append("pk", pk);
+    setSummaryLoading(false);
+    await axios
+      .post(`/testapp/summary/create/${pk}`, formData)
+      .then((res) => {
+        setSummaryLoading(true);
+        window.location.reload();
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+        alert("fail");
+        setSummaryLoading(true);
+      });
+  };
 
   const handleDelete = () => {
     if (window.confirm("정말 삭제하시겠습니까??") === true) {
@@ -79,67 +98,57 @@ const Detail = (props) => {
 
   return (
     <div class="bg wrapper">
-    
-    <details>
-      <summary> 회의 정보</summary>
-    <div className="container boxes3">
-    
-        <table className="table">
-        <colgroup>
-            <col width="35%"/>
-            <col width="5%"/>
-            <col width="45%"/>
-            <col width="15%"/>
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope="col">제목</th>
-              <th scope="col"></th>
-              <th scope="col">회의 안건</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            
+      <details>
+        <summary> 회의 정보</summary>
+        <div className="container boxes3">
+          <table className="table">
+            <colgroup>
+              <col width="35%" />
+              <col width="5%" />
+              <col width="45%" />
+              <col width="15%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">제목</th>
+                <th scope="col"></th>
+                <th scope="col">회의 안건</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
               <td>{title}</td>
               <td></td>
               <td>{topic}</td>
               <td></td>
-            
-            
-          </tbody>
+            </tbody>
           </table>
 
           <table className="table">
-          <colgroup>
-            <col width="40%"/>
-            <col width="24%"/>
-            <col width="18%"/>
-            <col width="18%"/>
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope="col">참여자</th>
-              <th scope="col">작성자</th>
-              <th scope="col">회의 날짜</th>
-              <th scope="col">게시일</th>
-            </tr>
-          </thead>
-          <tbody>
-            
+            <colgroup>
+              <col width="40%" />
+              <col width="24%" />
+              <col width="18%" />
+              <col width="18%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">참여자</th>
+                <th scope="col">작성자</th>
+                <th scope="col">회의 날짜</th>
+                <th scope="col">게시일</th>
+              </tr>
+            </thead>
+            <tbody>
               <td>{parties}</td>
               <td>{writer}</td>
               <td>{date}</td>
               <td>{meeting_date}</td>
-              
-            
-          </tbody>
-        </table>
-        <img width="30%" src={image}></img>
-        
-      </div>
-    </details>
-    
+            </tbody>
+          </table>
+          <img width="30%" src={image}></img>
+        </div>
+      </details>
 
       <div class="main-content">
         <Box
@@ -155,103 +164,112 @@ const Detail = (props) => {
           alignContent="center"
           alignSelf="center"
         >
-
-      <div className="container boxes3">
-          <Box flex="grow" paddingX={3} paddingY={4} rounding={3} color="white">
-            <Heading size="md" color="midnight" align="center">
-              Title: {title}
-            </Heading>
-          </Box>
-          <Box
-            justifyContent="end"
-            marginStart={-1}
-            marginEnd={-1}
-            marginTop={-1}
-            marginBottom={-1}
-            display="flex"
-            wrap
-          >
-            <Box paddingX={1} paddingY={1}>
-              <Link
-                to={{
-                  pathname: `/minute/update/${pk}/`,
-                  state: {
-                    title: title,
-                    topic: topic,
-                    writer: writer,
-                    parties: parties,
-                    date: date,
-                    meeting_date: meeting_date,
-                    file: file,
-                    image: image,
-                  },
-                }}
-              >
-                <Button text="수정" color="transparent" />
-              </Link>
+          <div className="container boxes3">
+            <Box
+              flex="grow"
+              paddingX={3}
+              paddingY={4}
+              rounding={3}
+              color="white"
+            >
+              <Heading size="md" color="midnight" align="center">
+                Title: {title}
+              </Heading>
             </Box>
-            <Box paddingX={1} paddingY={1}>
-              <Button text="삭제" color="transparent" onClick={handleDelete} />
+            <Box
+              justifyContent="end"
+              marginStart={-1}
+              marginEnd={-1}
+              marginTop={-1}
+              marginBottom={-1}
+              display="flex"
+              wrap
+            >
+              <Box paddingX={1} paddingY={1}>
+                <Link
+                  to={{
+                    pathname: `/minute/update/${pk}/`,
+                    state: {
+                      title: title,
+                      topic: topic,
+                      writer: writer,
+                      parties: parties,
+                      date: date,
+                      meeting_date: meeting_date,
+                      file: file,
+                      image: image,
+                    },
+                  }}
+                >
+                  <Button text="수정" color="transparent" />
+                </Link>
+              </Box>
+              <Box paddingX={1} paddingY={1}>
+                <Button
+                  text="삭제"
+                  color="transparent"
+                  onClick={handleDelete}
+                />
+              </Box>
             </Box>
-          </Box>
-          <br />
-          <Box width="70%" margin="auto" marginBottom={10}>
-            <Table>
-              <Table.Row>
-                <Table.Cell>
-                  <Text color="midnight" weight="bold">
-                    회의 안건
-                  </Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{topic}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text color="midnight" weight="bold">
-                    작성자
-                  </Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{writer}</Text>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text color="midnight" weight="bold">
-                    게시일
-                  </Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{date}</Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text color="midnight" weight="bold">
-                    회의 날짜
-                  </Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{meeting_date}</Text>
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Text color="midnight" weight="bold">
-                    참석자
-                  </Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Text>{parties}</Text>
-                </Table.Cell>
-              </Table.Row>
-            </Table>
-            {/* <Box display="flex" padding={3} wrap direction="row">
+            <br />
+            <Box width="70%" margin="auto" marginBottom={10}>
+              <Table>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text color="midnight" weight="bold">
+                      회의 안건
+                    </Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{topic}</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text color="midnight" weight="bold">
+                      작성자
+                    </Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{writer}</Text>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text color="midnight" weight="bold">
+                      게시일
+                    </Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{date}</Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text color="midnight" weight="bold">
+                      회의 날짜
+                    </Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{meeting_date}</Text>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>
+                    <Text color="midnight" weight="bold">
+                      참석자
+                    </Text>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Text>{parties}</Text>
+                  </Table.Cell>
+                </Table.Row>
+              </Table>
+              {/* <Box display="flex" padding={3} wrap direction="row">
               <Text color="midnight" weight="bold" inline>
                 사진
               </Text>
               &nbsp;&nbsp;&nbsp;
               <img width="50%" src={image} inline />
             </Box> */}
-          </Box>
+            </Box>
           </div>
           <Box flex="grow" paddingX={3} paddingY={3}>
             <Box
@@ -263,13 +281,25 @@ const Detail = (props) => {
               display="flex"
               wrap
             >
-              <Box paddingX={1} paddingY={1}>
+              <Box marginTop={10} paddingX={3} paddingY={3}>
                 {loading ? (
                   <Button
                     type="button"
                     onClick={createResult}
-                    text="Result 결과"
+                    text="회의 스크립트 생성"
                     inline
+                    margin={5}
+                  ></Button>
+                ) : (
+                  <Spinner />
+                )}{" "}
+                {summaryLoading ? (
+                  <Button
+                    type="button"
+                    onClick={createSummary}
+                    text="요약 & 키워드 생성"
+                    inline
+                    margin={5}
                   ></Button>
                 ) : (
                   <Spinner />
