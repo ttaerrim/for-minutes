@@ -7,7 +7,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "./Main.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +28,7 @@ const Result = ({ pk }) => {
   const [keywords, setKeywords] = useState("아직 없음");
   const [url, setUrl] = useState("");
   const [summaryUrl, setSummaryUrl] = useState("");
+  const [editing, setEditing] = useState(false);
 
   const classes = useStyles();
   const theme = useTheme();
@@ -40,6 +41,21 @@ const Result = ({ pk }) => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
+  const handleToggleEdit = () => {
+    setEditing(!editing);
+  };
+
+  const Example = React.memo(
+    () => {},
+    (prevProps, nextProps) => {
+      if (!prevProps.editing && !nextProps.editing) {
+        return false;
+      }
+      // 나머지 경우엔 리렌더링함
+      return true;
+    }
+  );
 
   function a11yProps(index) {
     return {
@@ -132,7 +148,9 @@ const Result = ({ pk }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          {script}
+          <button onClick={handleToggleEdit}>수정</button>
+          <br />
+          {scripts}
         </TabPanel>
         <TabPanel
           value={value}
