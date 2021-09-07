@@ -25,38 +25,36 @@ const Pdf = ({
     <Document>
       <Page size="A4" style={styles.body}>
         <View style={styles.section}>
-          <Text style={styles.title}>회의 제목: {title} </Text>
+          <Text style={styles.title}>{`회의록-${title}`}</Text>
         </View>
         <View style={styles.subsection}>
-          <Text>회의 안건: {topic}</Text>
-        </View>
-        <View style={styles.subsection}>
-          <Text style={styles.subtitle}>회의 날짜: {meeting_date}</Text>
-        </View>
-        <View style={styles.subsection}>
-          <Text>작성자: {writer}</Text>
-          <Text>작성일: {date}</Text>
-          <Text>참석자: {parties}</Text>
+          <Text style={styles.infoText}>회의 안건: {topic}</Text>
+          <Text style={styles.infoText}>회의 날짜: {meeting_date}</Text>
+          <Text style={styles.infoText}>작성자: {writer}</Text>
+          <Text style={styles.infoText}>참석자: {parties}</Text>
+          <Text style={styles.infoText}>작성일: {date}</Text>
         </View>
         <View style={styles.subsection}>
           <View>
             <Text style={styles.stitle}>회의 요약</Text>
           </View>
           <List>
-            {summary.map((s, i) => (
-              <Item key={i} style={(styles.detailContainer, styles.inner)}>
-                {s}
-              </Item>
-            ))}
+            <Item style={(styles.detailContainer, styles.inner)}>
+              {summary}
+            </Item>
           </List>
         </View>
         <View style={styles.subsection}>
           <View>
             <Text style={styles.stitle}>회의 키워드</Text>
           </View>
-          <Text style={styles.inner}>
-            {keyword[0]}, {keyword[1]}, {keyword[2]}
-          </Text>
+          <View style={styles.keywordSection}>
+            {keyword.startsWith("[") && keyword.endsWith("]") ? (
+              <Text style={styles.innerKeyword}>
+                {keyword.split("[")[1].split("]")[0]}
+              </Text>
+            ) : null}
+          </View>
         </View>
       </Page>
     </Document>
@@ -82,18 +80,26 @@ const styles = StyleSheet.create({
   subsection: {
     margin: 5,
     padding: 5,
+    fontSize: 16,
+    lineHeight: "1.5pt",
   },
-
+  keywordSection: {
+    flexDirection: "row",
+  },
   stitle: {
     marginBottom: 2,
   },
   inner: {
     textIndent: 20,
   },
+  innerKeyword: {
+    textIndent: 20,
+    fontSize: 14,
+  },
 
   title: {
     fontSize: 24,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   subtitle: {
     fontsize: 16,

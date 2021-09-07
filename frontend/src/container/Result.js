@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import "./Main.css";
 import Modal from "./Modal";
+import PdfDownloader from "../component/pdf/PdfDownloader.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Result = ({ pk }) => {
+const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   const [script, setScript] = useState("아직 없음");
   const [modalScript, setModalScript] = useState("아직 없음");
   const [summary, setSummary] = useState("아직 없음");
@@ -80,7 +81,11 @@ const Result = ({ pk }) => {
         aria-labelledby={`full-width-tab-${index}`}
         {...other}
       >
-        {value === index && <Typography>{children}</Typography>}
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
       </div>
     );
   };
@@ -183,6 +188,17 @@ const Result = ({ pk }) => {
           {summary}
         </TabPanel>
       </SwipeableViews>
+
+      <PdfDownloader
+        title={title}
+        topic={topic}
+        writer={writer}
+        parties={parties}
+        date={date}
+        meeting_date={meeting_date}
+        summary={summary}
+        keyword={keywords}
+      />
     </div>
   );
 };

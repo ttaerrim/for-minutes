@@ -305,7 +305,15 @@ const Detail = (props) => {
             </Box>
           </Box>
           <Box padding={10}>
-            <Result pk={pk}></Result>
+            <Result
+              pk={pk}
+              title={title}
+              topic={topic}
+              writer={writer}
+              parties={parties}
+              date={date}
+              meeting_date={meeting_date}
+            ></Result>
           </Box>
         </Box>
       </div>
