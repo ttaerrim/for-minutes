@@ -3,23 +3,32 @@ import "gestalt/dist/gestalt.css";
 import "./Footer.css";
 
 const Footer = () => (
-  <footer class="footer-dark">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-3 item">
-          <h3>Home</h3>
+  <footer className="footer-dark">
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-9 col-md-3 item">
+        <h3>
+          <i className="fas fa-compass"></i> &nbsp;
+          CATEGORIES</h3>
           <ul>
             <li>
-              <a href="#!">Information</a>
+              <a href="#!">Home</a>
             </li>
             <li>
-              <a href="#!">Contact us</a>
+              <a href="#!">About Us</a>
+            </li>
+            <li>
+              <a href="#!">Minutes List</a>
+            </li>
+            <li>
+              <a href="#!">Post</a>
             </li>
             
           </ul>
         </div>
-        <div class="col-sm-6 col-md-3 item">
-          <h3>About Us</h3>
+        <div className="col-sm-6 col-md-3 item">
+          <h3><i className="fas fa-laptop-code"></i>&nbsp;
+          Project</h3>
           <ul>
             <li>
               <a href="#!">Project</a>
@@ -33,12 +42,12 @@ const Footer = () => (
           </ul>
         </div>
         
-        <div class="col-md-6 item text">
+        <div className="col-md-6 item text">
           <h3>For Minutes</h3>
           <p>"For Minutes" is summary minutes service.</p>
         </div>
       </div>
-      <p class="copyright">For-Minutes © 2021</p>
+      <p className="copyright">For-Minutes © 2021</p>
     </div>
   </footer>
 );
