@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../component/Footer";
-import Header from "../component/Header";
-import Navigation from "../component/Navigation.js";
 import Result from "./Result.js";
 import Spinner from "../component/Spinner";
 import "./Main.css";

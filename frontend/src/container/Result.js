@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import {
+  AppBar,
+  Box,
+  FormControl,
+  Tab,
+  Tabs,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import "./Main.css";
+import Modal from "./Modal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,15 +28,24 @@ const useStyles = makeStyles((theme) => ({
 
 const Result = ({ pk }) => {
   const [script, setScript] = useState("아직 없음");
+  const [modalScript, setModalScript] = useState("아직 없음");
   const [summary, setSummary] = useState("아직 없음");
   const [keywords, setKeywords] = useState("아직 없음");
   const [url, setUrl] = useState("");
   const [summaryUrl, setSummaryUrl] = useState("");
-  const [editing, setEditing] = useState(false);
 
   const classes = useStyles();
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -42,20 +55,12 @@ const Result = ({ pk }) => {
     setValue(index);
   };
 
-  const handleToggleEdit = () => {
-    setEditing(!editing);
+  const handleScriptChange = (event) => {
+    setScript(event.target.value);
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.value);
   };
-
-  const Example = React.memo(
-    () => {},
-    (prevProps, nextProps) => {
-      if (!prevProps.editing && !nextProps.editing) {
-        return false;
-      }
-      // 나머지 경우엔 리렌더링함
-      return true;
-    }
-  );
 
   function a11yProps(index) {
     return {
@@ -75,11 +80,7 @@ const Result = ({ pk }) => {
         aria-labelledby={`full-width-tab-${index}`}
         {...other}
       >
-        {value === index && (
-          <Box p={3}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
+        {value === index && <Typography>{children}</Typography>}
       </div>
     );
   };
@@ -115,14 +116,32 @@ const Result = ({ pk }) => {
       });
   };
 
+  const handleChange2 = (event) => {
+    setScript(event);
+    console.log(event);
+  };
+
   useEffect(() => {
     setUrl(`/testapp/result/${pk}`);
     setSummaryUrl(`/testapp/summary/${pk}`);
     renderResult();
-  }, [{ pk }]);
+  });
 
   return (
     <div className={classes.root}>
+      <button onClick={openModal}>모달팝업</button>
+
+      <Modal open={modalOpen} close={closeModal} header="스크립트 수정">
+        <FormControl fullWidth>
+          <TextField
+            type="text"
+            onChange={handleChange2}
+            value={script}
+            multiline
+          />
+        </FormControl>
+      </Modal>
+
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -148,9 +167,9 @@ const Result = ({ pk }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          <button onClick={handleToggleEdit}>수정</button>
-          <br />
-          {scripts}
+          <FormControl fullWidth>
+            <TextField onChange={handleChange2} value={script} multiline />
+          </FormControl>
         </TabPanel>
         <TabPanel
           value={value}
