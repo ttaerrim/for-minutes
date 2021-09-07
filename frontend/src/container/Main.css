@@ -1,12 +1,10 @@
-
 .bg {
-    min-height: 100vh;
+    min-height: 60vh;
     background-color: #ffffff;
 }
 
 .main-contents{
-    padding: 5%;
-    
+    padding: 1%;
 }
 
 .main-contents h1{
@@ -16,6 +14,7 @@
 .container{
     padding-bottom:30px;
 }
+
 
 
 /*---------------------------------------
@@ -90,7 +89,7 @@ strong, span {
 }
 
 #contact button#submit {
-  background: #000000;
+  background: #00204b;
   border: none;
   border-radius: 50px;
   color: #ffffff;
@@ -101,7 +100,7 @@ strong, span {
 }
 
 #contact button#submit:hover {
-  background: #002a79;
+  background: #a2c3ff;
   color: #ffffff;
 }
 
@@ -209,7 +208,8 @@ strong, span {
 
 .boxes1{
   margin: 20px;
-  margin-top: 150px;
+  margin-top: 10vh;
+  margin-bottom: 20vh;
   min-height: 130vh;
   background-color: rgb(255, 255, 255);
   overflow:auto;
@@ -226,6 +226,16 @@ strong, span {
   width:70%;
   margin:auto;
 }
+
+.summary_boxes{
+	margin-left: 5%;
+	margin-top: 10%;
+	background-color: rgb(255, 255, 255);
+	overflow:auto;
+	padding:1%;
+	width:70%;
+	margin:auto;
+  }
 
 .boxes_post {
   margin:auto;
@@ -255,34 +265,6 @@ strong, span {
 
 
 
-/* =============== DEFAULT HTML - LIST STYLES =============== */
-ul, ul li,
-ol, ol li,
-p, form, input {
-	margin: 0;
-	padding: 0;
-}
-p {
-	margin-bottom: 10px;
-}
-ul, ul li {
-	list-style: none;
-}
-
-a {
-	text-decoration: none;
-	outline: none;
-	color: rgb(168, 216, 255);
-	-webkit-transition: all .3s ease-in-out;
-	   -moz-transition: all .3s ease-in-out;
-		 -o-transition: all .3s ease-in-out;
-		-ms-transition: all .3s ease-in-out;
-			transition: all .3s ease-in-out;
-}
-a:hover {
-	color: rgb(0, 64, 116);
-	text-decoration: none;
-}
 /* =============== TEAM - IMAGES STYLES =============== */
 img {
 	border: none;
@@ -367,7 +349,7 @@ img.img-circle {
 	text-align: center;
 }
 .nino-hoverEffect .item {
-	background: #95e1d3;
+	background: #c8e4ff;
 	display: inline-block;
 }
 .nino-hoverEffect .item .overlay {
@@ -394,10 +376,10 @@ img.img-circle {
 		 -o-transition: all .3s ease-in-out;
 		-ms-transition: all .3s ease-in-out;
 			transition: all .3s ease-in-out;
-	background: rgba(243,129,129,0.9); /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-	background: -webkit-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
-	background: -o-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
-	background: linear-gradient(to bottom, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: rgba(198, 188, 255, 0.9); /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(top, rgba(198, 188, 255, 0.9), rgba(252, 227, 138, 0.9));
+	background: -o-linear-gradient(top, rgba(198, 188, 255, 0.9), rgba(252, 227, 138, 0.9));
+	background: linear-gradient(to bottom, rgba(198, 188, 255, 0.9), rgba(252, 227, 138, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .nino-hoverEffect .item:hover .overlay {
 	left: -10px;
@@ -414,7 +396,7 @@ img.img-circle {
 	z-index: 1;
 	opacity: 0;
 	text-align: center;
-	color: #fff;
+	color: rgb(71, 71, 71);
 	text-transform: uppercase;	
 	-webkit-transform: translateY(-50%);
 	   -moz-transform: translateY(-50%);
@@ -728,6 +710,7 @@ p {
 
   details {
   margin-bottom: 1rem;
+  margin-top: 5%;
   }
 
   details > summary {
@@ -769,4 +752,55 @@ p {
       transform: translate3d(0, 0, 0);
   }
   }
+
+
+/*****post input*****/
+
+  .input-file-button{
+	padding: 6px 15px;
+	background-color:rgb(0, 64, 116);
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+  }
+
+  .input-file-button:hover{
+	background-color:rgb(230, 244, 255);
+	color:rgb(0, 64, 116);
+  }
+
+  .fa-star-of-life {
+	color: rgb(128, 200, 255);
+  }
+
+  /***/
+  .filebox .upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 30%;
+    color: rgb(151, 151, 151);
+}
+.filebox label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: rgb(0, 64, 116);
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+	border-radius: 3px;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
 

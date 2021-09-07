@@ -7,6 +7,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import TextField from '@material-ui/core/TextField';
 
 import "./Main.css";
 
@@ -67,6 +68,7 @@ const Result = ({ pk }) => {
       </div>
     );
   };
+
 
   const renderResult = async () => {
     await axios
@@ -132,7 +134,10 @@ const Result = ({ pk }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          {script}
+          <code>
+        {script}
+        </code>
+
         </TabPanel>
         <TabPanel
           value={value}
