@@ -48,7 +48,6 @@ const Contact=()=> {
                         className="form-control"
                         name="name"
                         placeholder="Name"
-                        required
                       />
                     </div>
                     <div className="col-md-4 col-sm-4">
@@ -57,7 +56,6 @@ const Contact=()=> {
                         className="form-control"
                         name="email"
                         placeholder="Email"
-                        required
                       />
                     </div>
                     <div className="col-md-4 col-sm-4">
@@ -66,7 +64,6 @@ const Contact=()=> {
                         className="form-control"
                         name="subject"
                         placeholder="Subject"
-                        required
                       />
                     </div>
                     <div class="col-md-12 col-sm-12">

@@ -49,7 +49,10 @@ const Main = () => {
                     <div className="col-md-4 col-sm-6 item ">
                       <div layout="row">
                         <div>
-                          <h4 class="nino-serviceTitle">Css/JS</h4>
+                          <h4 class="nino-serviceTitle">
+                          <i className="fab fa-react fa-color"></i>
+                          React/JS
+                          </h4>
                           <p>
                             Photography is the science, art and practice of
                             creating durable images by recording light or other
@@ -60,22 +63,23 @@ const Main = () => {
                     </div>
                     <div className="col-md-4 col-sm-6 item ">
                       <div layout="row">
-                        <i className="mdi mdi-blender nino-icon fsr"></i>
+                      
                         <div>
-                          <h4 className="nino-serviceTitle">Web Design</h4>
+                          <h4 className="nino-serviceTitle">
+                          <i className="fas fa-palette fa-color"></i>
+                          Web Design</h4>
                           <p>
-                            Web design encompasses many different skills and
-                            disciplines in the production and maintenance of
-                            websites.
+                          웹 디자인은 웹 사이트의 생산 및 유지 관리에 있어 다양한 기술과 분야를 포괄합니다.
                           </p>
                         </div>
                       </div>
                     </div>
                     <div className="col-md-4 col-sm-6 item ">
                       <div layout="row">
-                        <i className="mdi mdi-bookmark-plus-outline nino-icon fsr"></i>
                         <div>
-                          <h4 className="nino-serviceTitle">Creativity</h4>
+                          <h4 className="nino-serviceTitle">
+                            <i className="fas fa-lightbulb fa-color"></i>
+                          Creativity</h4>
                           <p>
                             Creativity is a phenomenon whereby something new and
                             somehow valuable is formed. The created item may be
@@ -86,22 +90,25 @@ const Main = () => {
                     </div>
                     <div className="col-md-4 col-sm-6 item ">
                       <div layout="row">
-                        <i className="mdi mdi-buffer nino-icon fsr"></i>
                         <div>
-                          <h4 className="nino-serviceTitle">seo</h4>
+                          <h4 className="nino-serviceTitle">
+                          <i className="fas fa-head-side-virus fa-color"></i>
+                          AI</h4>
                           <p>
-                            Search engine optimization (SEO) is the process of
-                            affecting the visibility of a website or a web page
-                            in a web search engine's unpaid results.
+                            Creativity is a phenomenon whereby something new and
+                            somehow valuable is formed. The created item may be
+                            intangible or a physical object.
                           </p>
                         </div>
                       </div>
                     </div>
+          
                     <div className="col-md-4 col-sm-6 item ">
                       <div layout="row">
-                        <i className="mdi mdi-desktop-mac nino-icon fsr"></i>
                         <div>
-                          <h4 className="nino-serviceTitle">Css/Html</h4>
+                          <h4 className="nino-serviceTitle">
+                            <i className="fas fa-server fa-color"></i>
+                          Server</h4>
                           <p>
                             HyperText Markup Language, commonly abbreviated as
                             HTML, is the standard markup language used to create
@@ -112,9 +119,9 @@ const Main = () => {
                     </div>
                     <div className="col-md-4 col-sm-6 item ">
                       <div layout="row">
-                        <i className="mdi mdi-diamond nino-icon fsr"></i>
                         <div>
-                          <h4 className="nino-serviceTitle">digital</h4>
+                          <h4 className="nino-serviceTitle">
+                            <i className="fas fa-server fa-color"></i>digital</h4>
                           <p>
                             With digital signals, system noise, provided it is
                             not too great, will not change the quantification

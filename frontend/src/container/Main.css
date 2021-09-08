@@ -460,11 +460,7 @@ section {
 
 
 /* =============== SECTION SERVICES =============== */
-#nino-services .nino-icon {
-	font-size: 30px;
-	margin-right: 20px;
-	color: #95e1d3;
-}
+
 #nino-services .item:not(:nth-last-child(-n+3)) {
 	border-bottom: 1px solid #e5e5e5;
 	margin-bottom: 50px;
@@ -472,8 +468,21 @@ section {
 }
 #nino-services .nino-serviceTitle {
 	font-weight: 500;
-	font-size: 14px;
+	font-size: 16px;
 }
+
+.nino-serviceTitle i{
+  font-size: 15px;
+	margin-right: 10px;
+  color:rgb(166, 219, 255);
+}
+
+#nino-services p{
+  font-weight: 300;
+	font-size: 14px;
+  color:rgb(139, 139, 139);
+}
+
 
 
 
@@ -484,7 +493,7 @@ section {
 }
 #nino-latestBlog article .date {
 	position: absolute;
-	background: #95e1d3;
+	background: rgb(201, 234, 255);
 	left: -10px;
 	bottom: 10px;
 	padding: 10px 15px;
@@ -505,6 +514,7 @@ section {
 }
 #nino-latestBlog article .articleTitle {
 	font-size: 14px;
+  color: rgb(116, 174, 212);
 }
 #nino-latestBlog article .articleMeta {
 	border-top: 1px solid #e5e5e5;
@@ -522,6 +532,13 @@ section {
 	color: #000;
 }
 #nino-latestBlog article .articleMeta .nino-icon {
+	color: #95e1d3;
+	font-size: 17px;
+	position: relative;
+	top: 2px;
+}
+
+#nino-latestBlog .p {
 	color: #95e1d3;
 	font-size: 17px;
 	position: relative;

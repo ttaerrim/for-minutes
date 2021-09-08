@@ -44,7 +44,7 @@ const About = () => {
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <div href="">프로젝트 기획 발표</div>
+                          <div>프로젝트 기획 발표</div>
                         </h3>
                         <p class="articleDesc">
                           인공지능 회의 요약 서비스 'For-Minutes' 기획 <br />{" "}
@@ -79,7 +79,7 @@ const About = () => {
                           </div>
                         </div>
                         <h3 class="articleTitle">
-                          <div href="">캡스톤 1학기 가전시</div>
+                          <div>캡스톤 1학기 가전시</div>
                         </h3>
                         <p class="articleDesc">
                           프로젝트 진행 상황 발표
