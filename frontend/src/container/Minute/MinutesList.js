@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
 
 import { Table, Text, Box } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -22,12 +20,10 @@ class MinutesList extends Component {
     };
   }
   componentDidMount() {
-    this._renderMinute();
+    this.renderMinute();
   }
   render() {
     const { results } = this.state;
-    console.log("this.state:", this.state);
-    console.log("results: ", results);
 
     return (
       <div class="bg wrapper">
@@ -67,12 +63,11 @@ class MinutesList extends Component {
             </Table>
           </Box>
         </div>
-
       </div>
     );
   }
 
-  _renderMinute = async () => {
+  renderMinute = async () => {
     await axios
       .get("/testapp/meeting")
       .then((response) => {

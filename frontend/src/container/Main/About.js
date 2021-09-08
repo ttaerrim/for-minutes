@@ -1,22 +1,19 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Footer from "../component/Footer.js";
 import "./Main.css";
-import Navigation from "../component/Navigation.js";
-import Cards from "./Cards";
+import Cards from "../Cards/Cards";
 
-import OH_1 from "../images/OH_1.jpg";
-import OH_2 from "../images/OH_2.jpg";
-import OH_3 from "../images/OH_3.PNG";
-import PI_1 from "../images/PI_1.PNG";
-import PI_2 from "../images/PI_2.PNG";
-import PI_3 from "../images/PI_3.PNG";
-import HY from "../images/HY.png";
-import JJ from "../images/JJ.jpg";
-import TL from "../images/TL.jpg";
-import SJ from "../images/SJ.jpg";
-import hy from "date-fns/locale/hy";
+import OH_1 from "../../images/OH_1.jpg";
+import OH_2 from "../../images/OH_2.jpg";
+import OH_3 from "../../images/OH_3.PNG";
+import PI_1 from "../../images/PI_1.PNG";
+import PI_2 from "../../images/PI_2.PNG";
+import PI_3 from "../../images/PI_3.PNG";
+import HY from "../../images/HY.png";
+import JJ from "../../images/JJ.jpg";
+import TL from "../../images/TL.jpg";
+import SJ from "../../images/SJ.jpg";
 
 const About = () => {
   useEffect(() => {
@@ -27,7 +24,6 @@ const About = () => {
     <div>
       <div>
         <div className="grids">
-          
           <div data-aos="fade-up" className="boxes">
             <section id="nino-latestBlog">
               <div class="container">
@@ -55,7 +51,7 @@ const About = () => {
                     <div class="col-md-4 col-sm-4">
                       <article>
                         <div class="articleThumb">
-                        <img src={OH_2} alt="" />
+                          <img src={OH_2} alt="" />
                           <div class="date">
                             <span class="number">6</span>
                             <span class="text">May</span>
@@ -65,14 +61,15 @@ const About = () => {
                           <div>프로젝트 진행 및 회의</div>
                         </h3>
                         <p class="articleDesc">
-                        프로젝트의 전반적인 기반 구축과 각 담당 포지션 프로그래밍 진행
+                          프로젝트의 전반적인 기반 구축과 각 담당 포지션
+                          프로그래밍 진행
                         </p>
                       </article>
                     </div>
                     <div class="col-md-4 col-sm-4">
                       <article>
                         <div class="articleThumb">
-                        <img src={OH_3} alt="" />
+                          <img src={OH_3} alt="" />
                           <div class="date">
                             <span class="number">21</span>
                             <span class="text">June</span>
@@ -81,9 +78,7 @@ const About = () => {
                         <h3 class="articleTitle">
                           <div>캡스톤 1학기 가전시</div>
                         </h3>
-                        <p class="articleDesc">
-                          프로젝트 진행 상황 발표
-                        </p>
+                        <p class="articleDesc">프로젝트 진행 상황 발표</p>
                       </article>
                     </div>
                   </div>
@@ -97,7 +92,7 @@ const About = () => {
               <div class="container">
                 <h2 class="nino-sectionHeading">Paticipate In</h2>
                 <p class="nino-sectionDesc">
-                인공지능 회의 요약 서비스 "For-minutes"
+                  인공지능 회의 요약 서비스 "For-minutes"
                   <br />
                   참여 중인 프로젝트
                 </p>
@@ -108,7 +103,8 @@ const About = () => {
                         <a class="overlay" href="#">
                           <span class="content">
                             <i class="mdi mdi-account-multiple nino-icon"></i>
-                            덕성여자대학교 <br />졸업 작품 프로젝트
+                            덕성여자대학교 <br />
+                            졸업 작품 프로젝트
                           </span>
                           <img src={PI_1} alt="" />
                         </a>
@@ -119,12 +115,9 @@ const About = () => {
                         <a class="overlay" href="#">
                           <span class="content">
                             <i class="mdi mdi-image-filter-center-focus-weak nino-icon"></i>
-                            한이음 ICT 멘토링 
+                            한이음 ICT 멘토링
                           </span>
-                          <img
-                            src={PI_2}
-                            alt=""
-                          />
+                          <img src={PI_2} alt="" />
                         </a>
                       </div>
                     </div>
@@ -135,10 +128,7 @@ const About = () => {
                             <i class="mdi mdi-airplay nino-icon"></i>
                             공개SW 개발자대회
                           </span>
-                          <img
-                            src={PI_3}
-                            alt=""
-                          />
+                          <img src={PI_3} alt="" />
                         </a>
                       </div>
                     </div>
@@ -157,12 +147,10 @@ const About = () => {
                       class="wow fadeInUp section-title"
                       data-wow-delay="0.2s"
                     >
-                    
                       <h2 class="nino-sectionHeading">Team JDJS</h2>
                     </div>
-                    
                   </div>
-                  <Cards/>
+                  <Cards />
                   <div
                     class="wow fadeInUp col-md-3 col-sm-6"
                     data-wow-delay="0.4s"

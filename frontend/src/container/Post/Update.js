@@ -1,8 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
 
-import Footer from "../component/Footer";
-import Navigation from "../component/Navigation";
-
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
@@ -37,16 +34,18 @@ const Update = (props) => {
   const [minute, setMinute] = useState(
     props.location.state.meeting_date.substring(14, 16)
   );
-  const [file, setFile] = useState(!props.location.state.file
-    ? props.location.state.file
-    : props.location.state.file.replace("media", "static"));
+  const [file, setFile] = useState(
+    !props.location.state.file
+      ? props.location.state.file
+      : props.location.state.file.replace("media", "static")
+  );
   const [date, setDate] = useState(props.location.state.date);
   const [image, setImage] = useState();
   const [pk, setPk] = useState(props.match.params.id);
   const history = useHistory();
 
   useEffect(() => {
-    console.log(file)
+    console.log(file);
   });
   const createTime = () => {
     const meeting_time = [];
