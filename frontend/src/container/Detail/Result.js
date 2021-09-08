@@ -121,9 +121,9 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
       });
   };
 
-  const handleChange2 = (event) => {
-    setScript(event.target.value);˜
-  };
+  // const handleChange2 = (event) => {
+  //   setScript(event.target.value);
+  // };
 
   useEffect(() => {
     setUrl(`/testapp/result/${pk}`);
@@ -133,7 +133,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   return (
     <div className={classes.root}>
-      <button onClick={openModal}>모달팝업</button>
+      {/* <button onClick={openModal}>모달팝업</button>
 
       <Modal open={modalOpen} close={closeModal} header="스크립트 수정">
         <FormControl fullWidth>
@@ -144,7 +144,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
             multiline
           />
         </FormControl>
-      </Modal>
+      </Modal> */}
 
       <AppBar position="static" color="default">
         <Tabs
@@ -171,9 +171,10 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          <FormControl fullWidth>
+          {/* <FormControl fullWidth>
             <TextField onChange={handleChange2} value={script} multiline />
-          </FormControl>
+          </FormControl> */}
+          {script}
         </TabPanel>
         <TabPanel
           value={value}
