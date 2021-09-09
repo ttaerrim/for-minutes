@@ -202,29 +202,8 @@ const Post = () => {
                   />
                 </Box>
               </Box>
+
               <Text align="left" size="sm">
-                음성 파일
-              </Text>
-              <Box flex="grow" paddingX={3} paddingY={3}>
-                <input
-                  type="file"
-                  id="file"
-                  accept="audio/*"
-                  onChange={fileHandler}
-                />
-              </Box>
-              <Text align="left" size="sm">
-                이미지 파일
-              </Text>
-              <Box flex="grow" paddingX={3} paddingY={3}>
-                <input
-                  type="file"
-                  id="image"
-                  accept="image/*"
-                  onChange={imageHandler}
-                />
-              </Box>
-              {/* <Text align="left" size="sm">
                 음성 파일 &nbsp;
                 <i class="fas fa-star-of-life" />
               </Text>
@@ -269,7 +248,7 @@ const Post = () => {
                   accept="image/*"
                   onChange={imageHandler}
                 />
-              </Box> */}
+              </Box>
               <Box flex="grow" paddingX={3} paddingY={3}></Box>
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
