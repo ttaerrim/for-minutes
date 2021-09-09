@@ -202,8 +202,29 @@ const Post = () => {
                   />
                 </Box>
               </Box>
-
               <Text align="left" size="sm">
+                음성 파일
+              </Text>
+              <Box flex="grow" paddingX={3} paddingY={3}>
+                <input
+                  type="file"
+                  id="file"
+                  accept="audio/*"
+                  onChange={fileHandler}
+                />
+              </Box>
+              <Text align="left" size="sm">
+                이미지 파일
+              </Text>
+              <Box flex="grow" paddingX={3} paddingY={3}>
+                <input
+                  type="file"
+                  id="image"
+                  accept="image/*"
+                  onChange={imageHandler}
+                />
+              </Box>
+              {/* <Text align="left" size="sm">
                 음성 파일 &nbsp;
                 <i class="fas fa-star-of-life" />
               </Text>
@@ -223,16 +244,16 @@ const Post = () => {
                     id="file"
                   />
                 </div>
-                {/* <label className="input-file-button" for="input-file">
-            음성 파일
-          </label>
-            <input
-              type="file"
-              id="input-file"
-              style={{display:"none"}}
-              accept="audio/*"
-              onChange={fileHandler}
-            /> */}
+                <label className="input-file-button" for="input-file">
+                  음성 파일
+                </label>
+                <input
+                  type="file"
+                  id="input-file"
+                  style={{ display: "none" }}
+                  accept="audio/*"
+                  onChange={fileHandler}
+                />
               </Box>
               <Text align="left" size="sm">
                 이미지 파일
@@ -248,7 +269,7 @@ const Post = () => {
                   accept="image/*"
                   onChange={imageHandler}
                 />
-              </Box>
+              </Box> */}
               <Box flex="grow" paddingX={3} paddingY={3}></Box>
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
@@ -262,7 +283,14 @@ const Post = () => {
                 wrap
               >
                 <Box paddingX={1} paddingY={1}>
-                  <label className="input-file-button" for="submit-btn">
+                  <Button
+                    text="등록"
+                    color="black"
+                    size="lg"
+                    type="submit"
+                    onClick={handleSubmit}
+                  />
+                  {/* <label className="input-file-button" for="submit-btn">
                     등록
                   </label>
                   <button
@@ -273,7 +301,9 @@ const Post = () => {
                     id="submit-btn"
                     style={{ display: "none" }}
                     onClick={handleSubmit}
-                  />
+                  >
+                    등록
+                  </button> */}
                 </Box>
               </Box>
             </Box>

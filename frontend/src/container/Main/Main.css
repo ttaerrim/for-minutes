@@ -772,7 +772,7 @@ details[open] > summary ~ * {
 
 /*****post input*****/
 
-.input-file-button {
+/* .input-file-button {
   padding: 6px 15px;
   background-color: rgb(0, 64, 116);
   border-radius: 4px;
@@ -787,10 +787,10 @@ details[open] > summary ~ * {
 
 .fa-star-of-life {
   color: rgb(128, 200, 255);
-}
+} */
 
 /***/
-.filebox .upload-name {
+/* .filebox .upload-name {
   display: inline-block;
   height: 40px;
   padding: 0 10px;
@@ -818,4 +818,4 @@ details[open] > summary ~ * {
   padding: 0;
   overflow: hidden;
   border: 0;
-}
+} */

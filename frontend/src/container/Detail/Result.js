@@ -188,6 +188,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           {summary}
         </TabPanel>
       </SwipeableViews>
+      <br />
       <PdfDownloader
         title={title}
         topic={topic}
