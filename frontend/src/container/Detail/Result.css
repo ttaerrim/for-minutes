@@ -1,0 +1,5 @@
+@import "../Main/Main.css";
+
+.MuiTypography-body1 {
+  white-space: pre-wrap;
+}

@@ -11,7 +11,7 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import "../Main/Main.css";
+import "./Result.css";
 import Modal from "../Modal/Modal";
 import PdfDownloader from "../Pdf/PdfDownloader.js";
 
@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   scroll: {
     overflow: "auto",
     height: "500px",
+    whitespace: "pre-wrap",
   },
 }));
 
@@ -95,7 +96,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
       .get(url)
       .then((response) => {
         setScript(response.data.script);
-        // .replace(/. /g, ".\n")/
+        console.log(script);
       })
       .catch((error) => {
         if (error.response) {
@@ -171,9 +172,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          {/* <FormControl fullWidth>
-            <TextField onChange={handleChange2} value={script} multiline />
-          </FormControl> */}
           {script}
         </TabPanel>
         <TabPanel
