@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "../Main/Main.css";
+import "./Post.css";
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";

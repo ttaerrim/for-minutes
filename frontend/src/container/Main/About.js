@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "./Main.css";
+import "./About.css";
 import Cards from "../Cards/Cards";
 
 import OH_1 from "../../images/OH_1.jpg";

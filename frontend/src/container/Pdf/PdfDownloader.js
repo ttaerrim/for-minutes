@@ -2,6 +2,7 @@ import React from "react";
 
 import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import Pdf from "./Pdf";
+import '../Minute/Minute.css';
 
 const PdfDownloader = ({
   title,
