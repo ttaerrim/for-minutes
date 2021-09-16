@@ -14,6 +14,13 @@ import {
 import "./Result.css";
 import Modal from "../Modal/Modal";
 import PdfDownloader from "../Pdf/PdfDownloader.js";
+import { Link } from "react-router-dom";
+
+import { Button } from "gestalt";
+import "gestalt/dist/gestalt.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faPen } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +48,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   const [value, setValue] = useState(0);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const pen = <FontAwesomeIcon icon="fa-solid fa-pen" />;
 
   const openModal = () => {
     setModalOpen(true);
@@ -62,6 +70,10 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
     console.log(event);
     console.log(event.target);
     console.log(event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setScript(event.target.value);
   };
 
   function a11yProps(index) {
@@ -96,7 +108,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
       .get(url)
       .then((response) => {
         setScript(response.data.script);
-        console.log(script);
       })
       .catch((error) => {
         if (error.response) {
@@ -134,19 +145,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   return (
     <div className={classes.root}>
-      {/* <button onClick={openModal}>모달팝업</button>
-
-      <Modal open={modalOpen} close={closeModal} header="스크립트 수정">
-        <FormControl fullWidth>
-          <TextField
-            type="text"
-            onChange={handleChange2}
-            value={script}
-            multiline
-          />
-        </FormControl>
-      </Modal> */}
-
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -172,6 +170,18 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
+          <Link
+            className="result_pen"
+            to={{
+              pathname: `/minute/script/update/${pk}/`,
+              state: {
+                originalScript: script,
+                pk: pk,
+              },
+            }}
+          >
+            <FontAwesomeIcon icon={faPen} />
+          </Link>
           {script}
         </TabPanel>
         <TabPanel

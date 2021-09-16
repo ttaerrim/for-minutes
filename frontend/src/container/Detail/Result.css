@@ -3,3 +3,22 @@
 .MuiTypography-body1 {
   white-space: pre-wrap;
 }
+
+.MuiBox-root button {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.result_pen {
+  transition: none;
+  color: black;
+}
+
+.svg-inline--fa {
+  color: darkblue;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1em;
+  right: 1em;
+  float: right;
+}

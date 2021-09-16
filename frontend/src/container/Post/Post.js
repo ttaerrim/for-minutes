@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
-import "../Main/Main.css";
+import "./Post.css";
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
@@ -221,15 +221,13 @@ const Post = () => {
                     accept="audio/*"
                     onChange={fileHandler}
                     id="file"
+                    className="file-upload"
                   />
                 </div>
-                <label className="input-file-button" for="input-file">
-                  음성 파일
-                </label>
+
                 <input
                   type="file"
-                  id="input-file"
-                  style={{ display: "none" }}
+                  className="input-file"
                   accept="audio/*"
                   onChange={fileHandler}
                 />
