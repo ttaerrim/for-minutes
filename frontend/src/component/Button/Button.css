@@ -2,20 +2,19 @@
   --primary: #fff;
 }
 
-  .btn a {
-	text-decoration: none;
-	outline: none;
-	color: rgb(255, 255, 255);
-	-webkit-transition: all .3s ease-in-out;
-	   -moz-transition: all .3s ease-in-out;
-		 -o-transition: all .3s ease-in-out;
-		-ms-transition: all .3s ease-in-out;
-			transition: all .3s ease-in-out;
-      
+.btn a {
+  text-decoration: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .btn a:hover {
-	color: rgb(0, 64, 116);
-	text-decoration: none;
+  color: rgb(0, 64, 116);
+  text-decoration: none;
 }
 
 .btn--outline {

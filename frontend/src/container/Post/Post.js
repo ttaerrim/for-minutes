@@ -111,7 +111,7 @@ const Post = () => {
   return (
     <React.Fragment>
       <div className="grids">
-        <div className="boxes1">
+        <div className="boxes_post">
           <Box
             display="flex"
             marginStart={-3}
@@ -203,13 +203,14 @@ const Post = () => {
                   />
                 </Box>
               </Box>
+
               <Text align="left" size="sm">
-                음성 파일
+                음성 파일 &nbsp;
               </Text>
               <Box flex="grow" paddingX={3} paddingY={3}>
                 <input
                   type="file"
-                  id="file"
+                  id="input-file"
                   accept="audio/*"
                   onChange={fileHandler}
                 />
@@ -220,43 +221,11 @@ const Post = () => {
               <Box flex="grow" paddingX={3} paddingY={3}>
                 <input
                   type="file"
-                  id="image"
-                  accept="image/*"
-                  onChange={imageHandler}
-                />
-              </Box>
-              {/* <Text align="left" size="sm">
-                음성 파일 &nbsp;
-                <i class="fas fa-star-of-life" />
-              </Text>
-              <Box flex="grow" paddingX={3} paddingY={3}>
-
-                <label className="input-file-button" for="input-file">
-            음성 파일
-          </label>
-            <input
-              type="file"
-              id="input-file"
-              style={{display:"none"}}
-              accept="audio/*"
-              onChange={fileHandler}
-            />
-              </Box>
-              <Text align="left" size="sm">
-                이미지 파일
-              </Text>
-              <Box flex="grow" paddingX={3} paddingY={3}>
-                <label className="input-file-button" for="input-image">
-                  이미지 파일
-                </label>
-                <input
-                  type="file"
                   id="input-image"
-                  style={{ display: "none" }}
                   accept="image/*"
                   onChange={imageHandler}
                 />
-              </Box> */}
+              </Box>
               <Box flex="grow" paddingX={3} paddingY={3}></Box>
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
@@ -277,20 +246,6 @@ const Post = () => {
                     type="submit"
                     onClick={handleSubmit}
                   />
-                  {/* <label className="input-file-button" for="submit-btn">
-                    등록
-                  </label>
-                  <button
-                    text="등록"
-                    color="black"
-                    size="lg"
-                    type="submit"
-                    id="submit-btn"
-                    style={{ display: "none" }}
-                    onClick={handleSubmit}
-                  >
-                    등록
-                  </button> */}
                 </Box>
               </Box>
             </Box>
