@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import "./Main.css";
 import "./Contact.css"
 import emailjs from "emailjs-com";
 
