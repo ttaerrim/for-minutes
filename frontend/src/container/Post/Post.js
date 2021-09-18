@@ -12,6 +12,7 @@ import "gestalt-datepicker/dist/gestalt-datepicker.css";
 import axios from "axios";
 
 import { useHistory } from "react-router";
+import $ from "jquery";
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -208,26 +209,13 @@ const Post = () => {
                 <i class="fas fa-star-of-life" />
               </Text>
               <Box flex="grow" paddingX={3} paddingY={3}>
-                <div class="filebox">
-                  <input
-                    class="upload-name"
-                    value="첨부파일"
-                    placeholder="첨부파일"
-                  />
-                  <label for="file">파일찾기</label>
-                  <input
-                    type="file"
-                    style={{ display: "none" }}
-                    accept="audio/*"
-                    onChange={fileHandler}
-                    id="file"
-                    className="file-upload"
-                  />
-                </div>
-
+                <label className="input-file-button" for="input-file">
+                  음성 파일
+                </label>
                 <input
                   type="file"
-                  className="input-file"
+                  id="input-file"
+                  style={{ display: "none" }}
                   accept="audio/*"
                   onChange={fileHandler}
                 />
