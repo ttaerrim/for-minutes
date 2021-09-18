@@ -122,7 +122,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   };
 
   const handleChange2 = (event) => {
-    setScript(event.target.value);˜
+    setScript(event.target.value);
   };
 
   useEffect(() => {
