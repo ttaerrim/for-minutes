@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Result from "./Result.js";
 import Spinner from "../../component/Spinner/Spinner";
-import "../Main/Main.css";
+import "./Detail.css";
 
 import { Box, Heading, Table, Text, Button, Flex } from "gestalt";
 import "gestalt/dist/gestalt.css";

@@ -2,18 +2,20 @@
   --primary: #fff;
 }
 
-.btn {
-  padding: 8px 20px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
+  .btn a {
+	text-decoration: none;
+	outline: none;
+	color: rgb(255, 255, 255);
+	-webkit-transition: all .3s ease-in-out;
+	   -moz-transition: all .3s ease-in-out;
+		 -o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+      
 }
-
-.btn--primary {
-  background-color: var(--primary);
-  color: #242424;
-  border: 1px solid var(--primary);
+.btn a:hover {
+	color: rgb(0, 64, 116);
+	text-decoration: none;
 }
 
 .btn--outline {
