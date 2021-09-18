@@ -10,10 +10,13 @@ import Navigation from "./component/Navigation/Navigation";
 import Footer from "./component/Footer/Footer";
 import ScriptUpdate from "./container/Detail/ScriptUpdate";
 
+import ScrollToTop from "./component/ScrollToTop/ScrollToTop";
+
 class App extends Component {
   render() {
     return (
       <Router>
+        <ScrollToTop />
         <Navigation />
         <Switch>
           <Route exact path="/" component={Main} />
