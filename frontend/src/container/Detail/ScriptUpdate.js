@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 
+import { Button } from "gestalt";
+import "gestalt/dist/gestalt.css";
 import axios from "axios";
 import { useHistory } from "react-router";
 
@@ -52,7 +54,7 @@ const ScriptUpdate = (props) => {
           />
         </FloatingLabel>
 
-        <button onClick={handleSubmit}>수정 완료</button>
+        <Button text="수정 완료" color="transparent" onClick={handleSubmit} />
       </div>
     </>
   );

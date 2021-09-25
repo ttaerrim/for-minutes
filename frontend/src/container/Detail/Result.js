@@ -37,25 +37,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   const [script, setScript] = useState("아직 없음");
-  const [modalScript, setModalScript] = useState("아직 없음");
   const [summary, setSummary] = useState("아직 없음");
+  const [summaryArr, setSummaryArr] = useState();
   const [keywords, setKeywords] = useState("아직 없음");
-  const [url, setUrl] = useState("");
-  const [summaryUrl, setSummaryUrl] = useState("");
 
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = useState(0);
 
-  const [modalOpen, setModalOpen] = useState(false);
   const pen = <FontAwesomeIcon icon="fa-solid fa-pen" />;
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -63,17 +53,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   const handleChangeIndex = (index) => {
     setValue(index);
-  };
-
-  const handleScriptChange = (event) => {
-    setScript(event.target.value);
-    console.log(event);
-    console.log(event.target);
-    console.log(event.target.value);
-  };
-
-  const handleChange2 = (event) => {
-    setScript(event.target.value);
   };
 
   function a11yProps(index) {
@@ -105,7 +84,7 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   const renderResult = async () => {
     await axios
-      .get(url)
+      .get(`/testapp/result/${pk}`)
       .then((response) => {
         setScript(response.data.script);
       })
@@ -118,10 +97,11 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
         }
       });
     await axios
-      .get(summaryUrl)
+      .get(`/testapp/summary/${pk}`)
       .then((response) => {
         setSummary(response.data.summary);
         setKeywords(response.data.keyword);
+        setSummaryArr(response.data.summary.split("\n"));
       })
       .catch((error) => {
         if (error.response) {
@@ -134,10 +114,8 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   };
 
   useEffect(() => {
-    setUrl(`/testapp/result/${pk}`);
-    setSummaryUrl(`/testapp/summary/${pk}`);
     renderResult();
-  });
+  }, [summary, keywords]);
 
   return (
     <div className={classes.root}>

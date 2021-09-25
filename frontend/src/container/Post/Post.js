@@ -69,7 +69,6 @@ const Post = () => {
     formData.append("writer", writer);
     formData.append("parties", parties);
     formData.append("meeting_date", renderDate(hour, minute));
-    formData.append("photo", image);
     formData.append("file", file);
     await axios
       .post("/testapp/meeting/create", formData, {
@@ -215,17 +214,7 @@ const Post = () => {
                   onChange={fileHandler}
                 />
               </Box>
-              <Text align="left" size="sm">
-                이미지 파일
-              </Text>
-              <Box flex="grow" paddingX={3} paddingY={3}>
-                <input
-                  type="file"
-                  id="input-image"
-                  accept="image/*"
-                  onChange={imageHandler}
-                />
-              </Box>
+
               <Box flex="grow" paddingX={3} paddingY={3}></Box>
             </Box>
             <Box flex="grow" paddingX={3} paddingY={3}>
