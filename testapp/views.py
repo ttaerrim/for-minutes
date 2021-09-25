@@ -28,13 +28,8 @@ class ResultViewSet(viewsets.ModelViewSet):
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
         data = json.loads(res.text)
-        texts = [data['text']]
-        
-        # word = Krwordrank.wordrank(texts)
-        
-        result.script = data['text']
-        # result.summary = self.split_summary(data['text'])
-        # result.keyword = word
+            
+        result.script = data['text'].replace('.', '.\n')
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
