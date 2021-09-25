@@ -12,7 +12,7 @@ import "gestalt-datepicker/dist/gestalt-datepicker.css";
 import axios from "axios";
 
 import { useHistory } from "react-router";
-import $ from "jquery";
+
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -110,7 +110,7 @@ const Post = () => {
   return (
     <React.Fragment>
       <div className="grids">
-        <div className="boxes_post">
+        <div className="boxes_post" data-aos="fade-down">
           <Box
             display="flex"
             marginStart={-3}
