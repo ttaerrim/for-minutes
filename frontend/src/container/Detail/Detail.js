@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Result from "./Result.js";
 import Spinner from "../../component/Spinner/Spinner";
-import "../Main/Main.css";
+import "./Detail.css";
 
 import { Box, Heading, Table, Text, Button, Flex } from "gestalt";
 import "gestalt/dist/gestalt.css";
@@ -142,34 +142,24 @@ const Detail = (props) => {
               <td>{meeting_date}</td>
             </tbody>
           </table>
-          <Box
-            justifyContent="end"
-            marginStart={-1}
-            marginEnd={-1}
-            marginTop={-1}
-            marginBottom={-1}
-            display="flex"
-            wrap
+          <Link
+            to={{
+              pathname: `/minute/update/${pk}/`,
+              state: {
+                title: title,
+                topic: topic,
+                writer: writer,
+                parties: parties,
+                date: date,
+                meeting_date: meeting_date,
+                file: file,
+                image: image,
+              },
+            }}
           >
-            <Link
-              to={{
-                pathname: `/minute/update/${pk}/`,
-                state: {
-                  title: title,
-                  topic: topic,
-                  writer: writer,
-                  parties: parties,
-                  date: date,
-                  meeting_date: meeting_date,
-                  file: file,
-                  image: image,
-                },
-              }}
-            >
-              <Button text="수정" color="transparent" />
-            </Link>
-            <Button text="삭제" color="transparent" onClick={handleDelete} />
-          </Box>
+            <Button text="수정" color="transparent" />
+          </Link>
+          <Button text="삭제" color="transparent" onClick={handleDelete} />
         </div>
       </details>
 

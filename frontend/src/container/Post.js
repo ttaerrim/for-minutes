@@ -3,11 +3,6 @@ import React, { useState,useEffect } from "react";
 import Aos from "aos"; 
 import "aos/dist/aos.css";
 import "./Main.css";
-
-import Header from "../component/Header";
-import Footer from "../component/Footer";
-import Navigation from "../component/Navigation.js";
-
 import { Box, TextField, Button, SelectList, Text } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
@@ -115,13 +110,8 @@ const Post = () => {
 
   return (
     <React.Fragment>
-      <Navigation/>
-
-      <div align="center"><h3>새 회의록 추가</h3></div>
-
       <div className="grids">
-        <div data-aos="fade-up" className="boxes1">
-                     
+        <div className="boxes1">
       <Box
         display="flex"
         marginStart={-3}
@@ -261,7 +251,6 @@ const Post = () => {
       </Box>
       </div>
       </div>
-      <Footer />
     </React.Fragment>
   );
 };

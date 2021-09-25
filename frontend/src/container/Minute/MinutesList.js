@@ -6,6 +6,7 @@ import "gestalt/dist/gestalt.css";
 import axios from "axios";
 
 import Minute from "./Minute.js";
+import './Minute.css';
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";

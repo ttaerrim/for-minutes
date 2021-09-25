@@ -4,6 +4,7 @@ import { pdf, PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 
 import { Button } from "gestalt";
 import Pdf from "./Pdf";
+import '../Minute/Minute.css';
 
 const PdfDownloader = ({
   title,
