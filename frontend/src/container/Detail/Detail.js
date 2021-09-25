@@ -40,7 +40,7 @@ const Detail = (props) => {
     );
     setWriter(props.location.state.writer);
     setParties(props.location.state.parties);
-  });
+  }, []);
 
   const createResult = async () => {
     let formData = new FormData();
@@ -141,24 +141,26 @@ const Detail = (props) => {
               <td>{meeting_date}</td>
             </tbody>
           </table>
-          <Link
-            to={{
-              pathname: `/minute/update/${pk}/`,
-              state: {
-                title: title,
-                topic: topic,
-                writer: writer,
-                parties: parties,
-                date: date,
-                meeting_date: meeting_date,
-                file: file,
-                image: image,
-              },
-            }}
-          >
-            <Button text="수정" color="transparent" />
-          </Link>
-          <Button text="삭제" color="transparent" onClick={handleDelete} />
+          <Flex gap={2} justifyContent="end" wrap>
+            <Link
+              to={{
+                pathname: `/minute/update/${pk}/`,
+                state: {
+                  title: title,
+                  topic: topic,
+                  writer: writer,
+                  parties: parties,
+                  date: date,
+                  meeting_date: meeting_date,
+                  file: file,
+                  image: image,
+                },
+              }}
+            >
+              <Button text="수정" color="transparent" />
+            </Link>
+            <Button text="삭제" color="transparent" onClick={handleDelete} />
+          </Flex>
         </div>
       </details>
 
