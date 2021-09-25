@@ -5,6 +5,18 @@ import "./Main.css";
 import FirstView from "./FirstView.js";
 import Contact from "./Contact.js";
 
+import M_history from "../../images/M_history.PNG";
+import M_contact from "../../images/M_contact.PNG";
+import M_fv from "../../images/M_fv.PNG";
+import M_post from "../../images/M_post.PNG";
+import M_team from "../../images/M_team.PNG";
+import M_participate from "../../images/M_participate.PNG";
+import M_ml from "../../images/M_ml.PNG";
+import M_footer from "../../images/M_footer.PNG";
+import M_info from "../../images/M_info.PNG";
+import M_script from "../../images/M_script.PNG";
+
+
 const Main = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -28,103 +40,48 @@ const Main = () => {
                     </strong>
                   </p>
                   <p className="nino-sectionDesc">
-                    "인공지능 회의 요약 서비스" 서비스/ 기술 설명 등등
-                    소개글"인공지능 회의 요약 서비스" 서비스/ 기술 설명 등등
-                    소개글
+                    "인공지능 회의 요약 서비스" 서비스
                   </p>
                 </div>
               </section>
             </div>
 
-            <div data-aos="fade-in" className="boxes">
-              <section id="nino-services">
-                <div className="container">
-                  <h2 className="nino-sectionHeading">Amazing Services</h2>
-                  <div className="sectionContent">
-                    <div className="fw" layout="row">
-                      <div className="col-md-4 col-sm-6 item ">
-                        <div layout="row">
-                          <div>
-                            <h4 class="nino-serviceTitle">Css/JS</h4>
-                            <p>
-                              Photography is the science, art and practice of
-                              creating durable images by recording light or
-                              other electromagnetic radiation
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4 col-sm-6 item ">
-                        <div layout="row">
-                          <i className="mdi mdi-blender nino-icon fsr"></i>
-                          <div>
-                            <h4 className="nino-serviceTitle">Web Design</h4>
-                            <p>
-                              Web design encompasses many different skills and
-                              disciplines in the production and maintenance of
-                              websites.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4 col-sm-6 item ">
-                        <div layout="row">
-                          <i className="mdi mdi-bookmark-plus-outline nino-icon fsr"></i>
-                          <div>
-                            <h4 className="nino-serviceTitle">Creativity</h4>
-                            <p>
-                              Creativity is a phenomenon whereby something new
-                              and somehow valuable is formed. The created item
-                              may be intangible or a physical object.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4 col-sm-6 item ">
-                        <div layout="row">
-                          <i className="mdi mdi-buffer nino-icon fsr"></i>
-                          <div>
-                            <h4 className="nino-serviceTitle">seo</h4>
-                            <p>
-                              Search engine optimization (SEO) is the process of
-                              affecting the visibility of a website or a web
-                              page in a web search engine's unpaid results.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4 col-sm-6 item ">
-                        <div layout="row">
-                          <i className="mdi mdi-desktop-mac nino-icon fsr"></i>
-                          <div>
-                            <h4 className="nino-serviceTitle">Css/Html</h4>
-                            <p>
-                              HyperText Markup Language, commonly abbreviated as
-                              HTML, is the standard markup language used to
-                              create web pages.{" "}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4 col-sm-6 item ">
-                        <div layout="row">
-                          <i className="mdi mdi-diamond nino-icon fsr"></i>
-                          <div>
-                            <h4 className="nino-serviceTitle">digital</h4>
-                            <p>
-                              With digital signals, system noise, provided it is
-                              not too great, will not change the quantification
-                              whereas with signals handled using analog
-                              processing.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+            <div data-aos="fade-up" className="boxes">
+             <div className="gallery">
+               <div className="img">
+                 <img src={M_fv}/>
+               </div>
+               <div className="img">
+                 <img src={M_history}/>
+               </div>
+               <div className="img">
+                 <img src={M_contact}/>
+               </div>
+               <div className="img">
+                 <img src={M_team}/>
+               </div>
+               <div className="img">
+                 <img src={M_participate}/>
+               </div>
+               <div className="img">
+                 <img src={M_post}/>
+               </div>
+               <div className="img">
+                 <img src={M_ml}/>
+               </div>
+               <div className="img">
+                 <img src={M_footer}/>
+               </div>
+               <div className="img">
+                 <img src={M_info}/>
+               </div>
+               <div className="img">
+                 <img src={M_script}/>
+               </div>
+
+             </div>
             </div>
+
             <Contact />
           </div>
         </div>

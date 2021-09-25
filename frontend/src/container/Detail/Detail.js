@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import Result from "./Result.js";
 import Spinner from "../../component/Spinner/Spinner";
 import "./Detail.css";
-
-import { Box, Heading, Table, Text, Button, Flex } from "gestalt";
+import { Box, Heading, Table, Text, Flex,Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import axios from "axios";
 import { useHistory } from "react-router";
