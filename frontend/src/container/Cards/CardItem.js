@@ -46,7 +46,7 @@ function CardItem() {
                     </figure>
                     <div className="cards__item__info">
                         <h5 className="card__item__text">SuJi Kang</h5>
-                        <p>#django #server</p>
+                        <p>#django #server #git</p>
                     </div>
                 </div>
             </li>

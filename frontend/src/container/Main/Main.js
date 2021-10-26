@@ -36,23 +36,22 @@ const Main = () => {
                   </h2>
                   <p className="nino-sectionDesc">
                     <strong>
-                      Artificial intelligence meeting minutes summary service
+                    "인공지능 회의 요약 서비스"
                     </strong>
                   </p>
                   <p className="nino-sectionDesc">
-                    "인공지능 회의 요약 서비스" 서비스
+                  "For MInutes" 는 음성 파일을 활용하여 회의록을 편리하게 <br/>작성할 수 있도록 돕는 인공 지능 회의록 요약 서비스이다.<br/><br/>
+                  사용자로부터 회의의 정보와 음성 파일을 입력받으면 <br/>회의 전문 스크립트를 제공하고 <br/>사용자가 수정한 스크립트에서<br/> 회의의 주된 키워드와 요약문을 추출한다.<br/>
+                  이를 기반으로 회의록을 작성하여 <br/>사용자에게 PDF 형식의 파일로 제공하는 서비스이다.
                   </p>
                 </div>
-              </section>
-            </div>
 
-            <div data-aos="fade-up" className="boxes">
-             <div className="gallery">
+                <div className="gallery">
                <div className="img">
                  <img src={M_fv}/>
                </div>
                <div className="img">
-                 <img src={M_history}/>
+                 <img src={M_ml}/>
                </div>
                <div className="img">
                  <img src={M_contact}/>
@@ -67,7 +66,7 @@ const Main = () => {
                  <img src={M_post}/>
                </div>
                <div className="img">
-                 <img src={M_ml}/>
+                 <img src={M_history}/>
                </div>
                <div className="img">
                  <img src={M_footer}/>
@@ -75,11 +74,12 @@ const Main = () => {
                <div className="img">
                  <img src={M_info}/>
                </div>
-               <div className="img">
+               {/* <div className="img">
                  <img src={M_script}/>
-               </div>
+               </div> */}
 
              </div>
+              </section>
             </div>
 
             <Contact />
