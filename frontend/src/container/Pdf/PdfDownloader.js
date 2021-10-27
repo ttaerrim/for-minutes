@@ -2,8 +2,9 @@ import React from "react";
 import { saveAs } from "file-saver";
 import { pdf, PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 
-import { Button } from "gestalt";
+import { Button, Flex } from "gestalt";
 import Pdf from "./Pdf";
+import "../Minute/Minute.css";
 
 const PdfDownloader = ({
   title,
@@ -15,7 +16,7 @@ const PdfDownloader = ({
   summary,
   keyword,
 }) => {
-  const generatePdfDocument = async (documentData) => {
+  const generatePdfDocument = async () => {
     const blob = await pdf(
       <Pdf
         title={title}
@@ -32,11 +33,13 @@ const PdfDownloader = ({
   };
   return (
     <div>
-      <Button
-        text="PDF 다운로드"
-        color="transparent"
-        onClick={generatePdfDocument}
-      />
+      <Flex gap={2} justifyContent="end" wrap>
+        <Button
+          text="PDF 다운로드"
+          color="transparent"
+          onClick={generatePdfDocument}
+        />
+      </Flex>
     </div>
   );
 };

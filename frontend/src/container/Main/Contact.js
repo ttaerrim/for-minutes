@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import "./Main.css";
+import "./Contact.css"
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -24,7 +24,7 @@ const Contact = () => {
     window.location.reload();
   }
   return (
-    <div data-aos="fade-left" className="boxes">
+    <div data-aos="fade-ip" className="boxes">
       <section id="contact">
         <div className="container">
           <div className="row">

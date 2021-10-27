@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Result from "./Result.js";
 import Spinner from "../../component/Spinner/Spinner";
-import "../Main/Main.css";
-
-import { Box, Heading, Table, Text, Button, Flex } from "gestalt";
+import "./Detail.css";
+import { Box, Heading, Table, Text, Flex,Button } from "gestalt";
 import "gestalt/dist/gestalt.css";
 import axios from "axios";
 import { useHistory } from "react-router";
@@ -41,7 +40,7 @@ const Detail = (props) => {
     );
     setWriter(props.location.state.writer);
     setParties(props.location.state.parties);
-  });
+  }, []);
 
   const createResult = async () => {
     let formData = new FormData();
@@ -142,15 +141,7 @@ const Detail = (props) => {
               <td>{meeting_date}</td>
             </tbody>
           </table>
-          <Box
-            justifyContent="end"
-            marginStart={-1}
-            marginEnd={-1}
-            marginTop={-1}
-            marginBottom={-1}
-            display="flex"
-            wrap
-          >
+          <Flex gap={2} justifyContent="end" wrap>
             <Link
               to={{
                 pathname: `/minute/update/${pk}/`,
@@ -169,7 +160,7 @@ const Detail = (props) => {
               <Button text="수정" color="transparent" />
             </Link>
             <Button text="삭제" color="transparent" onClick={handleDelete} />
-          </Box>
+          </Flex>
         </div>
       </details>
 

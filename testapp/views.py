@@ -27,8 +27,8 @@ class ResultViewSet(viewsets.ModelViewSet):
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
         data = json.loads(res.text)
-        
-        result.script = data['text']
+        print(data)
+        result.script = data['text'].replace('.', '.\n')
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
@@ -62,12 +62,12 @@ class Summary_ResultViewSet(viewsets.ModelViewSet):
             else:
                 print("Error : " + res.text)
                 
-        if (len(contents)//WORDS) > 0:
-            res = ClovaSummary().req(summary)
-            rescode = res.status_code
-            if(rescode == 200):
-                summary = json.loads(res.text)["summary"]
-            else:
-                print("Error : " + res.text)
+        # if (len(contents)//WORDS) > 0:
+        #     res = ClovaSummary().req(summary)
+        #     rescode = res.status_code
+        #     if(rescode == 200):
+        #         summary = json.loads(res.text)["summary"]
+        #     else:
+        #         print("Error : " + res.text)
 
         return summary

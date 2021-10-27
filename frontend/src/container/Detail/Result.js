@@ -11,9 +11,16 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import "../Main/Main.css";
+import "./Result.css";
 import Modal from "../Modal/Modal";
 import PdfDownloader from "../Pdf/PdfDownloader.js";
+import { Link } from "react-router-dom";
+
+import { Button } from "gestalt";
+import "gestalt/dist/gestalt.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faPen } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,29 +31,21 @@ const useStyles = makeStyles((theme) => ({
   scroll: {
     overflow: "auto",
     height: "500px",
+    whitespace: "pre-wrap",
   },
 }));
 
 const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
   const [script, setScript] = useState("아직 없음");
-  const [modalScript, setModalScript] = useState("아직 없음");
   const [summary, setSummary] = useState("아직 없음");
+  const [summaryArr, setSummaryArr] = useState();
   const [keywords, setKeywords] = useState("아직 없음");
-  const [url, setUrl] = useState("");
-  const [summaryUrl, setSummaryUrl] = useState("");
 
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = useState(0);
 
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const pen = <FontAwesomeIcon icon="fa-solid fa-pen" />;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -54,13 +53,6 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   const handleChangeIndex = (index) => {
     setValue(index);
-  };
-
-  const handleScriptChange = (event) => {
-    setScript(event.target.value);
-    console.log(event);
-    console.log(event.target);
-    console.log(event.target.value);
   };
 
   function a11yProps(index) {
@@ -92,10 +84,9 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
 
   const renderResult = async () => {
     await axios
-      .get(url)
+      .get(`/testapp/result/${pk}`)
       .then((response) => {
         setScript(response.data.script);
-        // .replace(/. /g, ".\n")/
       })
       .catch((error) => {
         if (error.response) {
@@ -106,10 +97,11 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
         }
       });
     await axios
-      .get(summaryUrl)
+      .get(`/testapp/summary/${pk}`)
       .then((response) => {
         setSummary(response.data.summary);
         setKeywords(response.data.keyword);
+        setSummaryArr(response.data.summary.split("\n"));
       })
       .catch((error) => {
         if (error.response) {
@@ -121,31 +113,12 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
       });
   };
 
-  // const handleChange2 = (event) => {
-  //   setScript(event.target.value);
-  // };
-
   useEffect(() => {
-    setUrl(`/testapp/result/${pk}`);
-    setSummaryUrl(`/testapp/summary/${pk}`);
     renderResult();
-  });
+  }, [summary, keywords]);
 
   return (
     <div className={classes.root}>
-      {/* <button onClick={openModal}>모달팝업</button>
-
-      <Modal open={modalOpen} close={closeModal} header="스크립트 수정">
-        <FormControl fullWidth>
-          <TextField
-            type="text"
-            onChange={handleChange2}
-            value={script}
-            multiline
-          />
-        </FormControl>
-      </Modal> */}
-
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -171,9 +144,18 @@ const Result = ({ pk, title, topic, writer, parties, date, meeting_date }) => {
           dir={theme.direction}
           className={classes.scroll}
         >
-          {/* <FormControl fullWidth>
-            <TextField onChange={handleChange2} value={script} multiline />
-          </FormControl> */}
+          <Link
+            className="result_pen"
+            to={{
+              pathname: `/minute/script/update/${pk}/`,
+              state: {
+                originalScript: script,
+                pk: pk,
+              },
+            }}
+          >
+            <FontAwesomeIcon icon={faPen} />
+          </Link>
           {script}
         </TabPanel>
         <TabPanel

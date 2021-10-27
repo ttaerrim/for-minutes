@@ -21,6 +21,18 @@ const Pdf = ({
   summary,
   keyword,
 }) => {
+  const summaryRendering = () => {
+    const result = [];
+    for (let i = 0; i < summary.length; i++) {
+      result.push(
+        <Item style={styles.detailContainer} key={i}>
+          {summary[i]}
+        </Item>
+      );
+    }
+    return result;
+  };
+
   return (
     <Document>
       <Page size="A4" style={styles.body}>
@@ -39,9 +51,7 @@ const Pdf = ({
             <Text style={styles.stitle}>회의 요약</Text>
           </View>
           <List>
-            <Item style={(styles.detailContainer, styles.inner)}>
-              {summary}
-            </Item>
+            <Item style={styles.innerKeyword}>{summary}</Item>
           </List>
         </View>
         <View style={styles.subsection}>
@@ -102,6 +112,7 @@ const styles = StyleSheet.create({
   },
   detailContainer: {
     flexDirection: "row",
+    fontSize: 14,
   },
 });
 
