@@ -23,18 +23,12 @@ class ResultViewSet(viewsets.ModelViewSet):
     def create(self,request,pk):
         meeting = get_object_or_404(Meeting, pk=pk)
         result = Result()
-
         audio = "media/"+str(meeting.file)
         
         res = ClovaSpeechClient().req_upload(file=audio, completion='sync')
         data = json.loads(res.text)
-        texts = [data['text']]
-        
-        # word = Krwordrank.wordrank(texts)
-        
-        result.script = data['text']
-        # result.summary = self.split_summary(data['text'])
-        # result.keyword = word
+        print(data)
+        result.script = data['text'].replace('.', '.\n')
         result.meeting = meeting
         result.save()
         return redirect('/testapp/result/' + str(meeting.id))
@@ -68,12 +62,12 @@ class Summary_ResultViewSet(viewsets.ModelViewSet):
             else:
                 print("Error : " + res.text)
                 
-        if (len(contents)//WORDS) > 0:
-            res = ClovaSummary().req(summary)
-            rescode = res.status_code
-            if(rescode == 200):
-                summary = json.loads(res.text)["summary"]
-            else:
-                print("Error : " + res.text)
+        # if (len(contents)//WORDS) > 0:
+        #     res = ClovaSummary().req(summary)
+        #     rescode = res.status_code
+        #     if(rescode == 200):
+        #         summary = json.loads(res.text)["summary"]
+        #     else:
+        #         print("Error : " + res.text)
 
         return summary
