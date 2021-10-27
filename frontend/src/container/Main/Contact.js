@@ -24,7 +24,7 @@ const Contact = () => {
     window.location.reload();
   }
   return (
-    <div data-aos="fade-left" className="boxes">
+    <div data-aos="fade-ip" className="boxes">
       <section id="contact">
         <div className="container">
           <div className="row">

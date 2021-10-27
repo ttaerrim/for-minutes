@@ -5,6 +5,7 @@ import "gestalt/dist/gestalt.css";
 import DatePicker from "gestalt-datepicker";
 import { ko } from "date-fns/locale";
 import "gestalt-datepicker/dist/gestalt-datepicker.css";
+import "./Post.css";
 
 import axios from "axios";
 
@@ -124,144 +125,137 @@ const Update = (props) => {
   };
   return (
     <Fragment>
-      <Box
-        display="flex"
-        marginStart={-3}
-        marginEnd={-3}
-        marginBottom={-3}
-        marginTop={-3}
-        wrap
-        width="100%"
-        direction="column"
-        padding={10}
-      >
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            id="title"
-            onChange={({ event }) => setTitle(event.target.value)}
-            placeholder="글 제목"
-            label="제목"
-            value={title}
-            type="text"
-          />
-        </Box>
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            id="topic"
-            onChange={({ event }) => setTopic(event.target.value)}
-            placeholder="회의 안건"
-            label="회의 안건"
-            value={topic}
-          />
-        </Box>
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            id="writer"
-            onChange={({ event }) => setWriter(event.target.value)}
-            placeholder="작성자"
-            label="작성자"
-            value={writer}
-          />
-        </Box>
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <TextField
-            id="parties"
-            onChange={({ event }) => setParties(event.target.value)}
-            placeholder="회의 참여자"
-            label="참여자"
-            value={parties}
-          />
-        </Box>
-
-        <Box flex="grow" paddingX={3} paddingY={3}>
+      <div className="grids">
+        <div className="boxes_post">
           <Box
             display="flex"
-            wrap
             marginStart={-3}
             marginEnd={-3}
             marginBottom={-3}
             marginTop={-3}
-            label="회의시간"
-          >
-            <Box flex="grow" paddingX={3} paddingY={3}>
-              <DatePicker
-                localeData={ko}
-                id="meeting_date"
-                label="회의 날짜"
-                onChange={({ event, value }) => setMeetingDate(value)}
-                value={new Date(year, month - 1, day)}
-              />
-            </Box>
-            <Box flex="grow" paddingX={3} paddingY={3}>
-              <SelectList
-                id="meeting_time"
-                onChange={({ event }) => setHour(event.target.value)}
-                options={createTime()}
-                size="md"
-                label="시"
-                value={hour}
-              />
-            </Box>
-            <Box flex="grow" paddingX={3} paddingY={3}>
-              <SelectList
-                id="meeting_minute"
-                onChange={({ event }) => {
-                  setMinute(event.target.value);
-                }}
-                options={createMinute()}
-                size="md"
-                label="분"
-                value={minute}
-              />
-            </Box>
-          </Box>
-          <Text align="left" size="sm">
-            음성 파일
-          </Text>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <input
-              type="file"
-              id="file"
-              accept="audio/*"
-              onChange={fileHandler}
-            />
-          </Box>
-          <Text align="left" size="sm">
-            이미지 파일
-          </Text>
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <input
-              type="file"
-              id="image"
-              accept="image/*"
-              onChange={imageHandler}
-            />
-          </Box>
-
-          <Box flex="grow" paddingX={3} paddingY={3}></Box>
-        </Box>
-        <Box flex="grow" paddingX={3} paddingY={3}>
-          <Box
-            justifyContent="end"
-            marginStart={-1}
-            marginEnd={-1}
-            marginTop={-1}
-            marginBottom={-1}
-            display="flex"
             wrap
+            width="100%"
+            direction="column"
+            padding={10}
           >
-            <Box paddingX={1} paddingY={1}>
-              <Button
-                text="완료"
-                color="blue"
-                size="lg"
-                type="submit"
-                onClick={handleSubmit}
+            <Box flex="grow" paddingX={3} paddingY={3}>
+              <TextField
+                id="title"
+                onChange={({ event }) => setTitle(event.target.value)}
+                placeholder="글 제목"
+                label="제목"
+                value={title}
+                type="text"
               />
             </Box>
+            <Box flex="grow" paddingX={3} paddingY={3}>
+              <TextField
+                id="topic"
+                onChange={({ event }) => setTopic(event.target.value)}
+                placeholder="회의 안건"
+                label="회의 안건"
+                value={topic}
+              />
+            </Box>
+            <Box flex="grow" paddingX={3} paddingY={3}>
+              <TextField
+                id="writer"
+                onChange={({ event }) => setWriter(event.target.value)}
+                placeholder="작성자"
+                label="작성자"
+                value={writer}
+              />
+            </Box>
+            <Box flex="grow" paddingX={3} paddingY={3}>
+              <TextField
+                id="parties"
+                onChange={({ event }) => setParties(event.target.value)}
+                placeholder="회의 참여자"
+                label="참여자"
+                value={parties}
+              />
+            </Box>
+
+            <Box flex="grow" paddingX={3} paddingY={3}>
+              <Box
+                display="flex"
+                wrap
+                marginStart={-3}
+                marginEnd={-3}
+                marginBottom={-3}
+                marginTop={-3}
+                label="회의시간"
+              >
+                <Box flex="grow" paddingX={3} paddingY={3}>
+                  <DatePicker
+                    localeData={ko}
+                    id="meeting_date"
+                    label="회의 날짜"
+                    onChange={({ event, value }) => setMeetingDate(value)}
+                    value={new Date(year, month - 1, day)}
+                  />
+                </Box>
+                <Box flex="grow" paddingX={3} paddingY={3}>
+                  <SelectList
+                    id="meeting_time"
+                    onChange={({ event }) => setHour(event.target.value)}
+                    options={createTime()}
+                    size="md"
+                    label="시"
+                    value={hour}
+                  />
+                </Box>
+                <Box flex="grow" paddingX={3} paddingY={3}>
+                  <SelectList
+                    id="meeting_minute"
+                    onChange={({ event }) => {
+                      setMinute(event.target.value);
+                    }}
+                    options={createMinute()}
+                    size="md"
+                    label="분"
+                    value={minute}
+                  />
+                </Box>
+              </Box>
+              <Text align="left" size="sm">
+                음성 파일
+              </Text>
+              <Box flex="grow" paddingX={3} paddingY={3}>
+                <input
+                  type="file"
+                  id="file"
+                  accept="audio/*"
+                  onChange={fileHandler}
+                />
+              </Box>
+
+              <Box flex="grow" paddingX={3} paddingY={3}></Box>
+            </Box>
+            <Box flex="grow" paddingX={3} paddingY={3}>
+              <Box
+                justifyContent="end"
+                marginStart={-1}
+                marginEnd={-1}
+                marginTop={-1}
+                marginBottom={-1}
+                display="flex"
+                wrap
+              >
+                <Box paddingX={1} paddingY={1}>
+                  <Button
+                    text="완료"
+                    color="blue"
+                    size="lg"
+                    type="submit"
+                    onClick={handleSubmit}
+                  />
+                </Box>
+              </Box>
+            </Box>
           </Box>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </Fragment>
   );
 };
