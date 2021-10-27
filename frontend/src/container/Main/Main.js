@@ -32,13 +32,13 @@ const Main = () => {
               <section id="nino-story">
                 <div className="container">
                   <h2 className="nino-sectionHeading">
-                    A Little Bit Of Information
+                    A Little Bit Of Information 
                   </h2>
                   <p className="nino-sectionDesc">
                     <strong>
                       Artificial intelligence meeting minutes summary service
                     </strong>
-                  </p>
+                  </p> 
                   <p className="nino-sectionDesc">
                     "인공지능 회의 요약 서비스" 서비스
                   </p>
