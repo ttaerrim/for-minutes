@@ -7,8 +7,6 @@ minutes ⓝ 회의록
 
 > 2021 IT Media Engineering Capstone Design Project
 
----
-
 ## Introduction
 
 ### 기획 의도
