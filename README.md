@@ -23,6 +23,29 @@ minutes ⓝ 회의록
 
 ## Structure
 
+```bash
+├── forminutesprj       # backend
+├── frontend            # front
+│   ├── public
+│   └── src
+│       ├── component
+│       │   ├── Button
+│       │   ├── Footer
+│       │   ├── Navigation
+│       │   ├── ScrollToTop
+│       │   └── Spinner
+│       ├── container
+│       │   ├── Cards
+│       │   ├── Detail
+│       │   ├── Main
+│       │   ├── Minute
+│       │   ├── Modal
+│       │   ├── Pdf
+│       │   └── Post
+│       └── images
+└── testapp             # backend
+```
+
 ## Contributors
 
 팀원 소개
