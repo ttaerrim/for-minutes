@@ -1,6 +1,6 @@
 <h1 align='center'> For-Minutes</h1>
 
-<img src="https://user-images.githubusercontent.com/43867711/161373699-3dd9c5d5-ae04-4bd5-9b6b-afdcf1763a53.png" />
+<img src="https://user-images.githubusercontent.com/43867711/161374231-0bb7b99c-e2b6-4556-a808-2c4c9968a7e5.png" />
 
 minutes ⓝ 회의록  
 인공지능 회의록 요약 서비스
